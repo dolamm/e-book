@@ -1,8 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState } from 'react'
-import {app, auth} from '../components/Firebase';
-import "../css/List.css"
+import {app, auth} from '../Firebase';
+import { Link } from "react-router-dom";
+import "../../css/List.css"
+import "../../css/Dropdown.css"
 
 export function Nav() {
   const [userName, setUserName] = useState(null);
@@ -35,7 +37,7 @@ export function Nav() {
   console.log(userName);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-info ">
+    <nav className="navbar navbar-expand-lg " style={{backgroundColor: "lightblue"}}>
       <div className="container-fluid">
         <div className="collapse navbar-collapse">
           <ul className="mb-2 navbar-nav me-auto mb-lg-0">
@@ -48,28 +50,6 @@ export function Nav() {
               <a className="nav-link" href="UserCourse/">
                 Library
               </a>
-            </li>
-            <li key='3' className="nav-item dropdown">
-              <button className="btn dropdown-toggle" onClick={handleDropdown}>
-                Topics
-              </button>
-              <div className="dropdown-menu">
-                <a className="dropdown-item" href="/Test">
-                  Anime
-                </a>
-                <a className="dropdown-item" href="/Test">
-                  Epic
-                </a>
-                <a className="dropdown-item" href="/Test">
-                  Nature
-                </a>
-                <a className="dropdown-item" href="/Test">
-                  Music
-                </a>
-                <a className="dropdown-item" href="/Test">
-                  Love
-                </a>
-              </div>
             </li>
           </ul>
           <div className="nav-item">

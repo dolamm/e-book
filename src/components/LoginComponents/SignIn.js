@@ -15,7 +15,7 @@ const signInWithForm = (setAuthenticated) => {
         .then((userCredential) => {
             const user = userCredential.user
             console.log(user)
-            console.log('You have successfully logged in!')
+            alert('You have successfully logged in!')
             setAuthenticated(true)
         })
         .catch((error) => {
@@ -36,8 +36,8 @@ export function SignIn() {
     // localStorage.clear()
 
     return (
-        <div>
-            <section class="vh-100">
+<div>
+<section class="vh-100">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
@@ -81,7 +81,7 @@ export function SignIn() {
             <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/signup"
                 class="link-danger">Register</a></p>
           </div>
-          {/* {authenticated && <Navigate to="/homepage" />} */}
+          {authenticated && <Navigate to="/home" />}
         </form>
       </div>
     </div>

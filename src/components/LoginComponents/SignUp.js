@@ -15,7 +15,7 @@ const signUp = (setAuthenticated) => {
         .then((userCredential) => {
             const user = userCredential.user
             console.log(user)
-            console.log('You have successfully signed up!')
+            alert('You have successfully signed up!')
             setAuthenticated(true)
         })
         .catch((error) => {
@@ -78,7 +78,7 @@ export function SignUp() {
                       <button type="button" class="btn btn-primary btn-lg" onClick={handleSubmit}>Sign Up</button>
                     </div>
   
-                    {/* {authenticated && <Navigate to="/SignIn" />} */}
+                    {authenticated && <Navigate to="/" />}
                   </form>
   
                 </div>
