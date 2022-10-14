@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState} from 'react'
+import { onAuthStateChanged } from 'firebase/auth'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { auth } from './components/Firebase'
 
-function App() {
+import { SignIn } from './components/LoginComponents/SignIn';
+import { SignUp } from './components/LoginComponents/SignUp';
+import { SignOut} from './components/LoginComponents/SignOut';
+import { HomeScreen } from './components/HomeScreen';
+import { Nav } from './components/NavBar';
+
+export default function App() {
+
+  const [user, setUser] = useState(null);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const Name = user.displayName;
+      console.log(Name);
+      setUser(Name);
+    } else {
+      console.log("User is signed out");
+    }
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<SignIn/>}/>
+        <Route path="/signup" element={<SignUp/>}/>
+      </Routes>
     </div>
-  );
+  )
 }
-
-export default App;
