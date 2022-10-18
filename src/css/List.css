@@ -28,6 +28,11 @@
     border-radius: 10px;
 }
 
+.card {
+    margin: 10px 10px 10px 10px;
+    background-color: rgb(203, 242, 229);
+}
+
 .avt-box {
     width: 10%;
     height: 70px;

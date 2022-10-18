@@ -9,6 +9,7 @@ import { SignOut} from './components/LoginComponents/SignOut';
 import { UpdateProfile } from './components/User/UpdateProfile';
 import { HomeScreen } from './components/Layout/HomeScreen';
 import { Nav } from './components/Layout/NavBar';
+import { AddBook } from './components/Books/AddBook';
 
 export default function App() {
 
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/signout" element={<SignOut/>}/>
         <Route path="/home" element={<HomeScreen/>}/>
         <Route path="/update" element={<UpdateProfile/>}/>
+        <Route path="/addbook" element={<AddBook/>}/>
       </Routes>
     </div>
   )

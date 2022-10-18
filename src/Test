@@ -1,14 +1,8 @@
-<Link to={'#'} className="nav-link nav-user"> 
-<i className="fa-solid fa-circle-user "></i>
-<i className="fa-solid fa-caret-down nav-icon_dropdown"></i>
-<div className="nav-dropdown">
-    <ul className="nav-dropdown_list">
-        <li >
-            <Link to={'/update'} className="nav-dropdown_item">Update profile</Link>
-        </li>
-        <li>
-            <Link to={'/signout'} className="nav-dropdown_item">Sign Out</Link>
-        </li>
-    </ul>
-</div>
-</Link>
+<div className="card">
+    <img src={item.image} className="card-img-top" alt="Responsive image"/>
+    <div className="card-body p-4">
+      <h4 className="fw-bold mb-4">{item.title}</h4>
+      <p className="text-muted mb-4"><i className="far fa-clock" aria-hidden="true"></i> {item.author}</p>
+      <p className="mb-0">{item.description}</p>
+    </div>
+  </div>
