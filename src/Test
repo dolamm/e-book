@@ -1,8 +1,40 @@
-<div className="card">
-    <img src={item.image} className="card-img-top" alt="Responsive image"/>
-    <div className="card-body p-4">
-      <h4 className="fw-bold mb-4">{item.title}</h4>
-      <p className="text-muted mb-4"><i className="far fa-clock" aria-hidden="true"></i> {item.author}</p>
-      <p className="mb-0">{item.description}</p>
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://media.istockphoto.com/vectors/male-and-female-characters-are-editing-profile-online-vector-id1300004790?k=20&m=1300004790&s=612x612&w=0&h=ECJkSK1bNjOaC1oWbrCsqtsGCLNKA0MuKa6TPzGGmmA=" class="img-fluid" alt="Sample image"></img>
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form>
+            <div class="form-outline mb-4">
+              <input type="text" id="title" class="form-control form-control-lg"
+                placeholder="Enter your book title!" />
+              <label class="form-label">Title</label>
+            </div>
+
+            <div class="form-outline mb-3">
+                <input type="text" id="author" class="form-control form-control-lg"
+                  placeholder="What your's name ?" />
+                <label class="form-label">Name..</label>
+            </div>
+
+            <div class="form-outline mb-3">
+                <input type="text" id="description" class="form-control form-control-lg"
+                  placeholder="Write something about your book" />
+                <label class="form-label">...</label>
+            </div>
+
+            <div class="form-outline mb-3">
+                <input type="url" id="file" class="form-control form-control-lg"
+                  placeholder="Your book cover" />
+                <label class="form-label">Enter a image URL</label>
+            </div>
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="button" class="btn btn-primary btn-lg" onClick={update} >Update Profile</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>

@@ -10,7 +10,7 @@ const Item = ({item}) => {
             <h4 className="fw-bold mb-4">{item.title}</h4>
             <p className="text-muted mb-4"><i className="far fa-clock" aria-hidden="true"></i> {item.author}</p>
             <p className="mb-0">{item.description}</p>
-            <button className="btn btn-success btn-sm">Add to bookcase</button>
+            <button className="btn btn-success btn-sm text-center">Add to bookcase</button>
             </div>
         </div>
     )

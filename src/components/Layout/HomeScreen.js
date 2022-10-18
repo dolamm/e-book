@@ -1,11 +1,12 @@
 import { Nav } from './NavBar';
 import { BookList } from '../Books/BookList';
+import "../../css/List.css"
 
 export function HomeScreen() {
     return (
-        <div>
+        <div className='home'>
             <Nav />
-            <div><img src="https://media.istockphoto.com/photos/books-on-bookshelf-in-library-back-to-school-education-concept-on-picture-id1301533980?b=1&k=20&m=1301533980&s=170667a&w=0&h=C5CHSotWhUcKXltKWiQQQAApdtEout0RLqlN3huEsOs=" width="1450" height="479"></img></div>
+            <div><img className='homeImg' src="http://time.com/wp-content/uploads/2014/12/children.jpg" alt="web khong ban sach nua"></img></div>
             <BookList />
         </div>
     );
