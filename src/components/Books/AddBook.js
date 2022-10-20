@@ -1,6 +1,6 @@
 import { Nav } from '../Layout/NavBar';
 import "../../css/List.css"
-import { app, auth, db } from '../Firebase';
+import { app, auth, db, generateKeywords } from '../Firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
 
@@ -25,7 +25,8 @@ const addBook = () => {
                     title: title,
                     author: author,
                     description: description,
-                    image: url
+                    image: url,
+                    keywords: generateKeywords(title)
             }
             setDoc(docRef, data).then(() => {
                 alert('Book added successfully!');

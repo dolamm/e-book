@@ -65,15 +65,9 @@ export function BookList(){
                 <strong> Book List </strong>
             </div>
             <div className="list">
-                <table>
-                    <thead>
-                    </thead>
-                    <tbody>
                         { books && books.map((book) => {
-                            return <tr className="listItem"><Item item={book} /></tr>
+                            return <Item item={book} />
                         })}
-                    </tbody>
-                </table>
             </div>
         </div>
     )

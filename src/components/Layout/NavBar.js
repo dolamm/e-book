@@ -67,10 +67,10 @@ export function Nav() {
             <a className="nav-link" href="#">Bookcase</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">List</a>
+            <a className="nav-link" href="/addbook">Add book</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/addbook">Add book</a>
+            <a className="nav-link" href="/search">Search</a>
           </li>
         </ul>
       </div>
