@@ -21,6 +21,8 @@ const addBook = () => {
     if (acceptFile.includes(fileExt)) {
         uploadBytes(imgRef, file).then(() => {
             getDownloadURL(imgRef).then((url) => {
+                //resize images
+                
                 const data = {
                     title: title,
                     author: author,
