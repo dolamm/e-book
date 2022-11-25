@@ -5,6 +5,7 @@ import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
 import { Navigate, Outlet } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
 
 const user = auth.currentUser;
 
@@ -24,6 +25,13 @@ const update = (setAuthenticated) => {
 }
 
 export function UpdateProfile() {
+  const [isUpdate, setIsUpdate] = useState (
+    localStorage.getItem(localStorage.getItem('isUpdate') || false)
+  )
+  const handleUpdate = () => {
+    update(setIsUpdate)
+  }
+
     return (
         <div>
           <section class="vh-100">
@@ -47,8 +55,9 @@ export function UpdateProfile() {
                       </div>
             
                       <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="button" class="btn btn-primary btn-lg" onClick={update} >Update Profile</button>
+                        <button type="button" class="btn btn-primary btn-lg" onClick={handleUpdate} >Update Profile</button>
                       </div>
+                      {isUpdate && <Navigate to="/home" />}
                     </form>
                   </div>
                 </div>
