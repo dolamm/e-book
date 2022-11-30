@@ -1,0 +1,101 @@
+.Detail{
+    width: 880px;
+    height: 430px;
+    margin: 0 auto;
+    background-color: #cacaca;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+.Book-img{
+    width: 300px;
+    height: 430px;
+    float: left;  
+}
+.right{
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 580px;
+}
+.Book-title{
+    text-align: center;
+    padding-top: 12px;
+}
+.Category{
+    padding: 0px 30px 15px 30px;
+}
+.Price{
+    padding: 0px 30px 15px 30px;
+}
+.Description{
+    padding: 0px 30px 0px 30px;
+}
+.style{   
+    width: 500px;
+    margin: 0 auto;
+}
+.all-btn{
+    padding: 0;
+    margin: 0;
+}
+.quantity-text{
+    color: rgb(106, 106, 106);
+    padding: 20px 30px 0px 30px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.quantity{
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid rgb(106, 106, 106);
+    margin-left: 28px;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+}
+.btn-cart{
+    width: 150px;
+    height: 40px;
+    border-radius: 15px;
+    border: 1px solid rgb(106, 106, 106);
+    margin-left: 28px;
+    text-align: center;
+}
+
+
+/* Recommend */
+.Recommend{
+    width: 880px;
+    height: 230px;
+    margin: 0 auto;
+    background-color: #cacaca;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+.Recommend-text{
+    font-weight: bold;
+    padding: 15px 0px 10px 30px;
+    margin: 0;
+    float: left;
+
+}
+.hr{
+    width: 120px;
+    height: 3px;
+    background: #E12C2C;
+    border-radius: 12px;
+}
+.More{
+    float: right;
+    font-weight: bold;
+    padding: 15px 30px 10px 30px;
+    margin: 0;
+}
+
+.Recommend-Book{
+    width: 120px;
+    height: 150px;
+    margin: 60px 0px 0px -120px;
+}

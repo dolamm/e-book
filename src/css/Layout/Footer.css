@@ -1,0 +1,42 @@
+.Footer{
+    width: 100%;
+    height: 250px;
+    background-color: rgb(74, 74, 74);
+    margin-top: 30px;
+}
+.logo{
+    width: 70px;
+    background-color: #fff;
+}
+.Footer-item{
+    width: 243px;
+    list-style: none;
+    color: #ccc;
+    float: left;
+    margin: 30px 10px 0px 0px;
+    font-size: 12px;
+
+}
+.Footer-item:first-child{
+    border-right: 1px solid #ccc;
+
+}
+.Footer-item li {
+    padding-bottom: 10px;
+}
+.map{
+    color: #fff;
+}
+.Footer-title{
+    color: #fff;
+}
+.style{
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    width: 100%;
+}
+.copyright{
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 0 0 30px;
+}

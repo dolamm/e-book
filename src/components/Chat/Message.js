@@ -16,6 +16,7 @@ const Message = ({message}) => {
         </div>
     )
 }
+// Message function
 
 // function Message({ message, user, imgURL, time }) {
 //     return (

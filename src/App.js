@@ -11,6 +11,7 @@ import { HomeScreen } from './components/Layout/HomeScreen';
 import { Nav } from './components/Layout/NavBar';
 import { AddBook } from './components/Books/AddBook';
 import { SearchBook } from './components/Books/SearchBook';
+import { Detail } from './components/Detail-book/Detail';
 
 export default function App() {
 
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/update" element={<UpdateProfile/>}/>
         <Route path="/addbook" element={<AddBook/>}/>
         <Route path="/search" element={<SearchBook/>}/>
+        <Route path="/detail" element={<Detail/>}/>
       </Routes>
     </div>
   )

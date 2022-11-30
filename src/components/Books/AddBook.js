@@ -10,6 +10,7 @@ var acceptFile = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'tiff', 'psd', 'ra
 
 const docRef = doc(db, "books", new Date().getTime().toString());
 
+
 const addBook = () => {
     const fileName = new Date().getTime().toString();
     const imgRef = ref(storage, `images/${fileName}`);

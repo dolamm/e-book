@@ -1,6 +1,6 @@
 import React from "react";
 import Item from "./BookListItem";
-import "../../css/List.css"
+import "../../css/List.css";
 import { useEffect, useState } from "react";
 import { app, auth, db } from '../Firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -65,9 +65,9 @@ export function BookList(){
                 <strong> Book List </strong>
             </div>
             <div className="list">
-                        { books && books.map((book) => {
-                            return <Item item={book} />
-                        })}
+                { books && books.map((book) => {
+                    return <Item item={book} />
+                })}
             </div>
         </div>
     )
