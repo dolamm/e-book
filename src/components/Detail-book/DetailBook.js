@@ -4,7 +4,7 @@ import {app, auth} from '../Firebase';
 import { Link } from "react-router-dom";
 import "../../css/Detail/DetailBook.css"
 import Book from '../../img/book1.png'
-import { FaPlus, FaMinus, FaCartPlus, FaMoneyBillWave } from "react-icons/fa";
+import { FaPlus, FaMinus, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook } from "react-icons/fa";
 
 export function DetailBook() {
     return (    
@@ -27,24 +27,45 @@ export function DetailBook() {
                     Mô tả sách <br/>
                     Mô tả sách 
                 </div>
+                <div className="Price">
+                    <b>Author: </b>
+                    Tên tác giả sách
+                </div>
+                <div className="Price">
+                    <b>Select format: </b>
+                </div>
+                <div className="btn-format">
+                        <button className="btn-audio">
+                            <FaHeadphonesAlt />
+                            <b className="sp-btn">Audio</b>
+                        </button>
+                        <button className="btn-audio btn-ebook">
+                            <FaBook />
+                            <b className="sp-btn">Ebook</b>
+                        </button>
+                </div>
                 <br/>
-                <hr className="style"/>
-                <div className="Buy">    
+                <div className="style-border">
+                    
+                </div>
+                <div className="Buy">  
                     <p className="quantity-text">Quantity</p> 
                     <div className="all-btn">
                         <div className="quantity">
                         <FaMinus />
-                        <b>1</b>
+                        <b className="sp-btn">1</b>
                         <FaPlus />
                         </div>
+                        <div>
                         <button className="btn-cart">
                             <FaCartPlus />
-                            <b>Add to cart</b>
+                            <b className="sp-btn">Add to cart</b>
                         </button>
                         <button className="btn-cart">
                             <FaMoneyBillWave />
-                            <b>Buy</b>
+                            <b className="sp-btn">Buy</b>
                         </button>
+                        </div>
                     </div>  
                 </div>
             </div>

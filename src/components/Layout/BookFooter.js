@@ -11,7 +11,7 @@ export function Footer() {
         <div className="Footer">
             <ul className="Footer-item">
                 <li>
-                    <img src={logo} alt="logo" className="logo" />
+                    <img src={logo} alt="logo-footer" className="logo-footer" />
                 </li>
                 <li>
                     Adress: 35 Lê Văn Chí, P. Linh Trung, Quận Thử Đức, TP.HCM
@@ -43,7 +43,6 @@ export function Footer() {
                 </li>
             </ul>
 
-
             <ul className="Footer-item">
                 <li>
                     <h5 className="Footer-title">Social Network</h5>
@@ -73,6 +72,24 @@ export function Footer() {
                     Đỗ Công Lâm
                 </li>
             </ul>
+            <ul className="Footer-item">
+                <li>
+                    <h5 className="Footer-title">Category</h5>
+                </li>
+                <li>Action 
+                    
+                </li>
+                <li>Kids 
+                    
+                </li>
+                <li>Comedy 
+                    
+                </li>
+                <li>Drama 
+                    
+                </li>
+            </ul>
+
             <hr className="style"/> 
             <p className="copyright">
                 Copyright &copy; 2022 BookStory. All rights reserved.

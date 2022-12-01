@@ -1,24 +1,26 @@
 .Footer{
     width: 100%;
-    height: 250px;
+    height: 280px;
     background-color: rgb(74, 74, 74);
     margin-top: 30px;
 }
-.logo{
-    width: 70px;
+.logo-footer {
+    width: 100px;
     background-color: #fff;
 }
 .Footer-item{
-    width: 243px;
+    width: 280px;
     list-style: none;
     color: #ccc;
     float: left;
     margin: 30px 10px 0px 0px;
-    font-size: 12px;
+    font-size: 15px;
 
 }
 .Footer-item:first-child{
     border-right: 1px solid #ccc;
+    padding-left: 40px;
+    padding-right: 20px;
 
 }
 .Footer-item li {
@@ -37,6 +39,6 @@
 }
 .copyright{
     color: #fff;
-    font-size: 10px;
-    padding: 10px 0 0 30px;
+    font-size: 13px;
+    padding: 0px 0 0 30px;
 }

@@ -1,38 +1,44 @@
 .Detail{
-    width: 880px;
-    height: 430px;
+    width: 1180px;
+    height: 730px;
     margin: 0 auto;
     background-color: #cacaca;
     border-radius: 12px;
     margin-top: 30px;
 }
 .Book-img{
-    width: 300px;
-    height: 430px;
+    width: 500px;
+    height: 730px;
     float: left;  
 }
 .right{
     float: right;
     margin: 0;
     padding: 0;
-    width: 580px;
+    width: 680px;
 }
 .Book-title{
     text-align: center;
-    padding-top: 12px;
+    padding-top: 16px;
+    font-size: 60px;
 }
 .Category{
-    padding: 0px 30px 15px 30px;
+    font-size: 20px;
+    padding: 0px 50px 15px 50px;
 }
 .Price{
-    padding: 0px 30px 15px 30px;
+    font-size: 20px;
+    padding: 0px 50px 15px 50px;
 }
 .Description{
-    padding: 0px 30px 0px 30px;
+    font-size: 20px;
+    padding: 0px 50px 15px 50px;
 }
-.style{   
-    width: 500px;
+.style-border{   
+    width: 600px;
     margin: 0 auto;
+    border: 1px solid rgb(106, 106, 106);
+    background-color:rgb(106, 106, 106);
 }
 .all-btn{
     padding: 0;
@@ -40,9 +46,9 @@
 }
 .quantity-text{
     color: rgb(106, 106, 106);
-    padding: 20px 30px 0px 30px;
+    padding: 20px 50px 0px 50px;
     margin-bottom: 10px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
 }
 .quantity{
@@ -50,25 +56,46 @@
     height: 30px;
     border-radius: 15px;
     border: 1px solid rgb(106, 106, 106);
-    margin-left: 28px;
+    margin-left: 48px;
     text-align: center;
     vertical-align: middle;
-    float: left;
+
+}
+.sp-btn{
+    padding: 10px;
 }
 .btn-cart{
     width: 150px;
     height: 40px;
     border-radius: 15px;
     border: 1px solid rgb(106, 106, 106);
-    margin-left: 28px;
+    margin-left: 48px;
+    margin-top: 30px;
     text-align: center;
+    background-color:#4BADD8;
+    color: #fff;
 }
-
+.btn-cart:hover{
+    background-color: #2ebffd;
+}
+.btn-audio{
+    width: 120px;
+    height: 40px;
+    border-radius: 15px;
+    border: 1px solid rgb(106, 106, 106);
+    margin-left: 48px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.btn-audio:focus {
+    background-color:#ccc;
+    border: 3px solid #4BADD8;
+}
 
 /* Recommend */
 .Recommend{
-    width: 880px;
-    height: 230px;
+    width: 1180px;
+    height: 330px;
     margin: 0 auto;
     background-color: #cacaca;
     border-radius: 12px;
@@ -79,6 +106,7 @@
     padding: 15px 0px 10px 30px;
     margin: 0;
     float: left;
+    font-size: 23px;
 
 }
 .hr{
@@ -88,6 +116,7 @@
     border-radius: 12px;
 }
 .More{
+    font-size: 23px;
     float: right;
     font-weight: bold;
     padding: 15px 30px 10px 30px;
@@ -95,7 +124,15 @@
 }
 
 .Recommend-Book{
-    width: 120px;
-    height: 150px;
-    margin: 60px 0px 0px -120px;
+    width: 170px;
+    height: 230px;
+    margin-left: 20px;
+}
+
+.grid-container{
+    width: 1180px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 10px;
+    padding: 10px;
 }

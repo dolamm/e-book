@@ -12,6 +12,7 @@ import { Nav } from './components/Layout/NavBar';
 import { AddBook } from './components/Books/AddBook';
 import { SearchBook } from './components/Books/SearchBook';
 import { Detail } from './components/Detail-book/Detail';
+import { Blog } from './components/Blog/Blog';
 
 export default function App() {
 
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/addbook" element={<AddBook/>}/>
         <Route path="/search" element={<SearchBook/>}/>
         <Route path="/detail" element={<Detail/>}/>
+        <Route path="/blog" element={<Blog/>}/>
       </Routes>
     </div>
   )

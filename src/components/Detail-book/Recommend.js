@@ -14,7 +14,14 @@ export function Recommend() {
             </p> 
             
             <p className="More">View More <FaGreaterThan /> <FaGreaterThan /></p>
-            <img src={Book} alt="Book" className="Recommend-Book" />
+            <div class="grid-container">
+                <img src={Book} alt="Book" className="Recommend-Book" />
+                <img src={Book} alt="Book" className="Recommend-Book" />
+                <img src={Book} alt="Book" className="Recommend-Book" />
+                <img src={Book} alt="Book" className="Recommend-Book" />
+                <img src={Book} alt="Book" className="Recommend-Book" />
+            </div>
+            
         </div>
         
 )}
