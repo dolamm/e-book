@@ -13,6 +13,7 @@ import { AddBook } from './components/Books/AddBook';
 import { SearchBook } from './components/Books/SearchBook';
 import { Detail } from './components/Detail-book/Detail';
 import { Blog } from './components/Blog/Blog';
+import { Category } from './components/Category/Category';
 
 export default function App() {
 
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/search" element={<SearchBook/>}/>
         <Route path="/detail" element={<Detail/>}/>
         <Route path="/blog" element={<Blog/>}/>
+        <Route path="/category" element={<Category/>}/>
       </Routes>
     </div>
   )

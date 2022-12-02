@@ -1,12 +1,12 @@
 import { NavDetail } from '../Detail-book/NavDetail';
 import { Footer } from '../Layout/BookFooter';
-import { BlogContain } from './BlogContain';
+import { CategoryBook } from '../Category/CategoryBook';
 
-export function Blog() {
+export function Category() {
     return (
         <div className='home'>
             <NavDetail />
-            <BlogContain />
+            <CategoryBook />
             <Footer />
         </div>
     );
