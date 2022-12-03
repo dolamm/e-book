@@ -1,0 +1,156 @@
+.logo-pay{
+    width: 100px;
+    background-color: #fff;
+    margin-right: 40px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    
+}
+.Pay-title{
+    font-weight: bold;
+    font-size: 40px;
+    background-color: rgb(228, 228, 228);
+    padding: 30px;
+    margin-bottom: 40px;
+    padding-left: 45px;
+}
+.Pay-title span{
+    border-left: 2px solid #4BADD8;
+    padding-left: 20px;
+}
+.Pay-product{
+   background-color: #f5f5f5;
+   border-radius: 3px;
+   margin: 20px 60px 30px 60px;
+   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Pay-Title{
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 5px dashed #4BADD8;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    
+}
+.Pay-Title-Right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #bbbbbb;
+    font-weight: bold;
+    padding: 0 30px;
+}
+.Pay-Title-Product{
+    font-size: 25px;
+    margin: 20px 40px 0px 40px;
+}
+.Pay-Title-Unit-Price{
+    margin: 0px 10px;
+}
+.Pay-Title-Price{
+    margin: 0px 45px;
+}
+.Pay-Title-Total{
+    margin-left: 150px;
+}
+
+.Pay-detail-product{
+    display: flex;
+    align-items: center;
+}
+.Pay-book-img{
+    margin: 15px 10px 15px 40px ;
+    width: 40px;
+    height: 60px;
+}
+.Pay-book-name{
+    width: 400px;
+    margin: 15px 0px;
+}
+.Pay-book-format{
+    font-weight: normal;
+    color: #bbbbbb;
+}
+.Pay-detail-unit-price{
+    margin-left: 10em;
+    padding-left: 33px;
+}
+.Pay-detail-Amount{
+    margin-left: 8em;
+}
+.Pay-detail-Total{
+    margin-left: 14em;
+    padding-left: 10px;
+}
+
+.Pay-method-choose{
+    width: 100px;
+    border: 2px solid #ccc;
+    border-radius: 7px;
+    text-align: center;
+    padding: 7px 9px;
+    margin-top: 10px;
+    background-color: #fff;
+    margin-left: 40px;
+}
+.Pay-method-choose:hover{
+    cursor: pointer;
+}
+.Pay-method-choose:focus{
+    color: #4BADD8;
+    border: 2px solid #4BADD8;
+}
+.Bank{
+    width: 550px;
+}
+
+.Pay-method p{
+    font-size: 25px;
+    margin: 20px 40px 0px 40px;
+}
+
+
+.Total-payment{
+    margin: 20px 40px 0px 40px;
+}
+.Total-payment-money{
+    margin-left: 30px;
+    font-size: 25px;
+    color: #4BADD8;
+}
+.btn-buybook{
+    
+    background-color: #4BADD8;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.btn-buybook:hover{
+    cursor: pointer;
+    background-color: #51cbff;
+    color: #fff;
+}
+.btn-buybook-text{
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 15px;
+    padding: 5px;
+}
+
+.rules{
+    font-weight: normal;
+    color: #8a8888;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+.rules span{ 
+    color: #4BADD8;
+    font-weight: bold;
+}

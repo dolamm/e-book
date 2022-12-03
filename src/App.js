@@ -1,8 +1,7 @@
 import { useState} from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { auth } from './components/Firebase'
-
+import { auth } from './components/Firebase';
 import { SignIn } from './components/LoginComponents/SignIn';
 import { SignUp } from './components/LoginComponents/SignUp';
 import { SignOut} from './components/LoginComponents/SignOut';
@@ -14,6 +13,8 @@ import { SearchBook } from './components/Books/SearchBook';
 import { Detail } from './components/Detail-book/Detail';
 import { Blog } from './components/Blog/Blog';
 import { Category } from './components/Category/Category';
+
+import { Pay } from './components/Payment/Pay';
 
 export default function App() {
 
@@ -42,6 +43,7 @@ export default function App() {
         <Route path="/detail" element={<Detail/>}/>
         <Route path="/blog" element={<Blog/>}/>
         <Route path="/category" element={<Category/>}/>
+        <Route path="/pay" element={<Pay/>}/>
       </Routes>
     </div>
   )
