@@ -2,7 +2,6 @@ import { useState} from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { auth } from './components/Firebase'
-
 import { SignIn } from './components/LoginComponents/SignIn';
 import { SignUp } from './components/LoginComponents/SignUp';
 import { SignOut} from './components/LoginComponents/SignOut';

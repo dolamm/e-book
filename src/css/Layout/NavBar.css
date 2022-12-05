@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'Jolly Lodger';
+    src: url('../../font/JollyLodger-Regular.ttf');
+}
+
+#nav-bar{
+    width: 100%;
+    height: 500px;
+    background-size: contain;
+    background-position: center;
+}
+
+/* top section */
+#top-section{
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+#top-section::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+#logo{
+    width: 60%;
+    flex: left;
+}
+#serch-bar{
+    width: 30%;
+    flex: right;
+}
+#logo img{
+    width: 100px;
+}
+
+#search-input{
+    background-color: white;
+    opacity: 0.5;
+    border: none;
+    border-radius: 5px;
+}
+
+#search-category{
+    flex: right;
+    width: 10%;
+    margin-left: 20px;
+}
+#my-cart{
+    width: 10%;
+    flex: right;
+}
+.fas.fa-shopping-cart{
+    padding: 4px;
+    background-color: white;
+    opacity: 0.5;
+    border-radius: 100%;
+}
+#search-category-input{
+    background-color: white;
+    opacity: 0.5;
+    border: none;
+    border-radius: 5px;
+}
+
+input{
+    border: none;
+    background: none;
+}
+
+/* bottom section */
+#bottom-section{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#book-content{
+    width: 60%;
+    flex: left;
+    text-align: center;
+}
+
+#select-theme{
+    width: 40%;
+    flex: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    right: 0;
+    bottom: 0;
+}
+#select-theme img{
+    width: 100px;
+    padding: 10px;
+}
+
+#book-content{
+    font-family: 'Jolly Lodger';
+}
