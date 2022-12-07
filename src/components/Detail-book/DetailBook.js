@@ -32,6 +32,10 @@ export function DetailBook() {
                     Tên tác giả sách
                 </div>
                 <div className="Price">
+                    <b>Bảo hiểm: </b>
+                    Sách bản quyền 100%
+                </div>
+                <div className="Price">
                     <b>Select format: </b>
                 </div>
                 <div className="btn-format">
@@ -49,13 +53,8 @@ export function DetailBook() {
                     
                 </div>
                 <div className="Buy">  
-                    <p className="quantity-text">Quantity</p> 
+                    
                     <div className="all-btn">
-                        <div className="quantity">
-                        <FaMinus />
-                        <b className="sp-btn">1</b>
-                        <FaPlus />
-                        </div>
                         <div>
                         <button className="btn-cart">
                             <FaCartPlus />

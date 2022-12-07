@@ -49,8 +49,8 @@
 .Pay-Title-Unit-Price{
     margin: 0px 10px;
 }
-.Pay-Title-Price{
-    margin: 0px 45px;
+.Pay-Title-Author{
+    margin: 0px 130px;
 }
 .Pay-Title-Total{
     margin-left: 150px;
@@ -73,15 +73,13 @@
     font-weight: normal;
     color: #bbbbbb;
 }
-.Pay-detail-unit-price{
-    margin-left: 10em;
+.Pay-detail-author{
+    margin-left: 14em;
     padding-left: 33px;
 }
-.Pay-detail-Amount{
-    margin-left: 8em;
-}
+
 .Pay-detail-Total{
-    margin-left: 14em;
+    margin-left: 17em;
     padding-left: 10px;
 }
 

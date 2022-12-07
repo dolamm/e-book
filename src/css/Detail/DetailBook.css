@@ -44,7 +44,7 @@
     padding: 0;
     margin: 0;
 }
-.quantity-text{
+/* .quantity-text{
     color: rgb(106, 106, 106);
     padding: 20px 50px 0px 50px;
     margin-bottom: 10px;
@@ -60,19 +60,19 @@
     text-align: center;
     vertical-align: middle;
 
-}
+} */
 .sp-btn{
     padding: 10px;
 }
 .btn-cart{
     width: 150px;
-    height: 40px;
+    height: 45px;
     border-radius: 15px;
     border: 1px solid rgb(106, 106, 106);
     margin-left: 48px;
-    margin-top: 30px;
+    margin-top: 60px;
     text-align: center;
-    background-color:#4BADD8;
+    background-color: #4BADD8;
     color: #fff;
 }
 .btn-cart:hover{

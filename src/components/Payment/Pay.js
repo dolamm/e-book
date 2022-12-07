@@ -16,32 +16,10 @@ export function Pay() {
                 <div className="Pay-Title">
                     <p className="Pay-Title-Product">Product</p>
                     <div className="Pay-Title-Right">
-                        <p className="Pay-Title-Unit-Price Pay-Title-Price">Unit Price</p>
-                        <p className="Pay-Title-Unit-Price Pay-Title-Price">Amount</p>
+                        <p className="Pay-Title-Unit-Price Pay-Title-Author">Author</p>
                         <p className="Pay-Title-Unit-Price Pay-Title-Total">Total Price</p>
                     </div>
                 </div>
-                <div className="Pay-detail-product">
-                    <img src={Book} alt="book" className="Pay-book-img"/>
-                    <div className="Pay-book-name">
-                        Ten sach. Nếu tên sách dài hơn width hiện ... 
-                    </div>
-                    <div className="Pay-book-format">
-                        Format: Audio hoặc Ebook
-                    </div>
-                    <div className="Pay-detail-unit-price">
-                        50 USD
-                    </div>
-                    <div className="Pay-detail-Amount">
-                        1
-                    </div>
-                    <div className="Pay-detail-Total">
-                        50 USD
-                    </div>
-                </div>
-
-
-
                 {/* test */}
                 <div className="Pay-detail-product">
                     <img src={Book} alt="book" className="Pay-book-img"/>
@@ -51,52 +29,14 @@ export function Pay() {
                     <div className="Pay-book-format">
                         Format: Audio hoặc Ebook
                     </div>
-                    <div className="Pay-detail-unit-price">
-                        50 USD
-                    </div>
-                    <div className="Pay-detail-Amount">
-                        1
+                    <div className="Pay-detail-author">
+                        Tên tác giả
                     </div>
                     <div className="Pay-detail-Total">
                         50 USD
                     </div>
                 </div>
-                <div className="Pay-detail-product">
-                    <img src={Book} alt="book" className="Pay-book-img"/>
-                    <div className="Pay-book-name">
-                        Ten sach. Nếu tên sách dài hơn width hiện ... 
-                    </div>
-                    <div className="Pay-book-format">
-                        Format: Audio hoặc Ebook
-                    </div>
-                    <div className="Pay-detail-unit-price">
-                        50 USD
-                    </div>
-                    <div className="Pay-detail-Amount">
-                        1
-                    </div>
-                    <div className="Pay-detail-Total">
-                        50 USD
-                    </div>
-                </div>
-                <div className="Pay-detail-product">
-                    <img src={Book} alt="book" className="Pay-book-img"/>
-                    <div className="Pay-book-name">
-                        Ten sach. Nếu tên sách dài hơn width hiện ... 
-                    </div>
-                    <div className="Pay-book-format">
-                        Format: Audio hoặc Ebook
-                    </div>
-                    <div className="Pay-detail-unit-price">
-                        50 USD
-                    </div>
-                    <div className="Pay-detail-Amount">
-                        1
-                    </div>
-                    <div className="Pay-detail-Total">
-                        50 USD
-                    </div>
-                </div>
+                
                 <hr />
                 <div className="Pay-money">
                     <div className="Pay-method">
