@@ -15,6 +15,9 @@ import { Blog } from './components/Blog/Blog';
 import { Category } from './components/Category/Category';
 
 import { Pay } from './components/Payment/Pay';
+import { Profile } from './components/Profile/Profile';
+import { DetailBlog } from './components/Blog/DetailBlog';
+
 
 export default function App() {
 
@@ -44,6 +47,8 @@ export default function App() {
         <Route path="/blog" element={<Blog/>}/>
         <Route path="/category" element={<Category/>}/>
         <Route path="/pay" element={<Pay/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/detailblog" element={<DetailBlog/>}/>
       </Routes>
     </div>
   )

@@ -144,3 +144,9 @@
     gap: 10px;
     padding: 10px;
 }
+.Detail-path{
+    color: #ccc;
+    font-weight: bold;
+    padding: 10px 50px 5px 160px;
+    font-size: 20px;
+}

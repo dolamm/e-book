@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../css/Blog/Blog.css"
 import "../../css/Category/CategoryBook.css"
 import Book from '../../img/book1.png'
-import { FaGreaterThan, FaPlusCircle } from "react-icons/fa";
+import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch } from "react-icons/fa";
 
 export function BlogContain() {
     return (    
@@ -11,6 +11,11 @@ export function BlogContain() {
             <p className="name-category-text">
                 Blog
             </p>
+            <div className="DetailBlog-path">
+                    <span className="path-text">Home</span>
+                    <FaLongArrowAltRight />
+                    <span className="path-text">Blog </span>
+                </div>
             <div className="Blog-contain">
                 <div className="Blog-left">
                     <img className="Blog-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
@@ -57,7 +62,13 @@ export function BlogContain() {
 
                         <p>Tạo data xóa dòng này đi: tạo blog bao gồm title, 1 hình nền, tên tác giả, ngày khởi tạo , nội dung</p>
                     </div>
+                    <div className="Search-Blog">
+                        <p>Search Blogs</p>
 
+                            <input className="ip-Search-blog" type="text" placeholder="Search"/>
+                            <FaSearch />
+                        
+                    </div>
 
                     <div className="Recent-Post">
                         <p>Recent Posts</p>

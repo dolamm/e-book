@@ -1,6 +1,6 @@
 import "../../css/Category/CategoryBook.css"
 import Book from '../../img/book1.png'
-import { FaFilter } from "react-icons/fa";
+import { FaFilter, FaLongArrowAltRight } from "react-icons/fa";
 
 export function CategoryBook() {
     return (
@@ -8,7 +8,13 @@ export function CategoryBook() {
             <p className="name-category-text">
                 Tên Category
             </p>
-
+            <div className="Category-path">
+                    <span className="path-text">Home</span>
+                    <FaLongArrowAltRight />
+                    <span className="path-text">Category</span>
+                    <FaLongArrowAltRight />
+                    <span className="path-text">Tên Category</span>
+                </div>
             <div className="filter">
                 <FaFilter />
                 <span className="filter-text">Filter</span>

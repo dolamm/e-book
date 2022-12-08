@@ -57,6 +57,26 @@
     font-size: 14px;
 
 }
+.Search-Blog{
+    width: 400px;
+    border: 1px solid #999999;
+    border-radius: 15px;
+    margin-top: 40px;
+}
+.ip-Search-blog{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+.Search-Blog p{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 20px;
+}
 .btn-create{
     padding: 10px;
 }

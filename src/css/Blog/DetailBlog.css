@@ -1,0 +1,27 @@
+.DetailBlog-path{
+    color: #ccc;
+    font-weight: bold;
+    padding: 20px 50px 0px 100px;
+    font-size: 20px;
+}
+.path-text{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.DetailBlog-img{
+    width: 1290px;
+    height: 540px;
+    border-radius: 15px;
+    margin: 20px 110px;
+}
+.DetailBlog-Content{
+    position: relative;
+    width: 910px;
+    padding: 60px 80px;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: -205px;
+    background-color: #fff !important;
+
+}

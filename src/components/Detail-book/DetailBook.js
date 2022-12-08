@@ -4,10 +4,18 @@ import {app, auth} from '../Firebase';
 import { Link } from "react-router-dom";
 import "../../css/Detail/DetailBook.css"
 import Book from '../../img/book1.png'
-import { FaPlus, FaMinus, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook } from "react-icons/fa";
+import { FaLongArrowAltRight, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook } from "react-icons/fa";
 
 export function DetailBook() {
-    return (    
+    return (   
+        <div className="DetailBook"> 
+        <div className="Detail-path">
+                    <span className="path-text">Home</span>
+                    <FaLongArrowAltRight />
+                    <span className="path-text">Detail</span>
+                    <FaLongArrowAltRight />
+                    <span className="path-text">Tên Sách</span>
+                </div>
         <div className="Detail">
             <img src={Book} alt="Book" className="Book-img" />
             <div className="right">
@@ -68,6 +76,6 @@ export function DetailBook() {
                     </div>  
                 </div>
             </div>
-
+        </div>
         </div>
 )}

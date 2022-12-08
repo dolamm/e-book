@@ -72,3 +72,9 @@ p{
 .filter-text{
     padding-left: 5px;
 }
+.Category-path{
+    color: #ccc;
+    font-weight: bold;
+    padding: 5px 50px 10px 40px;
+    font-size: 20px;
+}
