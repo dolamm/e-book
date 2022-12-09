@@ -38,7 +38,9 @@
     border: 1px solid #999999;
     border-radius: 15px;
 }
-
+.Edit-profile{
+    margin-top: 20px;
+}
 .Create-Blog p {
     font-size: 14px;
     font-weight: bold;
@@ -52,10 +54,13 @@
     border: none;
     border-radius: 15px;
     padding: 10px 20px;
-    margin-left: 20px;
+    margin-left: 55px;
     margin-bottom: 10px;
     font-size: 14px;
 
+}
+.btn-edit-profile{
+    margin-left: 66px;
 }
 .Search-Blog{
     width: 400px;
@@ -122,4 +127,12 @@
 .Recent-content{
     width: 230px;
     margin-top: 10px;
+}
+
+.btn-edit-blog{
+    margin-left: 140px;
+    background-color: rgb(70, 113, 244);
+}
+.btn-remove-blog{
+    background-color: rgb(207, 43, 43);
 }

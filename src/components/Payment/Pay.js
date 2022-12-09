@@ -13,6 +13,7 @@ export function Pay() {
                 <span>Payment</span>
             </p>
             <p className="Pay-product">
+            
                 <div className="Pay-Title">
                     <p className="Pay-Title-Product">Product</p>
                     <div className="Pay-Title-Right">
@@ -22,6 +23,7 @@ export function Pay() {
                 </div>
                 {/* test */}
                 <div className="Pay-detail-product">
+                <input className="cb-payment" type="checkbox"/>
                     <img src={Book} alt="book" className="Pay-book-img"/>
                     <div className="Pay-book-name">
                         Ten sach. Nếu tên sách dài hơn width hiện ... 
