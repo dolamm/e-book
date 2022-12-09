@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import "../../css/Message.css"
 
 const Message = ({message}) => {
     return (

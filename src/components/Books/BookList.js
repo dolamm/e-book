@@ -56,6 +56,7 @@ export function BookList(){
     useEffect(() => {
         getBookList().then((data) => {
             setBooks(data);
+            console.log(data);
         })
     }, [])
 

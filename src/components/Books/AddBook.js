@@ -23,6 +23,7 @@ const addBook = () => {
         uploadBytes(imgRef, file).then(() => {
             getDownloadURL(imgRef).then((url) => {
                 const data = {
+                    id: fileName,
                     title: title,
                     author: author,
                     description: description,

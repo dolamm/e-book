@@ -1,12 +1,40 @@
 import { onAuthStateChanged } from 'firebase/auth';
-import { useState } from 'react'
-import {app, auth} from '../Firebase';
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
+import {app, auth, db} from '../Firebase';
 import { Link } from "react-router-dom";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
 import "../../css/Detail/DetailBook.css"
 import Book from '../../img/book1.png'
 import { FaLongArrowAltRight, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook } from "react-icons/fa";
 
 export function DetailBook() {
+    const {id} = useParams();
+
+    const getInfo = async () => {
+        try {
+            const q = query(collection(db, "books"), where("id", "==", id));
+            const querySnapshot = await getDocs(q);
+            let data = [];
+            querySnapshot.forEach((doc) => {
+                data.push(doc.data());
+                console.log(doc.data)
+            })
+            return data[0];
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const [book, setBook] = useState([]);
+
+    useEffect(() => {
+        getInfo().then((data) => {
+            setBook(data);
+            console.log(data);
+        })
+    }, [])
+
     return (   
         <div className="DetailBook"> 
         <div className="Detail-path">
@@ -17,9 +45,9 @@ export function DetailBook() {
                     <span className="path-text">Tên Sách</span>
                 </div>
         <div className="Detail">
-            <img src={Book} alt="Book" className="Book-img" />
+            <img src={book.image} alt="Book" className="Book-img" />
             <div className="right">
-                <h1 className="Book-title">The Book Title</h1>
+                <h1 className="Book-title">{book.title}</h1>
                 <div className="Category">
                     <b>Category: </b>
                     tên Category
@@ -30,14 +58,11 @@ export function DetailBook() {
                 </div>
                 <div className="Description">
                     <b>Description: </b>
-                    Mô tả sách <br/>
-                    Mô tả sách <br/>
-                    Mô tả sách <br/>
-                    Mô tả sách 
+                    {book.description} 
                 </div>
                 <div className="Price">
                     <b>Author: </b>
-                    Tên tác giả sách
+                    {book.author}
                 </div>
                 <div className="Price">
                     <b>Bảo hiểm: </b>

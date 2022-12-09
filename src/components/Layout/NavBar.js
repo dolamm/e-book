@@ -54,8 +54,8 @@ export function Nav() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <a className="navbar-brand mt-2 mt-lg-0" href="#">
           <img
-            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-            height="40"
+            src="https://cdn-icons-mp4.flaticon.com/512/8121/8121336.mp4" 
+            height="50"
             alt="MDB Logo"
             loading="lazy"
           />

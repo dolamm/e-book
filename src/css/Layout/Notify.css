@@ -1,0 +1,33 @@
+div{
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.avatar-img{
+    float: left;
+    border-left: 2px solid rgb(60, 50, 50);
+    height: 20px;
+    padding: 1px;
+}
+.notify-text{
+    float: right;
+    color:black;
+    padding: 5px;
+}
+
+.avatar-name{
+    color: black;
+    font-size: 12px;
+    margin-left: 10px;
+    width: 300px;
+    padding: 5px;
+}
+
+.notify-tab{
+    width: 100%;
+    height: 35px;
+    background-color: rgb(164, 163, 163);
+}

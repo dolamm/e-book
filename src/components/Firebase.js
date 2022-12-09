@@ -1,13 +1,15 @@
 import { initializeApp} from "firebase/app";
 import "firebase/auth";
 import { getAuth } from "firebase/auth";
+import { getDatabase } from "firebase/database";
 import firebase from 'firebase/compat/app';
 import { getFirestore, collection, addDoc, doc, setDoc } from "firebase/firestore";
+
 const firebaseConfig = {
     projectId: "e-book-d712c",
-    apiKey: "process.env.REACT_APP_API_KEY",
+    apiKey: "AIzaSyAtWIMLfTLSWFhrncWCh2zrayY57RVDjVU",
     storageBucket: 'gs://e-book-d712c.appspot.com',
-    databaseURL: "gs://e-book-d712c.appspot.com",
+    databaseURL: "https://e-book-d712c-default-rtdb.firebaseio.com/",
 };
 
 export const app = initializeApp(firebaseConfig);

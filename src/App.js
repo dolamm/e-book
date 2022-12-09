@@ -10,9 +10,11 @@ import { HomeScreen } from './components/Layout/HomeScreen';
 import { Nav } from './components/Layout/NavBar';
 import { AddBook } from './components/Books/AddBook';
 import { SearchBook } from './components/Books/SearchBook';
+import { ChatRoom } from './components/Chat/ChatRoom';
 import { Detail } from './components/Detail-book/Detail';
 import { Blog } from './components/Blog/Blog';
 import { Category } from './components/Category/Category';
+import { ThreeBook } from './components/Layout/Header';
 
 import { Pay } from './components/Payment/Pay';
 import { Profile } from './components/Profile/Profile';
@@ -43,12 +45,15 @@ export default function App() {
         <Route path="/update" element={<UpdateProfile/>}/>
         <Route path="/addbook" element={<AddBook/>}/>
         <Route path="/search" element={<SearchBook/>}/>
+        <Route path="/chat" element={<ChatRoom/>}/>
         <Route path="/detail" element={<Detail/>}/>
         <Route path="/blog" element={<Blog/>}/>
         <Route path="/category" element={<Category/>}/>
         <Route path="/pay" element={<Pay/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/detailblog" element={<DetailBlog/>}/>
+        <Route path="/threebook" element={<ThreeBook/>}/>
+        <Route path="/book/:id" element={<Detail/>}/>
       </Routes>
     </div>
   )

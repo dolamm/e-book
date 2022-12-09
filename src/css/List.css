@@ -1,9 +1,23 @@
+/* body,html{
+    height: 100%;
+    margin: 0;
+    background: #7F7FD5;
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+} */
+
+.card-img-top {
+    float: left;
+    height: 300px;
+    object-fit:fill;
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;
     flex: 1 1 1500px;
     overflow: auto;
-    margin: 20px 20px 20px 20px;
+    margin: 20px 100px 20px 100px;
 }
 
 .item {
