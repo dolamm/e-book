@@ -1,6 +1,6 @@
 import { NavDetail } from '../Detail-book/NavDetail';
 import { Footer } from '../Layout/BookFooter';
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight,FaEdit, FaTrashAlt } from "react-icons/fa";
 import "../../css/Blog/DetailBlog.css"
 
 export function DetailBlog() {
@@ -19,7 +19,7 @@ export function DetailBlog() {
                     <img className="DetailBlog-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
                 </div>
                 <div className="DetailBlog-Content-index">
-                <div className="DetailBlog-Content">
+                    <div className="DetailBlog-Content">
                         <span className="Blog-date">December 2,2022 /</span>      
                         <span className="Blog-Author">By Thanh Hieu</span> <br/>                    
                         <a className="Blog-Title" href="/">5 Attractive Bookstore WordPress Themes</a>
@@ -41,9 +41,16 @@ export function DetailBlog() {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
                     Excepteur sint occaecat
                     </p>
+                    </div>
                 </div>
-                </div>
-                
+                <button className="btn-create-blog btn-edit-blog">
+                    <b className="btn-create">Edit Blog</b>
+                    <FaEdit />
+                </button>
+                <button className="btn-create-blog btn-remove-blog">
+                    <b className="btn-create">Remove Blog</b>
+                    <FaTrashAlt />
+                </button>
             </div>
             <Footer />
         </div>
