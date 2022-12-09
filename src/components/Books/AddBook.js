@@ -16,6 +16,8 @@ const addBook = () => {
     const imgRef = ref(storage, `images/${fileName}`);
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
+    const price = document.getElementById('price').value;
+    const category = document.querySelectorAll('input[name="category"]:checked');
     const description = document.getElementById('description').value;
     const file = document.getElementById('file').files[0];
     const fileExt = file.name.split('.').pop();
@@ -28,6 +30,7 @@ const addBook = () => {
                     author: author,
                     description: description,
                     image: url,
+                    price: price,
                     keywords: generateKeywords(title)
             }
             setDoc(docRef, data).then(() => {
@@ -74,6 +77,17 @@ export function AddBook() {
                             <input type="text" id="description" class="form-control form-control-lg"
                             placeholder="Write something about your book.." />
                             <label class="form-label">Description</label>
+                        </div>
+
+                        <div class="form-outline mb-3">
+                            <input type="text" id="price" class="form-control form-control-lg"
+                            placeholder="Price" />
+                            <label class="form-label">Price</label>
+                        </div>
+
+                        <div class="form-outline mb-3">
+                            <input type="checkbox" id="category" class="form-control form-control-lg" placeholder="Category" />
+                            <label class="form-label">Category</label>
                         </div>
 
                         <input type="file" id="file" />
