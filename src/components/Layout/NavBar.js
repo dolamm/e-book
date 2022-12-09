@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState } from 'react'
 import {app, auth} from '../Firebase';
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "../../css/List.css"
 import "../../css/Dropdown.css"
 
@@ -10,6 +10,7 @@ export function Nav() {
 
   const [userName, setUserName] = useState(null);
   const [userAvatar, setUserAvatar] = useState(null);
+  const [uid, setUid] = useState(null);
 
   const [isHidden, setIsHidden] = useState(true)
   const handleDropdown = () => {
@@ -30,6 +31,7 @@ export function Nav() {
       console.log(Name);
       setUserName(Name);
       setUserAvatar(avt);
+      setUid(user.uid);
     } else {
       console.log("User is signed out");
     }
@@ -116,6 +118,7 @@ export function Nav() {
             data-mdb-toggle="dropdown"
             aria-expanded="false"
           >
+            <Link to={`/profile/${uid}`} >
             <img
               src={userAvatar}
               className="rounded-circle"
@@ -123,6 +126,7 @@ export function Nav() {
               alt="Black and White Portrait of a Man"
               loading="lazy"
             />
+            </Link>
           </a>
           <ul
             className="dropdown-menu dropdown-menu-end"

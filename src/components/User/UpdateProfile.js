@@ -1,15 +1,23 @@
 import firebase from 'firebase/compat/app';
 import { app, auth, db } from '../Firebase';
+import { useParams } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, updateDoc } from "firebase/firestore";
 import { Navigate, Outlet } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
 const user = auth.currentUser;
 
-const update = (setAuthenticated) => {
+export function UpdateProfile() {
+  const [isUpdate, setIsUpdate] = useState (
+    localStorage.getItem(localStorage.getItem('isUpdate') || false)
+  )
+  const { uid } = useParams();
+
+  const update = (setAuthenticated) => {
+
     const displayName = document.getElementById('displayName').value
     const photoURL = document.getElementById('photoURL').value
 
@@ -19,15 +27,21 @@ const update = (setAuthenticated) => {
     }).then(() => {
         alert('Profile updated!')
         setAuthenticated(true)
+
+        updateDoc(doc(db, "users", uid), {
+            displayName: displayName,
+            photoURL: photoURL
+        }).then(() => {
+            console.log("Document written with ID: ", user.uid);
+        }
+        ).catch((error) => {
+            console.error("Error adding document: ", error);
+        }
+        );
     }).catch((error) => {
         console.log(error)
     })
-}
-
-export function UpdateProfile() {
-  const [isUpdate, setIsUpdate] = useState (
-    localStorage.getItem(localStorage.getItem('isUpdate') || false)
-  )
+  }
   const handleUpdate = () => {
     update(setIsUpdate)
   }

@@ -6,7 +6,9 @@ import "../../css/Detail/DetailBook.css"
 import Book from '../../img/book1.png'
 import { FaGreaterThan } from "react-icons/fa";
 
-export function Recommend() {
+export function Recommend(id) {
+
+
     return (    
         <div className="Recommend">
             <p className="Recommend-text">Recommend

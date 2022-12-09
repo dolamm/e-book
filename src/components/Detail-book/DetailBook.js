@@ -58,7 +58,7 @@ export function DetailBook() {
                 </div>
                 <div className="Description">
                     <b>Description: </b>
-                    {book.description} 
+                    {book.description.substr(0,300)+"..."} 
                 </div>
                 <div className="Price">
                     <b>Author: </b>

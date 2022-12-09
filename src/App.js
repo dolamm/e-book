@@ -43,6 +43,7 @@ export default function App() {
         <Route path="/signout" element={<SignOut/>}/>
         <Route path="/home" element={<HomeScreen/>}/>
         <Route path="/update" element={<UpdateProfile/>}/>
+        <Route path="/update/:id" element={<UpdateProfile/>}/>
         <Route path="/addbook" element={<AddBook/>}/>
         <Route path="/search" element={<SearchBook/>}/>
         <Route path="/chat" element={<ChatRoom/>}/>
@@ -51,6 +52,7 @@ export default function App() {
         <Route path="/category" element={<Category/>}/>
         <Route path="/pay" element={<Pay/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile/:uid" element={<Profile/>}/>
         <Route path="/detailblog" element={<DetailBlog/>}/>
         <Route path="/threebook" element={<ThreeBook/>}/>
         <Route path="/book/:id" element={<Detail/>}/>

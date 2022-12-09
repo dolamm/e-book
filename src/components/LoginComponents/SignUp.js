@@ -1,4 +1,4 @@
-import { app, auth } from '../Firebase'
+import { app, auth, db } from '../Firebase'
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
  // import { HomeScreen } from '../../HomeComponents/HomeScreen'
  import 'bootstrap/dist/css/bootstrap.min.css'
@@ -6,6 +6,10 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
  import { Navigate, Outlet } from 'react-router-dom'
  import { render } from '@testing-library/react'
  import { async } from '@firebase/util'
+ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+ import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
+
+ const storage = getStorage(app);
 
  const signUp = (setAuthenticated) => {
      const email = document.getElementById('email').value
@@ -17,6 +21,20 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
              console.log(user)
              console.log('You have successfully signed up!')
              setAuthenticated(true)
+
+             const docRef = doc(db, "users", user.uid);
+             setDoc(docRef, {
+                  email: email,
+                  uid: user.uid,
+                  displayName: null,
+                  photoURL: null,
+              }).then(() => {
+                  console.log("Document written with ID: ", docRef.id);
+              }
+              ).catch((error) => {
+                  console.error("Error adding document: ", error);
+              }
+              );
          })
          .catch((error) => {
              const errorCode = error.code
@@ -78,7 +96,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
                        <button type="button" class="btn btn-primary btn-lg" onClick={handleSubmit}>Sign Up</button>
                      </div>
 
-                     {authenticated &&<Navigate to ="/update"/>}
+                     {authenticated &&<Navigate to ="/update/${user.uid}"/>}
                    </form>
 
                  </div>

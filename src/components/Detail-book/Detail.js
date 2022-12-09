@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import { NavDetail } from './NavDetail';
 import { DetailBook } from './DetailBook';
 import { Recommend } from './Recommend';

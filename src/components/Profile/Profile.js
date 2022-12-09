@@ -2,17 +2,48 @@ import "../../css/Payment/Pay.css";
 import Book from '../../img/book1.png'
 import { FaMoneyBillWave } from "react-icons/fa";
 import logo from '../../img/logo.png'
+import {app, auth, db} from '../Firebase';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
 import { Footer } from '../Layout/BookFooter';
 import { NavDetail } from '../Detail-book/NavDetail';
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
 
 export function Profile() {
+
+    const [user, setUser] = useState([]);
+    const {uid} = useParams();
+
+    const getInfo = async () => {
+        try {
+            const q = query(collection(db, "users"), where("uid", "==", uid));
+            const querySnapshot = await getDocs(q);
+            let data = [];
+            querySnapshot.forEach((doc) => {
+                data.push(doc.data());
+                console.log(doc.data)
+            })
+            return data[0];
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getInfo().then((data) => {
+            setUser(data);
+            console.log(data);
+        })
+    }, [])
+
     return (
         <div className='Profile'>
             <NavDetail />
             <div className="name-category">
+                <img src={user.photoURL}/>
             <p className="name-category-text">
-                Tên người dùng  ||  avatar
+                {user.userName}
             </p>
             <div className="Blog-contain">
                 <div className="Blog-left">

@@ -9,7 +9,8 @@
 .Book-img{
     width: 500px;
     height: 730px;
-    float: left;  
+    float: left;
+    border-radius: 15px;  
 }
 .right{
     float: right;
