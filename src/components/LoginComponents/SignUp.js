@@ -55,63 +55,66 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 
      return (
  <div>
-     <section class="vh-100 bg-success" >
-     <div class="container h-100">
-       <div class="row d-flex justify-content-center align-items-center h-100">
-         <div class="col-lg-12 col-xl-11">
-           <div class="card text-black" >
-             <div class="card-body p-md-5">
-               <div class="row justify-content-center">
-                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+  <section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image"></img>
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form>
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <p class="lead fw-normal mb-0 me-3">Sign up</p>
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </button>
 
-                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
 
-                   <form class="mx-1 mx-md-4">
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-linkedin-in"></i>
+            </button>
+          </div>
 
-                     <div class="d-flex flex-row align-items-center mb-4">
-                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                       <div class="form-outline flex-fill mb-0">
-                         <input type="email" id="email" class="form-control" />
-                         <label class="form-label" for="form3Example3c">Your Email</label>
-                       </div>
-                     </div>
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0">Or</p>
+          </div>
 
-                     <div class="d-flex flex-row align-items-center mb-4">
-                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                       <div class="form-outline flex-fill mb-0">
-                         <input type="password" id="password" class="form-control" />
-                         <label class="form-label" for="form3Example4c">Password</label>
-                       </div>
-                     </div>
+          <div class="form-outline mb-4">
+            <input type="email" id="email" class="form-control form-control-lg"
+              placeholder="Enter a valid email address" />
+            <label class="form-label">Email address</label>
+          </div>
+          <div class="form-outline mb-4">
+            <input type="email" id="email" class="form-control form-control-lg"
+              placeholder="Enter your name" />
+            <label class="form-label">Full name</label>
+          </div>
+          <div class="form-outline mb-3">
+            <input type="password" id="password" class="form-control form-control-lg"
+              placeholder="Enter password" />
+            <label class="form-label">Password</label>
+          </div>
+          <div class="form-outline mb-3">
+            <input type="password" id="password" class="form-control form-control-lg"
+              placeholder="Confirm your Password" />
+            <label class="form-label">Confirm your Password</label>
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="button" class="btn btn-primary btn-lg" onClick={handleSubmit} >Register</button>
+            {authenticated &&<Navigate to ="/update/${user.uid}"/>}
+            <p class="small fw-bold mt-2 pt-1 mb-0">Do you have an account? <a href="/"
+                class="link-danger">Login</a></p>
 
-                     <div class="d-flex flex-row align-items-center mb-4">
-                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                       <div class="form-outline flex-fill mb-0">
-                         <input type="password" id="password" class="form-control" />
-                         <label class="form-label" for="form3Example4cd">Confirm your password</label>
-                       </div>
-                     </div>
-
-                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                       <button type="button" class="btn btn-primary btn-lg" onClick={handleSubmit}>Sign Up</button>
-                     </div>
-
-                     {authenticated &&<Navigate to ="/update/${user.uid}"/>}
-                   </form>
-
-                 </div>
-                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image"></img>
-
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </section>
+          </div>
+          {authenticated && <Navigate to="/home" />}
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
  </div>
      )
  }
