@@ -1,8 +1,9 @@
 import { Nav } from '../Layout/NavBar';
 import "../../css/List.css"
+import {useState, useEffect} from 'react';
 import { app, auth, db, generateKeywords } from '../Firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
 
 const storage = getStorage(app);
 
@@ -17,9 +18,15 @@ const addBook = () => {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const price = document.getElementById('price').value;
+    const categories = document.querySelectorAll('input[data-name="category"]:checked');
     const description = document.getElementById('description').value;
     const file = document.getElementById('file').files[0];
     const fileExt = file.name.split('.').pop();
+    let category = [];
+    categories.forEach((item) => {
+        category.push(item.value);
+    })
+    console.log(category);
     if (acceptFile.includes(fileExt)) {
         uploadBytes(imgRef, file).then(() => {
             getDownloadURL(imgRef).then((url) => {
@@ -27,12 +34,14 @@ const addBook = () => {
                     id: fileName,
                     title: title,
                     author: author,
+                    category: category,
                     description: description,
                     image: url,
                     price: price,
                     keywords: generateKeywords(title)
             }
             setDoc(docRef, data).then(() => {
+                console.log("Document written with ID: ", docRef.id);
                 alert('Book added successfully!');
             }).catch((error) => {
                 console.log(error);
@@ -45,7 +54,25 @@ const addBook = () => {
     }
 }
 
+
+
 export function AddBook() {
+    const [categories, setCategories] = useState([]);
+    const getCategories = async () => {
+        const category = query(collection(db, "categories"));
+        const querySnapshot = await getDocs(category);
+        let data = [];
+        querySnapshot.forEach((doc, index) => {
+            data.push(doc.id);
+        })
+        return data;
+    }
+    useEffect(() => {
+        getCategories().then((data) => {
+            setCategories(data);
+            console.log(data);
+        })
+    }, [])
     return (
         <div>
             <Nav/>
@@ -82,6 +109,22 @@ export function AddBook() {
                             <input type="text" id="price" class="form-control form-control-lg"
                             placeholder="Price" />
                             <label class="form-label">Price</label>
+                        </div>
+
+                        <div class="form-outline mb-3">
+                            {
+                                categories.map((category) => {
+                                    return (
+                                        <div class="form-check
+                                        form-check-inline">
+                                            <span>
+                                            <input type="checkbox" id={category} value={category} data-name="category" />
+                                                {category}
+                                            </span>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
 
                         <input type="file" id="file" />
