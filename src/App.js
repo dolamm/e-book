@@ -43,7 +43,7 @@ export default function App() {
         <Route path="/signout" element={<SignOut/>}/>
         <Route path="/home" element={<HomeScreen/>}/>
         <Route path="/update" element={<UpdateProfile/>}/>
-        <Route path="/update/:id" element={<UpdateProfile/>}/>
+        <Route path="/update/:uid" element={<UpdateProfile/>}/>
         <Route path="/addbook" element={<AddBook/>}/>
         <Route path="/search" element={<SearchBook/>}/>
         <Route path="/chat" element={<ChatRoom/>}/>
