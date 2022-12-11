@@ -23,8 +23,25 @@ const getBooks = async () => {
     }
 }
 
-export function AllBook(){
+// const getBooksByCategory = async (category) => {
+//     try {
+//         const q = query(collection(db, "books"), where("category", "==", category));
+//         const querySnapshot = await getDocs(q);
+//         let data = [];
+//         querySnapshot.forEach((doc) => {
+//             data.push(doc.data());
+//             console.log(doc.data)
+//         })
+//         return data;
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+export function CategoryBook(props){
+
     const [books, setBooks] = useState([]);
+    const [category, setCategory] = useState('action');
 
     useEffect(() => {
         getBooks().then((data) => {
@@ -33,9 +50,17 @@ export function AllBook(){
         })
     }, [])
 
+    let categoryBook = document.getElementById("categoryBook");
+    categoryBook.addEventListener("click", function(){
+        setCategory(categoryBook.value);
+    })
+    
+    let booksByCategory = books.filter(book => book.category === category);
+    console.log(booksByCategory);
+
     return(
         <div className="row">
-            {books.map((book) => (
+            {booksByCategory.map((book) => (
                 <div className="col-md-4">
                     <div className="card mb-4 shadow-sm">
                         <img src={book.image} className="bd-placeholder-img card-img-top" width="100%" height="225" />
