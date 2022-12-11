@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState } from 'react'
-import logo from '../../img/logo.png'
+import logo from '../../img/logo-white.png'
 import {app, auth} from '../Firebase';
 import { Link } from "react-router-dom";
 import "../../css/Detail/NavDetail.css"

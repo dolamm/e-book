@@ -27,7 +27,6 @@ export function DetailBook() {
   };
 
   const [book, setBook] = useState([]);
-
   useEffect(() => {
     getInfo().then((data) => {
       setBook(data);
@@ -52,7 +51,11 @@ export function DetailBook() {
           <h1 className="Book-title">{book.title}</h1>
           <div className="Category">
             <b>Category: </b>
-            tên Category
+            {
+              book.category.map((item) => {
+                return <span className='category-item'> {item} </span>
+              })
+            }
           </div>
           <div className="Price">
             <b>Price: </b>

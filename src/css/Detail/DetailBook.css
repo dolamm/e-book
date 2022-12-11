@@ -151,3 +151,13 @@
     padding: 10px 50px 5px 160px;
     font-size: 20px;
 }
+
+/* category */
+.category-item{
+    width: auto;
+    border-radius: 100px;
+    background-color: violet;
+    margin: 0 2px;
+    color: white;
+    padding: 0 5px;
+}
