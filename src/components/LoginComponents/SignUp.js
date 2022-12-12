@@ -109,7 +109,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
                 class="link-danger">Login</a></p>
 
           </div>
-          {authenticated && <Navigate to="/home" />}
+          {authenticated && <Navigate to="/" />}
         </form>
       </div>
     </div>
