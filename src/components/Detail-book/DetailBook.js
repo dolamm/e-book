@@ -2,7 +2,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { app, auth, db } from "../Firebase";
-import { Link } from "react-router-dom";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
 import "../../css/Detail/DetailBook.css";
 import "../../css/global.css";
