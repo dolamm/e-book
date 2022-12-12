@@ -55,11 +55,8 @@ export default function App() {
         <Route path="/profile/:uid" element={<Profile/>}/>
         <Route path="/detailblog" element={<DetailBlog/>}/>
         <Route path="/book/:id" element={<Detail/>}/>
-<<<<<<< HEAD
         <Route path="/allcategory" element={<AllCategory/>}/>
-=======
-        <Route path="/category/:id" element={<CategoryBook/>}/>
->>>>>>> b467f36581661ee3712a0143390a8059e97ebb48
+        <Route path="/allcategory/:category_id" element={<AllCategory/>}/>
       </Routes>
     </div>
   )
