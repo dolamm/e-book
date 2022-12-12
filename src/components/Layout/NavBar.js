@@ -75,6 +75,9 @@ export function Nav() {
           <li className="nav-item">
             <a className="nav-link" href="/search">Search</a>
           </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/allcategory/all">Category</a>
+          </li>
         </ul>
       </div>
 

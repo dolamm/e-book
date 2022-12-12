@@ -32,7 +32,7 @@ export function AllCategory() {
             setBookonpage(data);
             console.log(bookonpage);
         })
-    }, [])
+    }, [bookonpage])
 
     const category = {
         all: "all",
@@ -67,7 +67,7 @@ export function AllCategory() {
                         </select >
                     </div>
                     <div className="Category-count-page">
-                        <h3>Page 1 of 10</h3>
+                        <h3>Page 1 of 1</h3>
                     </div>
                 </div>
                 <div className="contain-category">

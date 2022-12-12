@@ -25,6 +25,7 @@ const addBook = () => {
     let category = [];
     categories.forEach((item) => {
         category.push(item.value);
+        category.push('all');
     })
     console.log(category);
     if (acceptFile.includes(fileExt)) {
