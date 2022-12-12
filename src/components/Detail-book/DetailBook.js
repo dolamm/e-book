@@ -3,26 +3,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { app, auth, db } from "../Firebase";
 import { Link } from "react-router-dom";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  doc,
-  setDoc,
-  query,
-  where,
-  onSnapshot,
-  getDocs,
-} from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
 import "../../css/Detail/DetailBook.css";
 import Book from "../../img/book1.png";
-import {
-  FaLongArrowAltRight,
-  FaCartPlus,
-  FaMoneyBillWave,
-  FaHeadphonesAlt,
-  FaBook,
-} from "react-icons/fa";
+import { FaLongArrowAltRight, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook } from "react-icons/fa";
 
 export function DetailBook() {
   const { id } = useParams();
@@ -43,7 +27,6 @@ export function DetailBook() {
   };
 
   const [book, setBook] = useState([]);
-
   useEffect(() => {
     getInfo().then((data) => {
       setBook(data);
@@ -68,7 +51,11 @@ export function DetailBook() {
           <h1 className="Book-title">{book.title}</h1>
           <div className="Category">
             <b>Category: </b>
-            tên Category
+            {
+              book.category.map((item) => {
+                return <span className='category-item'> {item} </span>
+              })
+            }
           </div>
           <div className="Price">
             <b>Price: </b>

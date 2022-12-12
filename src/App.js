@@ -1,20 +1,19 @@
 import { useState} from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { auth } from './components/Firebase';
 import { SignIn } from './components/LoginComponents/SignIn';
 import { SignUp } from './components/LoginComponents/SignUp';
 import { SignOut} from './components/LoginComponents/SignOut';
 import { UpdateProfile } from './components/User/UpdateProfile';
 import { HomeScreen } from './components/Layout/HomeScreen';
-import { Nav } from './components/Layout/NavBar';
 import { AddBook } from './components/Books/AddBook';
 import { SearchBook } from './components/Books/SearchBook';
 import { ChatRoom } from './components/Chat/ChatRoom';
 import { Detail } from './components/Detail-book/Detail';
 import { Blog } from './components/Blog/Blog';
 import { Category } from './components/Category/Category';
-import { ThreeBook } from './components/Layout/Header';
+import { CategoryBook } from './components/Books/ShowAll';
 
 import { Pay } from './components/Payment/Pay';
 import { Profile } from './components/Profile/Profile';
@@ -55,9 +54,12 @@ export default function App() {
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/profile/:uid" element={<Profile/>}/>
         <Route path="/detailblog" element={<DetailBlog/>}/>
-        <Route path="/threebook" element={<ThreeBook/>}/>
         <Route path="/book/:id" element={<Detail/>}/>
+<<<<<<< HEAD
         <Route path="/allcategory" element={<AllCategory/>}/>
+=======
+        <Route path="/category/:id" element={<CategoryBook/>}/>
+>>>>>>> b467f36581661ee3712a0143390a8059e97ebb48
       </Routes>
     </div>
   )

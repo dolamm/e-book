@@ -11,47 +11,84 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 
  const storage = getStorage(app);
 
- const signUp = (setAuthenticated) => {
-     const email = document.getElementById('email').value
-     const password = document.getElementById('password').value
+//  const signUp = (setAuthenticated) => {
+//      const email = document.getElementById('email').value
+//      const password = document.getElementById('password').value
 
-     createUserWithEmailAndPassword(auth, email, password)
-         .then((userCredential) => {
-             const user = userCredential.user
-             console.log(user)
-             console.log('You have successfully signed up!')
-             setAuthenticated(true)
+//      createUserWithEmailAndPassword(auth, email, password)
+//          .then((userCredential) => {
+//              const user = userCredential.user
+//              console.log(user)
+//              console.log('You have successfully signed up!')
+//              setAuthenticated(true)
 
-             const docRef = doc(db, "users", user.uid);
-             setDoc(docRef, {
-                  email: email,
-                  uid: user.uid,
-                  displayName: null,
-                  photoURL: null,
-              }).then(() => {
-                  console.log("Document written with ID: ", docRef.id);
-              }
-              ).catch((error) => {
-                  console.error("Error adding document: ", error);
-              }
-              );
-         })
-         .catch((error) => {
-             const errorCode = error.code
-             const errorMessage = error.message
-         })
- }
+//              const docRef = doc(db, "users", user.uid);
+//              setDoc(docRef, {
+//                   email: email,
+//                   uid: user.uid,
+//                   displayName: null,
+//                   photoURL: null,
+//               }).then(() => {
+//                   console.log("Document written with ID: ", docRef.id);
+//               }
+//               ).catch((error) => {
+//                   console.error("Error adding document: ", error);
+//               }
+//               );
+//          })
+//          .catch((error) => {
+//              const errorCode = error.code
+//              const errorMessage = error.message
+//          })
+//  }
 
  export function SignUp() {
      const [authenticated, setAuthenticated] = useState(
          localStorage.getItem(localStorage.getItem('authenticated') || false)
      )
 
-     const handleSubmit = () => {
-         signUp(setAuthenticated)
-     }
+     const [user, setUser] = useState(null)
 
-     // localStorage.clear()
+    const signUp = (setAuthenticated) => {
+      const email = document.getElementById('email').value
+      const password = document.getElementById('password').value
+ 
+      createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+              const user = userCredential.user
+              console.log(user)
+              setUser(user.uid)
+              console.log('You have successfully signed up!')
+              setAuthenticated(true)
+ 
+              const docRef = doc(db, "users", user.uid);
+              setDoc(docRef, {
+                   email: email,
+                   uid: user.uid,
+                   displayName: null,
+                   photoURL: null,
+               }).then(() => {
+                   console.log("Document written with ID: ", docRef.id);
+               }
+               ).catch((error) => {
+                   console.error("Error adding document: ", error);
+               }
+               );
+          })
+          .catch((error) => {
+              const errorCode = error.code
+              const errorMessage = error.message
+          })
+      }
+
+       const handleSubmit = () => {
+         signUp(setAuthenticated)
+      }
+
+  console.log(user)
+
+     
+  // localStorage.clear()
 
      return (
  <div>
@@ -87,11 +124,6 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
               placeholder="Enter a valid email address" />
             <label class="form-label">Email address</label>
           </div>
-          <div class="form-outline mb-4">
-            <input type="email" id="email" class="form-control form-control-lg"
-              placeholder="Enter your name" />
-            <label class="form-label">Full name</label>
-          </div>
           <div class="form-outline mb-3">
             <input type="password" id="password" class="form-control form-control-lg"
               placeholder="Enter password" />
@@ -104,12 +136,10 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
           </div>
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="button" class="btn btn-primary btn-lg" onClick={handleSubmit} >Register</button>
-            {authenticated &&<Navigate to ="/update/${user.uid}"/>}
             <p class="small fw-bold mt-2 pt-1 mb-0">Do you have an account? <a href="/"
                 class="link-danger">Login</a></p>
-
           </div>
-          {authenticated && <Navigate to="/" />}
+          {authenticated &&<Navigate to ={`/update/${user}`}/>}
         </form>
       </div>
     </div>

@@ -14,8 +14,8 @@ export function UpdateProfile() {
   const [isUpdate, setIsUpdate] = useState (
     localStorage.getItem(localStorage.getItem('isUpdate') || false)
   )
-  const { uid } = useParams();
-
+  let {uid}  = useParams();
+  console.log(uid)
   const update = (setAuthenticated) => {
 
     const displayName = document.getElementById('displayName').value
@@ -71,7 +71,7 @@ export function UpdateProfile() {
                       <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="button" class="btn btn-primary btn-lg" onClick={handleUpdate} >Update Profile</button>
                       </div>
-                      {isUpdate && <Navigate to="/home" />}
+                      {/* {isUpdate && <Navigate to="/home" />} */}
                     </form>
                   </div>
                 </div>
