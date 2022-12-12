@@ -5,6 +5,7 @@ import { app, auth, db } from "../Firebase";
 import { Link } from "react-router-dom";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
 import "../../css/Detail/DetailBook.css";
+import "../../css/global.css";
 import Book from "../../img/book1.png";
 import { FaLongArrowAltRight, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook } from "react-icons/fa";
 
@@ -35,7 +36,7 @@ export function DetailBook() {
   }, []);
 
   return book.length === 0 ? (
-    <div>Loading...</div>
+    <div id="loading" className="loading-modal"></div>
   ) : (
     <div className="DetailBook">
       <div className="Detail-path">

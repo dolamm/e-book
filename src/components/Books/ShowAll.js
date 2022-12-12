@@ -6,7 +6,7 @@ import {app, auth, db} from '../Firebase';
 import { Link } from "react-router-dom";
 import "../../css/List.css"
 import "../../css/Dropdown.css"
-
+import "../../css/global.css"
 
 const getBooks = async () => {
     try {
@@ -58,7 +58,9 @@ export function CategoryBook(props){
     let booksByCategory = books.filter(book => book.category === category);
     console.log(booksByCategory);
 
-    return(
+    return books.length === 0 ? (
+        <div id="loading" className="loading-modal"></div>
+    ) : (
         <div className="row">
             {booksByCategory.map((book) => (
                 <div className="col-md-4">
