@@ -3,7 +3,7 @@ import { app, auth, db } from '../Firebase';
 import { useParams } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { Navigate, Outlet } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
@@ -71,7 +71,7 @@ export function UpdateProfile() {
                       <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="button" class="btn btn-primary btn-lg" onClick={handleUpdate} >Update Profile</button>
                       </div>
-                      {/* {isUpdate && <Navigate to="/home" />} */}
+                      {isUpdate && <Navigate to="/home" />}
                     </form>
                   </div>
                 </div>
