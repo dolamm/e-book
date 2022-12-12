@@ -72,28 +72,28 @@ export function AllCategory() {
                 </div>
                 <div className="contain-category">
                     <div className="content-category-left">
-                        <Link to={`/category/${category.all}`} className="content-category-button">
+                        <Link to={`/allcategory/${category.all}`} className="content-category-button">
                             <button type="">All</button>
                         </Link>
-                        <Link to={`/category/${category.action}`} className="content-category-button">
+                        <Link to={`/allcategory/${category.action}`} className="content-category-button">
                             <button type="">Action</button>
                         </Link>
-                        <Link to={`/category/${category.comedy}`} className="content-category-button">
+                        <Link to={`/allcategory/${category.comedy}`} className="content-category-button">
                             <button type="">Comedy</button>
                         </Link>
-                        <Link to={`/category/${category.drama}`} className="content-category-button">
+                        <Link to={`/allcategory/${category.drama}`} className="content-category-button">
                             <button type="">Drama</button>
                         </Link>
-                        <Link to={`/category/${category.fantasy}`} className="content-category-button">
+                        <Link to={`/allcategory/${category.fantasy}`} className="content-category-button">
                             <button type="">Fantasy</button>
                         </Link>
-                        <Link to={`/category/${category.romance}`} className="content-category-button">
+                        <Link to={`/allcategory/${category.romance}`} className="content-category-button">
                             <button type="">Romance</button>
                         </Link>
-                        <Link to={`/category/${category.science}`} className="content-category-button">
+                        <Link to={`/allcategory/${category.science}`} className="content-category-button">
                             <button type="">Science-fiction</button>
                         </Link>
-                        <Link to={`/category/${category.tragedy}`} className="content-category-button">
+                        <Link to={`/allcategory/${category.tragedy}`} className="content-category-button">
                             <button type="">Tragedy</button>
                         </Link>
                         <Link to="/home" className="content-category-button-back">
