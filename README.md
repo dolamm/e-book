@@ -4,6 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+Download project with command 
+
+### `git clone https://github.com/dolamm/e-book.git`
+
+After clone, move in to directory e-book
+### `cd e-book`
+
 In the project directory, you can run:
 
 ### `npm start`
