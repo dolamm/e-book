@@ -8,6 +8,7 @@ import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot
 import { onAuthStateChanged } from "firebase/auth";
 import { async } from '@firebase/util';
 import "../../css/Category/CategoryBook.css";
+import "../../css/Book/ListBook.css"
 
 const docRef = (db, "bookcase", new Date().getTime().toString());
 
@@ -63,10 +64,7 @@ export function BookList(){
 
     return (
         <div>
-            <div className="border1">
-                <strong> Book List </strong>
-            </div>
-            <div class="grid-CateBook">
+            <div className="grid-listbook">
                 { books && books.map((book) => {
                     return <Item item={book} />
                 })}

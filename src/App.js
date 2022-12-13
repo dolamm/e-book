@@ -19,6 +19,7 @@ import { Pay } from './components/Payment/Pay';
 import { Profile } from './components/Profile/Profile';
 import { DetailBlog } from './components/Blog/DetailBlog';
 import { AllCategory } from './components/Category/AllCategory';
+import {HomePage } from './components/Layout/HomePage';
 
 
 export default function App() {
@@ -57,6 +58,7 @@ export default function App() {
         <Route path="/book/:id" element={<Detail/>}/>
         <Route path="/allcategory" element={<AllCategory/>}/>
         <Route path="/allcategory/:category_id" element={<AllCategory/>}/>
+        <Route path="/homepage" element={<HomePage/>}/>
       </Routes>
     </div>
   )

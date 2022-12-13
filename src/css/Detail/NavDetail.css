@@ -10,7 +10,7 @@
 }
 .sub-nav{
     text-decoration: none;
-    color: #fff;
+    color: rgb(148, 147, 147);
     padding: 10px 10px 5px 10px;
     margin-bottom: 5px;
     margin-left: 20px;
@@ -18,9 +18,10 @@
     transition: border-width 0.2s linear;
 }
 .sub-nav:hover{
-    color: #fff;
+    color: rgb(189, 187, 187);
     border-bottom: 3px solid #dee2e6;
     border-radius: 3px;
+    cursor: pointer;
 }
 .sub-search{
     float: right;
