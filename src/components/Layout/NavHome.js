@@ -1,14 +1,42 @@
 import { onAuthStateChanged } from 'firebase/auth';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import bg from '../../img/bg-mountain.png'
-import {app, auth} from '../Firebase';
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, limit } from "firebase/firestore";
+import {app, auth, db } from '../Firebase';
 import { Link } from "react-router-dom";
 import "../../css/Layout/NavHome.css"
 import logo from '../../img/logo.png'
 import { FaSearch, FaBars, FaShoppingCart } from "react-icons/fa";
 import Book from "../../img/book1.png";
 
+const get3Book = async () => {
+    try {
+        const q = query(collection(db, "books"),limit(1));
+        const querySnapshot = await getDocs(q);
+        let data = [];
+        querySnapshot.forEach((doc) => {
+            data.push(doc.data());
+            console.log(doc.data)
+        })
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export function NavHome() {
+
+    const [books, setBooks] = useState('');
+
+    useEffect(() => {
+        get3Book().then((data) => {
+            setBooks(data[0]);
+            console.log(data);
+        })
+    }, [])
+
+    console.log(books);
 
     return (    
         <div className="navhome">
@@ -16,15 +44,15 @@ export function NavHome() {
                 <img src={bg} alt="bg" className="bg-nav" />
                 <img src={logo} alt="logo" className="logo-nav" />
                 <div className="nav-content-book">
-                    <h2>Tên sách</h2>
-                    <h3>By <span>TênTác giả</span></h3>
+                    <h2>{books.title}</h2>
+                    <h3>By <span>{books.author}</span></h3>
                     <div className="nav-content-book-text">
-                        Content sách  Book Store Concept designed by Kenneth Jensen. Connect with them on Dribbble; the global community for designers.
+                        {books.description}
                     </div>
                 </div>
-                <div className="navhome-seemore">
+                <Link to={`/book/${books.id}`} className="navhome-seemore">
                     <h4>See more</h4>
-                </div>
+                </Link>
                 <input type="text" className="Search-nav" placeholder="Search" />
                 <FaSearch className="i-search"/>
                 <div className="vertical">
@@ -34,7 +62,7 @@ export function NavHome() {
                     <h5>Category</h5>
                     <FaBars className="i-bars"/>
                 </div>
-                <img src={Book} alt="book" className="bg-book bg-book1"/>
+                <img src={books.image} alt="book" className="bg-book bg-book1"/>
                 <img src={Book} alt="book" className="bg-book bg-book2"/>
                 <img src={Book} alt="book" className="bg-book bg-book3"/>
                 <FaShoppingCart className="nav-cart"/>
