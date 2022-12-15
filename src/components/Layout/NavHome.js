@@ -37,7 +37,7 @@ export function NavHome({uid}) {
     }, [])
 
     console.log(books);
-
+    
     return books.length === 0 ? (
         <div id="loading" className="loading-modal"></div>
       ) : (    
@@ -78,4 +78,5 @@ export function NavHome({uid}) {
                 <a className="sub-navbar" href="/">ChatRoom</a>
             </div>
         </div>
-)}
+    )
+}

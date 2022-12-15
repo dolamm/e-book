@@ -25,8 +25,8 @@ const addBook = () => {
     let category = [];
     categories.forEach((item) => {
         category.push(item.value);
-        category.push('all');
     })
+    category.push('all');
     console.log(category);
     if (acceptFile.includes(fileExt)) {
         uploadBytes(imgRef, file).then(() => {
@@ -39,7 +39,7 @@ const addBook = () => {
                     description: description,
                     image: url,
                     price: price,
-                    keywords: generateKeywords(title)
+                    // keywords: generateKeywords(title)
             }
             setDoc(docRef, data).then(() => {
                 console.log("Document written with ID: ", docRef.id);
