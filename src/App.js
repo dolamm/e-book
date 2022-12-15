@@ -20,6 +20,7 @@ import { Profile } from './components/Profile/Profile';
 import { DetailBlog } from './components/Blog/DetailBlog';
 import { AllCategory } from './components/Category/AllCategory';
 import { HomePage } from './components/Layout/HomePage';
+import { CreateBlog } from './components/Profile/Blog';
 
 
 export default function App() {
@@ -51,7 +52,7 @@ export default function App() {
         <Route path="/search" element={<SearchBook/>}/>
         <Route path="/chat" element={<ChatRoom/>}/>
         <Route path="/detail" element={<Detail/>}/>
-        <Route path="/blog" element={<Blog/>}/>
+        {/* <Route path="/blog" element={<Blog/>}/> */}
         <Route path="/category" element={<Category/>}/>
         <Route path="/pay/:uid" element={<Pay/>}/>
         <Route path="/profile" element={<Profile/>}/>
@@ -61,6 +62,8 @@ export default function App() {
         <Route path="/allcategory" element={<AllCategory/>}/>
         <Route path="/allcategory/:category_id" element={<AllCategory/>}/>
         <Route path="/homepage" element={<HomePage user_info={user}/>}></Route>
+        <Route path="/blog/:uid" element={<CreateBlog user_info={user}/>}></Route>
+        <Route path="/createblog" element={<CreateBlog user_info={user}/>}></Route>
       </Routes>
     </div>
   )

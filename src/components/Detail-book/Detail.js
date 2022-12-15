@@ -10,7 +10,7 @@ import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot
 
 export function Detail() {
 
-    const { id } = useParams();
+  const { id } = useParams();
 
   const getInfo = async () => {
     try {
@@ -28,7 +28,7 @@ export function Detail() {
   };
 
   const [book, setBook] = useState([]);
-  
+
   useEffect(() => {
     getInfo().then((data) => {
       setBook(data);
@@ -40,7 +40,7 @@ export function Detail() {
         <div className='home'>
             <NavDetail />
             <DetailBook item={book}/>
-            <Comment />
+            <Comment item={book}/>
             <Recommend item={book}/>
             <Footer />
         </div>

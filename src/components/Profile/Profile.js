@@ -4,49 +4,41 @@ import { FaMoneyBillWave } from "react-icons/fa";
 import logo from '../../img/logo.png'
 import {app, auth, db} from '../Firebase';
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
 import { Footer } from '../Layout/BookFooter';
 import { NavDetail } from '../Detail-book/NavDetail';
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
 
+const getUserBlogs = async (uid) => {
+    const q = query(collection(db, "blogs"), where("uid", "==", uid));
+    const querySnapshot = await getDocs(q);
+    let data = [];
+    querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+    });
+    return data;
+};
+
 export function Profile({user_info}) {
+    console.log(user_info.uid);
+    const [blogs, setBlogs] = useState([]);
+    useEffect(() => {
+        getUserBlogs(user_info.uid).then((data) => {
+            setBlogs(data);
+        });
+    }, [user_info]);
 
-    const [user, setUser] = useState([]);
-    const {uid} = useParams();
-
-    // const getInfo = async () => {
-    //     try {
-    //         const q = query(collection(db, "users"), where("uid", "==", uid));
-    //         const querySnapshot = await getDocs(q);
-    //         let data = [];
-    //         querySnapshot.forEach((doc) => {
-    //             data.push(doc.data());
-    //             console.log(doc.data)
-    //         })
-    //         return data[0];
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     getInfo().then((data) => {
-    //         setUser(data);
-    //         console.log(data);
-    //     })
-    // }, [])
+    console.log(blogs);
 
     return (
         <div className='Profile'>
             <NavDetail />
             <div className="name-category">
-                <span><img src={user_info.photoURL}/></span>
-                <span>
-                    <p className="name-category-text">
-                        {user_info.displayName}
-                    </p>
-                </span>
+                <img src={user_info.photoURL}/>
+            <p className="name-category-text">
+                {user_info.displayName}
+            </p>
             <div className="Blog-contain">
                 <div className="Blog-left">
                     <img className="Blog-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
@@ -86,7 +78,7 @@ export function Profile({user_info}) {
                     <div className="Create-Blog">
                         <p>Create Blogs</p>
                         <button className="btn-create-blog">
-                            <b className="btn-create">Create</b>
+                            <Link to={`/createblog`} className="btn-create">Create</Link>
                             <FaPlusCircle />
                         </button>
 

@@ -5,7 +5,7 @@ import logo from '../../img/logo.png'
 import {app, auth, db} from '../Firebase';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, serverTimestamp } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Footer } from '../Layout/BookFooter';
 import { NavDetail } from '../Detail-book/NavDetail';
@@ -15,64 +15,55 @@ const storage = getStorage(app);
 
 const docRef = doc(db, "blogs", new Date().getTime().toString());
 
-const postBlog = async (title, content, image, uid) => {
-    try {
-        await setDoc(docRef, {
-            title: title,
-            content: content,
-            image: image,
-            user_id: uid,
+const postBlog = () => {
+    const title = document.getElementById("title").value;
+    const content = document.getElementById("content").value;
+    const image = document.getElementById("image").files[0];
+    const uid = auth.currentUser.uid;
+    const storageRef = ref(storage, `blogs/${image.name}`);
+    uploadBytes(storageRef, image).then((snapshot) => {
+        getDownloadURL(snapshot.ref).then((url) => {
+            setDoc(docRef, {
+                title: title,
+                content: content,
+                image: url,
+                uid: uid,
+                time: serverTimestamp(),
+            });
         });
-        console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-        console.error("Error adding document: ", e);
-    }
-}
+        alert("Post thành công");
+    }).catch((error) => {
+        console.log(error);
+    });
+};
 
-export function Blog() {
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
-    const [image, setImage] = useState(null);
-    const [url, setUrl] = useState("");
-    const { uid } = useParams();
-    console.log(uid);
-
-    const handleChange = (e) => {
-        if (e.target.files[0]) {
-            setImage(e.target.files[0]);
-        }
-    };
-
-    const handleUpload = () => {
-        const uploadTask = uploadBytes(ref(storage, `images/${image.name}`), image);
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                // progress function ...
-            },
-            (error) => {
-                // Error function ...
-                console.log(error);
-            },
-            () => {
-                // complete function ...
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    setUrl(downloadURL);
-                });
-            }
-        );
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        postBlog(title, content, url, uid);
-        setTitle("");
-        setContent("");
-        setImage(null);
-        setUrl("");
-    };
-
+export function CreateBlog() {
     return (
-        <div></div>
-    )
+        <div className="CreateBlog">
+            <NavDetail />
+            <div className="CreateBlog-Container">
+                <div className="CreateBlog-Title">
+                    <h1>Create Blog</h1>
+                </div>
+                <div className="CreateBlog-Content">
+                    <div className="CreateBlog-Content-Title">
+                        <p>Title</p>
+                        <input type="text" id="title" placeholder="Title" />
+                    </div>
+                    <div className="CreateBlog-Content-Content">
+                        <p>Content</p>
+                        <textarea id="content" placeholder="Content"></textarea>
+                    </div>
+                    <div className="CreateBlog-Content-Image">
+                        <p>Image</p>
+                        <input type="file" id="image" />
+                    </div>
+                    <div className="CreateBlog-Content-Button">
+                        <button onClick={postBlog}>Post</button>
+                    </div>
+                </div>
+            </div>
+            <Footer />
+        </div>
+    );
 }
