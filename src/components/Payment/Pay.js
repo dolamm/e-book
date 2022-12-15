@@ -3,8 +3,39 @@ import Book from '../../img/book1.png'
 import { FaMoneyBillWave } from "react-icons/fa";
 import logo from '../../img/logo.png'
 import { Footer } from '../Layout/BookFooter';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { app, auth, db } from "../Firebase";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
+const getBookFromCart = async (id) => {
+    try {
+        const q = query(collection(db, "cart"), where("user_id", "==", id));
+        const querySnapshot = await getDocs(q);
+        let data = [];
+        querySnapshot.forEach((doc) => {
+            data.push(doc.data());
+            console.log(doc.data);
+        });
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 export function Pay() {
+    const [book, setBook] = useState([]);
+    const { uid } = useParams();
+    console.log(uid);
+    
+    useEffect(() => {
+        getBookFromCart(uid).then((data) => {
+            setBook(data);
+            console.log(data);
+        });
+    }, []);
+
     return (
         <div className='Payment'>
             <p>Để trang thông báo đăng nhập thành công vào: có ava và logout</p>
@@ -18,11 +49,28 @@ export function Pay() {
                     <p className="Pay-Title-Product">Product</p>
                     <div className="Pay-Title-Right">
                         <p className="Pay-Title-Unit-Price Pay-Title-Author">Author</p>
-                        <p className="Pay-Title-Unit-Price Pay-Title-Total">Total Price</p>
+                        <p className="Pay-Title-Unit-Price Pay-Title-Total">Price</p>
                     </div>
                 </div>
-                {/* test */}
-                <div className="Pay-detail-product">
+                {book&&book.map((item) => (
+                    <div className="Pay-detail-product">
+                    <input className="cb-payment" type="checkbox"/>
+                        <img src={item.image} alt="book" className="Pay-book-img"/>
+                        <div className="Pay-book-name">
+                            {item.title} 
+                        </div>
+                        <div className="Pay-book-format">
+                            Format: Audio hoặc Ebook
+                        </div>
+                        <div className="Pay-detail-author">
+                            {item.author}
+                        </div>
+                        <div className="Pay-detail-Total">
+                            {item.price} USD
+                        </div>
+                    </div>
+                ))}
+                {/* <div className="Pay-detail-product">
                 <input className="cb-payment" type="checkbox"/>
                     <img src={Book} alt="book" className="Pay-book-img"/>
                     <div className="Pay-book-name">
@@ -37,7 +85,7 @@ export function Pay() {
                     <div className="Pay-detail-Total">
                         50 USD
                     </div>
-                </div>
+                </div> */}
                 
                 <hr />
                 <div className="Pay-money">

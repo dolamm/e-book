@@ -25,7 +25,7 @@ const get3Book = async () => {
     }
 }
 
-export function NavHome() {
+export function NavHome({uid}) {
 
     const [books, setBooks] = useState([]);
 
@@ -60,14 +60,16 @@ export function NavHome() {
                 <div className="vertical">
                     
                 </div>
-                <div className="navhome-category">
+                <Link to={`/allcategory/all`} className="navhome-category">
                     <h5>Category</h5>
                     <FaBars className="i-bars"/>
-                </div>
+                </Link>
                 <img src={books[0].image} alt="book" className="bg-book bg-book1"/>
                 <img src={books[1].image} alt="book" className="bg-book bg-book2"/>
                 <img src={books[2].image} alt="book" className="bg-book bg-book3"/>
-                <FaShoppingCart className="nav-cart"/>
+                <Link to={`/pay/${uid}`} className="navhome-cart">
+                    <FaShoppingCart className="nav-cart"/>
+                </Link>
             </div>
             <div className="navbar-home">
                 <a className="sub-navbar" href="/home">Home</a>

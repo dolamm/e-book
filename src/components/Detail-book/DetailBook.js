@@ -3,36 +3,40 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { app, auth, db } from "../Firebase";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "../../css/Detail/DetailBook.css";
 import "../../css/global.css";
 import Book from "../../img/book1.png";
 import { FaLongArrowAltRight, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook } from "react-icons/fa";
 
+const storage = getStorage(app);
+
+const docRef = doc(db, "cart", new Date().getTime().toString());
+
+const addToCart = async (item) => {
+    try {
+        const data = {
+            title: item.title,
+            image: item.image,
+            price: item.price,
+            category: item.category,
+            book_id: item.id,
+            author: item.author,
+            user_id: auth.currentUser.uid,
+        };
+        await setDoc(docRef, data).then(() => {
+            alert("Thêm vào giỏ hàng thành công");
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export function DetailBook({item}) {
-//   const { id } = useParams();
 
-//   const getInfo = async () => {
-//     try {
-//       const q = query(collection(db, "books"), where("id", "==", id));
-//       const querySnapshot = await getDocs(q);
-//       let data = [];
-//       querySnapshot.forEach((doc) => {
-//         data.push(doc.data());
-//         console.log(doc.data);
-//       });
-//       return data[0];
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-//   const [book, setBook] = useState([]);
-//   useEffect(() => {
-//     getInfo().then((data) => {
-//       setBook(data);
-//       console.log(data);
-//     });
-//   }, []);
+    const handleBuy = () => {
+        addToCart(item);
+    };
 
   return item.length === 0 ? (
     <div id="loading" className="loading-modal"></div>
@@ -91,7 +95,7 @@ export function DetailBook({item}) {
           <div className="Buy">
             <div className="all-btn">
               <div>
-                <button className="btn-cart">
+                <button onClick={handleBuy} className="btn-cart">
                   <FaCartPlus />
                   <b className="sp-btn">Add to cart</b>
                 </button>

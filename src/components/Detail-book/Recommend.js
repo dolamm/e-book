@@ -10,6 +10,8 @@ import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot
 
 export function Recommend({item}) {
 
+    const [book, setBook] = useState('');
+
     console.log(item.category);
 
     const getInfo = async () => {
@@ -20,21 +22,19 @@ export function Recommend({item}) {
           querySnapshot.forEach((doc) => {
             data.push(doc.data());
             console.log(doc.data);
-          });
-          return data;
+          }); 
+          setBook(data);
+          console.log(book)
         } catch (error) {
           console.log(error);
         }
       };
 
-    const [book, setBook] = useState([]);
-
     useEffect(() => {
-        getInfo().then((data) => {
-            setBook(data);
-            console.log(data);
-        });
-    }, []);
+        getInfo()
+    },[item]);
+
+    console.log(book);
 
     return (    
         <div className="Recommend">

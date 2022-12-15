@@ -28,6 +28,7 @@ export function Detail() {
   };
 
   const [book, setBook] = useState([]);
+  
   useEffect(() => {
     getInfo().then((data) => {
       setBook(data);
