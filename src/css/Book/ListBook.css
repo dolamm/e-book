@@ -1,9 +1,9 @@
-.ListBook{
-    
-}
+
 .grid-listbook{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 35px;
     margin: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }

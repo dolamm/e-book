@@ -35,44 +35,31 @@ export function Profile({user_info}) {
         <div className='Profile'>
             <NavDetail />
             <div className="name-category">
-                <img src={user_info.photoURL}/>
+                <img className="name-category-img" src={user_info.photoURL}/>
             <p className="name-category-text">
                 {user_info.displayName}
             </p>
+            </div>
             <div className="Blog-contain">
                 <div className="Blog-left">
-                    <img className="Blog-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
-                    <br/>
-                    <span className="Blog-date">December 2,2022 /</span>
-                    <span className="Blog-Author">By Thanh Hieu</span> <br/>
-                    <a className="Blog-Title" href="/">5 Attractive Bookstore WordPress Themes</a>
-                    <p className="Blog-Content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat […]
-                    </p>
-                    <a className="Blog-Viewmore" href="/">
-                        View More
-                        <FaGreaterThan /> 
-
-                    </a>
-                    <hr/>
-
-
-                    {/* test */}
-                    <img className="Blog-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
-                    <br/>
-                    <span className="Blog-date">December 2,2022 /</span>
-                    <span className="Blog-Author">By Thanh Hieu</span> <br/>
-                    <a className="Blog-Title" href="/">5 Attractive Bookstore WordPress Themes</a>
-                    <p className="Blog-Content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat […]
-                    </p>
-
+                    {blogs&&blogs.map((item) => (
+                        <div className="Blog">
+                            <img className="Blog-img" src={item.image} alt="Book"></img>
+                            <br/>
+                            <span className="Blog-date">  </span>
+                            <span className="Blog-Author">By {item.uid}</span> <br/>
+                            <a className="Blog-Title" href="/">{item.title}</a>
+                            <p className="Blog-Content">
+                            {item.content}
+                            </p>
+                            <a className="Blog-Viewmore" href="/">
+                                View More
+                                <FaGreaterThan />
+                            </a>
+                            <hr/>
+                        </div>
+                    ))
+                    }
                 </div>
                 <div className="Blog-right">
                     <div className="Create-Blog">
@@ -81,9 +68,6 @@ export function Profile({user_info}) {
                             <Link to={`/createblog`} className="btn-create">Create</Link>
                             <FaPlusCircle />
                         </button>
-
-
-                        <p>Tạo data xóa dòng này đi: tạo blog bao gồm title, 1 hình nền, tên tác giả, ngày khởi tạo , nội dung</p>
                     </div>
                     <div className="Create-Blog Edit-profile">
                         <p>Edit profile</p>
@@ -101,7 +85,7 @@ export function Profile({user_info}) {
                     </div>
                 </div>
             </div>                     
-        </div>
+        
         
             <Footer />
         </div>

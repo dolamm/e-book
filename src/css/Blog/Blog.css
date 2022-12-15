@@ -84,6 +84,9 @@
 }
 .btn-create{
     padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
 }
 .Recent-Post-Contain{
     display: flex;

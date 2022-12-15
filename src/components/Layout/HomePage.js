@@ -7,6 +7,7 @@ import { BookList } from '../Books/BookList';
 import { app, auth, db } from "../Firebase";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { FaBookOpen } from "react-icons/fa";
 
 export function HomePage({user_info}) {
 
@@ -18,11 +19,11 @@ export function HomePage({user_info}) {
         <div className='home'>
             <div className='notify-tab'>
                     <Link to={`/profile/${user_id}`} className="avatar-img">
-                        <img src={userAvatar} className="rounded-circle" height="40" alt="Black and White Portrait of a Man" loading="lazy"/>
+                        <img src={userAvatar} className="avatar-circle" alt="Avatar" loading="lazy"/>
                     </Link>
                     <span>
                         <span className="avatar-name">{userName}</span>
-                        <span className="notify-text">Đã có 1 cuốn sách mới được thêm vào thư viện</span>
+                        <span className="notify-text">Welcome to our BookShop!! <FaBookOpen /></span>
                     </span>
             </div>
             <NavHome uid={user_id}/>

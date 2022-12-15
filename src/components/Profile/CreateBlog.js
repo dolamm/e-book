@@ -10,6 +10,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Footer } from '../Layout/BookFooter';
 import { NavDetail } from '../Detail-book/NavDetail';
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const storage = getStorage(app);
 
@@ -42,7 +43,7 @@ export function CreateBlog() {
         <div className="CreateBlog">
             <NavDetail />
             <div className="CreateBlog-Container">
-                <div className="CreateBlog-Title">
+                <div className="name-category-text">
                     <h1>Create Blog</h1>
                 </div>
                 <div className="CreateBlog-Content">
@@ -52,14 +53,12 @@ export function CreateBlog() {
                     </div>
                     <div className="CreateBlog-Content-Content">
                         <p>Content</p>
-                        <textarea id="content" placeholder="Content"></textarea>
+                        <textarea id="content" rows="4" cols="120" placeholder="Content"></textarea>
                     </div>
-                    <div className="CreateBlog-Content-Image">
-                        <p>Image</p>
-                        <input type="file" id="image" />
-                    </div>
-                    <div className="CreateBlog-Content-Button">
-                        <button onClick={postBlog}>Post</button>
+                    <label class="form-label" for="customFile">Add cover image</label>
+                    <input type="file" class="form-control" id="customFile" />
+                    <div className="CreateBlog-Content-Button post-blog">
+                        <button onClick={postBlog} type="button" class="btn btn-primary">Post</button>
                     </div>
                 </div>
             </div>
