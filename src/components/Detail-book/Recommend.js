@@ -16,7 +16,7 @@ export function Recommend({item}) {
 
     const getInfo = async () => {
         try {
-          const q = query(collection(db, "books"), where("category", "array-contains", item.category[0]));
+          const q = query(collection(db, "books"), where("category", "array-contains", item.category[0]), limit(4));
           const querySnapshot = await getDocs(q);
           let data = [];
           querySnapshot.forEach((doc) => {

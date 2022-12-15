@@ -47,7 +47,7 @@ export function Profile({user_info}) {
                             <img className="Blog-img" src={item.image} alt="Book"></img>
                             <br/>
                             <span className="Blog-date">  </span>
-                            <span className="Blog-Author">By {item.uid}</span> <br/>
+                            <span className="Blog-Author">By {item.displayName}</span> <br/>
                             <a className="Blog-Title" href="/">{item.title}</a>
                             <p className="Blog-Content">
                             {item.content}
