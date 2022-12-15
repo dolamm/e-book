@@ -32,7 +32,7 @@ export function AllCategory() {
             setBookonpage(data);
             console.log(bookonpage);
         })
-    }, [bookonpage])
+    }, [category_id])
 
     const category = {
         all: "all",
@@ -96,7 +96,7 @@ export function AllCategory() {
                         <Link to={`/allcategory/${category.tragedy}`} className="content-category-button">
                             <button type="">Tragedy</button>
                         </Link>
-                        <Link to="/home" className="content-category-button-back">
+                        <Link to="/homepage" className="content-category-button-back">
                             <button type="">Back to home</button>
                         </Link>
 

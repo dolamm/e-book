@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useState, useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { Route, Routes } from 'react-router-dom';
 import { auth } from './components/Firebase';
@@ -19,7 +19,7 @@ import { Pay } from './components/Payment/Pay';
 import { Profile } from './components/Profile/Profile';
 import { DetailBlog } from './components/Blog/DetailBlog';
 import { AllCategory } from './components/Category/AllCategory';
-import {HomePage } from './components/Layout/HomePage';
+import { HomePage } from './components/Layout/HomePage';
 
 
 export default function App() {
@@ -28,15 +28,17 @@ export default function App() {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      const Name = user.displayName;
-      console.log(Name);
-      setUser(Name);
+      const User = auth.currentUser;
+      setUser(User);
+      console.log(user)
     } else {
       console.log("User is signed out");
     }
   });
 
-  return (
+  return user === null ? (
+    <div id="loading" className="loading-modal"></div>
+  ) :  (
     <div className="App">
       <Routes>
         <Route path="/" element={<SignIn/>}/>
@@ -51,14 +53,14 @@ export default function App() {
         <Route path="/detail" element={<Detail/>}/>
         <Route path="/blog" element={<Blog/>}/>
         <Route path="/category" element={<Category/>}/>
-        <Route path="/pay" element={<Pay/>}/>
+        <Route path="/pay/:uid" element={<Pay/>}/>
         <Route path="/profile" element={<Profile/>}/>
-        <Route path="/profile/:uid" element={<Profile/>}/>
+        <Route path="/profile/:uid" element={<Profile user_info={user}/>}/>
         <Route path="/detailblog" element={<DetailBlog/>}/>
         <Route path="/book/:id" element={<Detail/>}/>
         <Route path="/allcategory" element={<AllCategory/>}/>
         <Route path="/allcategory/:category_id" element={<AllCategory/>}/>
-        <Route path="/homepage" element={<HomePage/>}/>
+        <Route path="/homepage" element={<HomePage user_info={user}/>}></Route>
       </Routes>
     </div>
   )

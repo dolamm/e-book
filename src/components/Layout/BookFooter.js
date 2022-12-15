@@ -14,7 +14,7 @@ export function Footer() {
                     <img src={logo} alt="logo-footer" className="logo-footer" />
                 </li>
                 <li>
-                    Adress: 35 Lê Văn Chí, P. Linh Trung, Quận Thử Đức, TP.HCM
+                    Address: 35 Lê Văn Chí, P. Linh Trung, Quận Thủ Đức, TP.HCM
                 </li>
                 <li>
                     <a className="map" href="/">Show on map</a>

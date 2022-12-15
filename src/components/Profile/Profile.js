@@ -10,41 +10,43 @@ import { Footer } from '../Layout/BookFooter';
 import { NavDetail } from '../Detail-book/NavDetail';
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
 
-export function Profile() {
+export function Profile({user_info}) {
 
     const [user, setUser] = useState([]);
     const {uid} = useParams();
 
-    const getInfo = async () => {
-        try {
-            const q = query(collection(db, "users"), where("uid", "==", uid));
-            const querySnapshot = await getDocs(q);
-            let data = [];
-            querySnapshot.forEach((doc) => {
-                data.push(doc.data());
-                console.log(doc.data)
-            })
-            return data[0];
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // const getInfo = async () => {
+    //     try {
+    //         const q = query(collection(db, "users"), where("uid", "==", uid));
+    //         const querySnapshot = await getDocs(q);
+    //         let data = [];
+    //         querySnapshot.forEach((doc) => {
+    //             data.push(doc.data());
+    //             console.log(doc.data)
+    //         })
+    //         return data[0];
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
-    useEffect(() => {
-        getInfo().then((data) => {
-            setUser(data);
-            console.log(data);
-        })
-    }, [])
+    // useEffect(() => {
+    //     getInfo().then((data) => {
+    //         setUser(data);
+    //         console.log(data);
+    //     })
+    // }, [])
 
     return (
         <div className='Profile'>
             <NavDetail />
             <div className="name-category">
-                <img src={user.photoURL}/>
-            <p className="name-category-text">
-                {user.userName}
-            </p>
+                <span><img src={user_info.photoURL}/></span>
+                <span>
+                    <p className="name-category-text">
+                        {user_info.displayName}
+                    </p>
+                </span>
             <div className="Blog-contain">
                 <div className="Blog-left">
                     <img className="Blog-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
