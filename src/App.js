@@ -22,6 +22,7 @@ import { AllCategory } from './components/Category/AllCategory';
 import { HomePage } from './components/Layout/HomePage';
 import { CreateBlog } from './components/Profile/Blog';
 
+import './css/global.css';
 
 export default function App() {
 
