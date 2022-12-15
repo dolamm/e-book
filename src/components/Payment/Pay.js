@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { app, auth, db } from "../Firebase";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { Link } from 'react-router-dom';
 
 const getBookFromCart = async (id) => {
     try {
@@ -38,7 +39,15 @@ export function Pay() {
 
     return (
         <div className='Payment'>
-            <p>Để trang thông báo đăng nhập thành công vào: có ava và logout</p>
+            <div className='notify-tab'>
+                    <Link to={`/profile/${uid}`} className="avatar-img">
+                        {/* <img src={userAvatar} className="avatar-circle" alt="Avatar" loading="lazy"/> */}
+                    </Link>
+                    <span>
+                        {/* <span className="avatar-name">{userName}</span> */}
+                        <span className="notify-text">Lets pay!! </span>
+                    </span>
+            </div>
             <p className="Pay-title">
                 <img src={logo} alt="logo" className="logo-pay" />
                 <span>Payment</span>
