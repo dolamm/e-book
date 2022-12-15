@@ -46,10 +46,10 @@ export function NavHome({uid}) {
                 <img src={bg} alt="bg" className="bg-nav" />
                 <img src={logo} alt="logo" className="logo-nav" />
                 <div className="nav-content-book">
-                    <h2>{books[0].title}</h2>
+                    <h2>{books[0].title.substr(0,6)+"..."}</h2>
                     <h3>By <span>{books[0].author}</span></h3>
                     <div className="nav-content-book-text">
-                        {books[0].description}
+                        {books[0].description.substr(0,120)+"..."}
                     </div>
                 </div>
                 <Link to={`/book/${books[0].id}`} className="navhome-seemore">

@@ -71,7 +71,7 @@ export function UpdateProfile() {
                       <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="button" class="btn btn-primary btn-lg" onClick={handleUpdate} >Update Profile</button>
                       </div>
-                      {isUpdate && <Navigate to="/home" />}
+                      {isUpdate && <Navigate to="/homepage" />}
                     </form>
                   </div>
                 </div>

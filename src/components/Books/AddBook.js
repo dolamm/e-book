@@ -39,7 +39,7 @@ const addBook = () => {
                     description: description,
                     image: url,
                     price: price,
-                    keywords: generateKeywords(title)
+                    // keywords: generateKeywords(title)
             }
             setDoc(docRef, data).then(() => {
                 console.log("Document written with ID: ", docRef.id);
