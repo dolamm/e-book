@@ -19,12 +19,14 @@ const docRef = doc(db, "blogs", new Date().getTime().toString());
 const postBlog = () => {
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
-    const image = document.getElementById("image").files[0];
+    const image = document.getElementById("customFile").files[0];
     const uid = auth.currentUser.uid;
+    const displayName = auth.currentUser.displayName;
     const storageRef = ref(storage, `blogs/${image.name}`);
     uploadBytes(storageRef, image).then((snapshot) => {
         getDownloadURL(snapshot.ref).then((url) => {
             setDoc(docRef, {
+                displayName: displayName,
                 title: title,
                 content: content,
                 image: url,

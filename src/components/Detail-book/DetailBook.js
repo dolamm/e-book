@@ -57,6 +57,7 @@ export function DetailBook({item}) {
             <b>Category: </b>
             {
               item.category.map((category) => {
+                if(category != 'all')
                 return <span className='category-item'> {category} </span>
               })
             }
