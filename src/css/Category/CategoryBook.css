@@ -52,6 +52,7 @@ p{
 .Book-item{
     width: 233px;
     height: 326px;
+    border-radius: 20px;
 }
 .Book-name{
     font-size: 20px;
