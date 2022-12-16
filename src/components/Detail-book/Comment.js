@@ -55,23 +55,21 @@ export function Comment({item}) {
 
     useEffect(() => {
         getComments();
-    }, [item]);
+    }, [item, comment()]);
 
     console.log(comments);
 
     return (    
         <div className="Comment">
-            <div className="post-comment">
-                <form onSubmit={comment}>
-                    <img src={auth.currentUser.image} className="avatar-user"></img>
-                    <input type="text" name="content" className="comment-input" placeholder='Write'/>
+                <form className="post-comment" onSubmit={comment}>
+                    <input type="text" name="content" className="comment-input" placeholder="write your comment"/>
                     <button id="submit-comment" type="submit">
                         <FaPaperPlane />
                     </button>
                 </form>
-            </div>
-            <div className="comment">
+            <div id="display-comment" className="comment">
                 {comments&&comments.map((comment) => (
+                    
                     <div className="comment-item">
                         <div className="comment-item-avatar">
                             <img src={comment.photoURL} alt="" />

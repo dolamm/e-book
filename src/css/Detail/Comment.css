@@ -3,6 +3,12 @@
     src: url('/src/font/MTO Chancery.ttf');
 }
 
+#display-comment{
+    height: 280px;
+    overflow-y: scroll !important;
+    scrollbar-width: 2px;
+}
+
 .comment-item-avatar img{
     border-radius: 100%;
     height: 40px;
@@ -10,31 +16,37 @@
 }
 
 #submit-comment{
+    color: aliceblue;
     width: 107px;
-    height: 58px;
+    height: 60px;
     z-index: 2;
-    position: absolute;
-    padding: 7px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    top: 886px;
-    left: 1209px;
     background-color: cornflowerblue;
     border: none;
 }
 
-.comment-input{
-    width: 74em;
-    height: 58px;
-    border-radius: 50px;
-    border: none;
-}
-
 .post-comment{
+    display: flex;
     width: 100%;
     height: 60px;
-    border: 1px solid #ccc;
+    margin: 0 auto;
+    margin-top: 30px;
     border-radius: 50px;
+}
+.comment-input{
+    width: 100%;
+    height: 60px;
+    border-bottom-left-radius: 50px 50px;
+    border-top-left-radius: 50px 50px;
+}
+
+input[type=text]{
+    padding: 12px 20px;
+}
+
+.comment-input{
+    border: 1px solid #ccc;
 }
 
 .Comment{
