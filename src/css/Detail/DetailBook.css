@@ -152,4 +152,10 @@
     margin: 0 2px;
     color: white;
     padding: 0 5px;
+    text-decoration: none;
+}
+
+.category-item:hover{
+    background-color: aliceblue;
+    color: red;
 }

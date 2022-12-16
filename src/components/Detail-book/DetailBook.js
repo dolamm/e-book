@@ -58,7 +58,7 @@ export function DetailBook({item}) {
             {
               item.category.map((category) => {
                 if(category != 'all')
-                return <span className='category-item'> {category} </span>
+                return <span> <a className='category-item' href={`/allcategory/${category}`}>{category}</a> </span>
               })
             }
           </div>
