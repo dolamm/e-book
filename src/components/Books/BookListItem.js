@@ -1,9 +1,7 @@
 import React from "react";
-import "../../css/List.css"
 import "../../css/Category/CategoryBook.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from "react-router-dom";
-import "../../css/Book/ListBook.css"
 
 const Item = ({item}) => {
     return(

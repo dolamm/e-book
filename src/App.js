@@ -6,7 +6,7 @@ import { SignIn } from './components/LoginComponents/SignIn';
 import { SignUp } from './components/LoginComponents/SignUp';
 import { SignOut} from './components/LoginComponents/SignOut';
 import { UpdateProfile } from './components/User/UpdateProfile';
-import { HomeScreen } from './components/Layout/HomeScreen';
+
 import { AddBook } from './components/Books/AddBook';
 import { SearchBook } from './components/Books/SearchBook';
 import { ChatRoom } from './components/Chat/ChatRoom';
@@ -45,7 +45,6 @@ export default function App() {
         <Route path="/" element={<SignIn/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/signout" element={<SignOut/>}/>
-        <Route path="/home" element={<HomeScreen/>}/>
         <Route path="/update" element={<UpdateProfile/>}/>
         <Route path="/update/:uid" element={<UpdateProfile/>}/>
         <Route path="/addbook" element={<AddBook/>}/>

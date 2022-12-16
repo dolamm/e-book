@@ -1,6 +1,5 @@
 import React from "react";
 import Message from "./Message";
-import "../../css/List.css"
 import { useEffect, useState, useRef } from "react";
 import { app, auth, db } from '../Firebase';
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";

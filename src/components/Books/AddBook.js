@@ -1,5 +1,4 @@
-import { Nav } from '../Layout/NavBar';
-import "../../css/List.css"
+
 import {useState, useEffect} from 'react';
 import { app, auth, db, generateKeywords } from '../Firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -76,7 +75,7 @@ export function AddBook() {
     }, [])
     return (
         <div>
-            <Nav/>
+            {/* <Navdetail/> */}
             <section class="vh-100">
                 <div class="container-fluid h-custom">
                 <div class="row d-flex justify-content-center align-items-center h-100">
