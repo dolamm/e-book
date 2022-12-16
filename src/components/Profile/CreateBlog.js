@@ -23,6 +23,9 @@ const postBlog = () => {
     const uid = auth.currentUser.uid;
     const displayName = auth.currentUser.displayName;
     const storageRef = ref(storage, `blogs/${image.name}`);
+    const createAt = new Date();
+    const time = createAt.getDate() + "/" + (createAt.getMonth()) + "/" + createAt.getFullYear() 
+    + " " + createAt.getHours() + ":" + createAt.getMinutes() + ":" + createAt.getSeconds();
     uploadBytes(storageRef, image).then((snapshot) => {
         getDownloadURL(snapshot.ref).then((url) => {
             setDoc(docRef, {
@@ -31,7 +34,7 @@ const postBlog = () => {
                 content: content,
                 image: url,
                 uid: uid,
-                time: serverTimestamp(),
+                time: time
             });
         });
         alert("Post thành công");

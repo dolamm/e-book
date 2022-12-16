@@ -21,7 +21,10 @@ export function Comment({item}) {
         const { uid, photoURL, displayName } = auth.currentUser;
         const { content } = e.target.elements;
         console.log(content.value)
-        const time = serverTimestamp();
+        const commentAt = new Date();
+        const time = commentAt.getDate() + "/" + (commentAt.getMonth()) + "/" + commentAt.getFullYear() 
+        + " " + commentAt.getHours() + ":" + commentAt.getMinutes() + ":" + commentAt.getSeconds();
+        console.log(time);
         await setDoc(docRef, {
             content: content.value,
             displayName: displayName,
@@ -55,7 +58,7 @@ export function Comment({item}) {
 
     useEffect(() => {
         getComments();
-    }, [item, comment()]);
+    }, [item]);
 
     console.log(comments);
 
@@ -75,7 +78,7 @@ export function Comment({item}) {
                             <img src={comment.photoURL} alt="" />
                         </div>
                         <div className="comment-item-content">
-                            <p className="user-name">{comment.displayName}</p>
+                                <p className="user-name">{comment.displayName} <span className="comment-time">{comment.time}</span></p>
                             <p>{comment.content}</p>
                         </div>
                     </div>

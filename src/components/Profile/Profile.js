@@ -46,8 +46,10 @@ export function Profile({user_info}) {
                         <div className="Blog">
                             <img className="Blog-img" src={item.image} alt="Book"></img>
                             <br/>
-                            <span className="Blog-date">  </span>
-                            <span className="Blog-Author">By {item.displayName}</span> <br/>
+                            <span className="Blog-date">{item.time}</span>
+                            <span className="Blog-Author"> - By <a>{item.displayName}</a></span> 
+                            
+                            <br/>
                             <a className="Blog-Title" href="/">{item.title}</a>
                             <p className="Blog-Content">
                             {item.content}
@@ -78,7 +80,6 @@ export function Profile({user_info}) {
                     </div>
                     <div className="Search-Blog">
                         <p>Search Blogs</p>
-
                             <input className="ip-Search-blog" type="text" placeholder="Search"/>
                             <FaSearch />
                         
