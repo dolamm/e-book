@@ -53,6 +53,7 @@ p{
     width: 233px;
     height: 326px;
     border-radius: 20px;
+    border: 1px solid rgb(228, 228, 228);
 }
 .Book-name{
     font-size: 20px;

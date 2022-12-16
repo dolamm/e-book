@@ -1,6 +1,5 @@
 import React from "react";
 import Item from "./BookListItem";
-import "../../css/List.css";
 import { useEffect, useState } from "react";
 import { app, auth, db } from '../Firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";

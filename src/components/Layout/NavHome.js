@@ -25,17 +25,31 @@ const get3Book = async () => {
     }
 }
 
+    const getCategories = async () => {
+        const category = query(collection(db, "categories"));
+        const querySnapshot = await getDocs(category);
+        let data = [];
+        data.push("all");
+        querySnapshot.forEach((doc, index) => {
+            data.push(doc.id);
+            console.log(doc.id)
+        })
+        return data;
+    }
+
 export function NavHome({uid}) {
-
+    const [categories, setCategories] = useState([]);
     const [books, setBooks] = useState([]);
-
     useEffect(() => {
             get3Book().then((data) => {
                 setBooks(data);
                 console.log(data);
             })
+            getCategories().then((data) => {
+                setCategories(data);
+                console.log(data);
+            })
     }, [])
-
     console.log(books);
     
     return books.length === 0 ? (
@@ -54,21 +68,26 @@ export function NavHome({uid}) {
                             {books[0].description.substr(0,120)+"..."}
                     </div>
                 </div>
-                <Link to={`/book/${books[0].id}`} className="navhome-seemore">
+                <div className="navhome-seemore">
                     <h4>See more</h4>
-                </Link>
+                </div>
                 <input type="text" className="Search-nav" placeholder="Search" />
                 <FaSearch className="i-search"/>
                 <div className="vertical">
                     
                 </div>
-                <Link to={`/allcategory/all`} className="navhome-category">
+                <div id="category-menu" className="navhome-category">
                     <h5>Category</h5>
                     <FaBars className="i-bars"/>
-                </Link>
-                <Link to={`/book/${books[0].id}`}><img src={books[0].image} alt="book" className="bg-book bg-book1"/></Link>
-                <Link to={`/book/${books[1].id}`}><img src={books[1].image} alt="book" className="bg-book bg-book2"/></Link>
-                <Link to={`/book/${books[2].id}`}><img src={books[2].image} alt="book" className="bg-book bg-book3"/></Link>
+                    <div id="category-list" className="navhome-category-list">
+                        {categories.map((category, index) => (
+                            <p><a href={`/allcategory/${category}`} key={index}>{category}</a></p>
+                        ))}
+                    </div>
+                </div>
+                <img src={books[0].image} alt="book" className="bg-book bg-book1"/>
+                <img src={books[1].image} alt="book" className="bg-book bg-book2"/>
+                <img src={books[2].image} alt="book" className="bg-book bg-book3"/>
                 <Link to={`/pay/${uid}`} className="navhome-cart">
                     <FaShoppingCart className="nav-cart"/>
                 </Link>

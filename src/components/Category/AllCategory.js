@@ -103,12 +103,12 @@ export function AllCategory() {
                     </div>
                     <div className="content-category">
                     <div className="content-category-right">
-                        <div class="grid-CateBook">
+                        <div class="grid-CateBook-1">
                             {bookonpage.map((book) => (
-                                <div className="Cate-Book">
+                                <div className="Cate-Book-1">
                                     <img src={book.image
-                                    } alt="Book" className="Book-item"/>
-                                    <p className="Book-name">{book.name}</p>
+                                    } alt="Book" className="Book-item-1"/>
+                                    <p className="Book-name">{book.title.substr(0,20)+"..."}</p>
                                     <p className="Author-name">{book.author}</p>
                                     <p className="Price-Category">{book.price}$</p>
                                 </div>
