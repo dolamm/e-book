@@ -85,9 +85,9 @@ export function NavHome({uid}) {
                         ))}
                     </div>
                 </div>
-                <img src={books[0].image} alt="book" className="bg-book bg-book1"/>
-                <img src={books[1].image} alt="book" className="bg-book bg-book2"/>
-                <img src={books[2].image} alt="book" className="bg-book bg-book3"/>
+                <Link to={`/book/${books[0].id}`}><img src={books[0].image} alt="book" className="bg-book bg-book1"/></Link>
+                <Link to={`/book/${books[1].id}`}><img src={books[1].image} alt="book" className="bg-book bg-book2"/></Link>
+                <Link to={`/book/${books[2].id}`}><img src={books[2].image} alt="book" className="bg-book bg-book3"/></Link>
                 <Link to={`/pay/${uid}`} className="navhome-cart">
                     <FaShoppingCart className="nav-cart"/>
                 </Link>
