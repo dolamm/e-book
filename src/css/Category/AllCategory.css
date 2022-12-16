@@ -61,7 +61,12 @@
 }
 .content-category-button{
     width: 265px;
-
+}
+.content-category-button :hover{
+    background-color: aliceblue; 
+}
+.active-category{
+    color: red;
 }
 .content-category-button button{
     border: none;

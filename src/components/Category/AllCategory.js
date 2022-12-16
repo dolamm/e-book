@@ -7,6 +7,7 @@ import { Footer } from '../Layout/BookFooter';
 import "../../css/Category/AllCategory.css"
 import Book from '../../img/book1.png'
 import { FaFilter, FaLongArrowAltRight } from "react-icons/fa";
+import Item from "../Books/BookListItem";
 
 export function AllCategory() {
 
@@ -27,23 +28,27 @@ export function AllCategory() {
         }
     }
 
+    const [category, setCategories] = useState([]);
+    const getCategories = async () => {
+        const category = query(collection(db, "categories"));
+        const querySnapshot = await getDocs(category);
+        let data = [];
+        data.push('all');
+        querySnapshot.forEach((doc, index) => {
+            data.push(doc.id);
+        })
+        return data;
+    }
+
     useEffect (() => {
         getBooksByCategory().then((data) => {
             setBookonpage(data);
             console.log(bookonpage);
         })
+        getCategories().then((data) => {
+            setCategories(data);
+        })
     }, [category_id])
-
-    const category = {
-        all: "all",
-        action: "action",
-        comedy: "comedy",
-        drama: "drama",
-        fantasy: "fantasy",
-        romance: "romance",
-        science: "science-fiction",
-        tragedy: "tragedy",
-    }
 
     return bookonpage.length==0 ? (
         <div id="loading" className="loading-modal"></div>
@@ -72,10 +77,14 @@ export function AllCategory() {
                 </div>
                 <div className="contain-category">
                     <div className="content-category-left">
-                        <Link to={`/allcategory/${category.all}`} className="content-category-button">
-                            <button type="">All</button>
-                        </Link>
-                        <Link to={`/allcategory/${category.action}`} className="content-category-button">
+                        {
+                            category.map((cate) => (
+                                <Link to={`/allcategory/${cate}`} className="content-category-button">
+                                    <button className={cate == category_id ? ("active-category") : ("")}type="">{cate}</button>
+                                </Link>
+                            ))
+                        }
+                        {/* <Link to={`/allcategory/${category.action}`} className="content-category-button">
                             <button type="">Action</button>
                         </Link>
                         <Link to={`/allcategory/${category.comedy}`} className="content-category-button">
@@ -95,23 +104,23 @@ export function AllCategory() {
                         </Link>
                         <Link to={`/allcategory/${category.tragedy}`} className="content-category-button">
                             <button type="">Tragedy</button>
-                        </Link>
+                        </Link> */}
                         <Link to="/homepage" className="content-category-button-back">
                             <button type="">Back to home</button>
                         </Link>
-
                     </div>
                     <div className="content-category">
                     <div className="content-category-right">
                         <div class="grid-CateBook">
                             {bookonpage.map((book) => (
-                                <div className="Cate-Book">
-                                    <img src={book.image
-                                    } alt="Book" className="Book-item"/>
-                                    <p className="Book-name">{book.name}</p>
-                                    <p className="Author-name">{book.author}</p>
-                                    <p className="Price-Category">{book.price}$</p>
-                                </div>
+                                <Item item={book} />
+                                // <div className="Cate-Book">
+                                //     <img src={book.image
+                                //     } alt="Book" className="Book-item"/>
+                                //     <p className="Book-name">{book.name}</p>
+                                //     <p className="Author-name">{book.author}</p>
+                                //     <p className="Price-Category">{book.price}$</p>
+                                // </div>
                             ))}
                         {/* <div className="Cate-Book">
                             <img src={Book} alt="Book" className="Book-item"/>
