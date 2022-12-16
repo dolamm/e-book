@@ -36,7 +36,6 @@ export function Comment({item}) {
             console.log("Document written with ID: ", docRef.id);
             alert("Comment thành công");
         });
-        alert("Comment thành công");
     };
 
     const [comments, setComments] = useState([]);

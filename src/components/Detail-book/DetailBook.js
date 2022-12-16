@@ -7,7 +7,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "../../css/Detail/DetailBook.css";
 import "../../css/global.css";
 import Book from "../../img/book1.png";
-import { FaLongArrowAltRight, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook } from "react-icons/fa";
+import { FaLongArrowAltRight, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook, FaBookOpen} from "react-icons/fa";
 
 const storage = getStorage(app);
 
@@ -52,7 +52,7 @@ export function DetailBook({item}) {
       <div className="Detail">
         <img src={item.image} alt="Book" className="Book-img" />
         <div className="right">
-          <h1 className="Book-title">{item.title}</h1>
+          <marquee className="Book-title">{item.title}</marquee>
           <div className="Category">
             <b>Category: </b>
             {
@@ -103,6 +103,10 @@ export function DetailBook({item}) {
                 <button className="btn-cart">
                   <FaMoneyBillWave />
                   <b className="sp-btn">Buy</b>
+                </button>
+                <button className="btn-cart">
+                  <FaBookOpen />
+                  <b className="sp-btn">preview</b>
                 </button>
               </div>
             </div>
