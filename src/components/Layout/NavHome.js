@@ -60,10 +60,12 @@ export function NavHome({uid}) {
                 <img src={bg} alt="bg" className="bg-nav" />
                 <img src={logo} alt="logo" className="logo-nav" />
                 <div className="nav-content-book">
-                    <h2>{books[0].title.substr(0,6)+"..."}</h2>
+                    <h2>
+                        <marquee>{books[0].title}</marquee>
+                    </h2>
                     <h3>By <span>{books[0].author}</span></h3>
                     <div className="nav-content-book-text">
-                        {books[0].description.substr(0,120)+"..."}
+                            {books[0].description.substr(0,120)+"..."}
                     </div>
                 </div>
                 <div className="navhome-seemore">
@@ -83,9 +85,9 @@ export function NavHome({uid}) {
                         ))}
                     </div>
                 </div>
-                <img src={books[0].image} alt="book" className="bg-book bg-book1"/>
-                <img src={books[1].image} alt="book" className="bg-book bg-book2"/>
-                <img src={books[2].image} alt="book" className="bg-book bg-book3"/>
+                <Link to={`/book/${books[0].id}`}><img src={books[0].image} alt="book" className="bg-book bg-book1"/></Link>
+                <Link to={`/book/${books[1].id}`}><img src={books[1].image} alt="book" className="bg-book bg-book2"/></Link>
+                <Link to={`/book/${books[2].id}`}><img src={books[2].image} alt="book" className="bg-book bg-book3"/></Link>
                 <Link to={`/pay/${uid}`} className="navhome-cart">
                     <FaShoppingCart className="nav-cart"/>
                 </Link>

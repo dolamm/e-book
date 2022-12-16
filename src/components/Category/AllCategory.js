@@ -111,7 +111,7 @@ export function AllCategory() {
                     </div>
                     <div className="content-category">
                     <div className="content-category-right">
-                        <div class="grid-CateBook">
+                        <div class="grid-CateBook-1">
                             {bookonpage.map((book) => (
                                 <Item item={book} />
                                 // <div className="Cate-Book">

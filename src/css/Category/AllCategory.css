@@ -103,3 +103,22 @@
     width: 600px;
     float: right;
 }
+.grid-CateBook-1{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+    padding: 10px;
+    border-top: 1px solid rgb(228, 228, 228);
+}
+.Cate-Book-1{
+    align-self: center;
+    justify-self: center;
+    padding-bottom: 30px;
+}
+.Book-item-1{
+    width: 233px;
+    height: 326px;
+    border-radius: 20px;
+    border: 1px solid rgb(228, 228, 228);
+}

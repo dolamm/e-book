@@ -2,6 +2,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import "../../css/Detail/DetailBook.css"
+import Item from "../../components/Books/BookListItem";
 import Book from '../../img/book1.png'
 import { FaGreaterThan } from "react-icons/fa";
 import { limit } from 'firebase/firestore';
@@ -44,16 +45,11 @@ export function Recommend({item}) {
             
             <p className="More">View More <FaGreaterThan /> <FaGreaterThan /></p>
             <div class="grid-container">
-                {book&&book.map((item) => (
+                {book && book.map((item) => (
                     <div className="grid-item">
                         <img src={item.image} alt="Book" className="Recommend-Book" />
                     </div>
                 ))}
-                {/* <img src={Book} alt="Book" className="Recommend-Book" />
-                <img src={Book} alt="Book" className="Recommend-Book" />
-                <img src={Book} alt="Book" className="Recommend-Book" />
-                <img src={Book} alt="Book" className="Recommend-Book" />
-                <img src={Book} alt="Book" className="Recommend-Book" /> */}
             </div>
             
         </div>
