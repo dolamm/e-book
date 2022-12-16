@@ -20,6 +20,7 @@
 .Book-item{
     position: absolute;
     transition: transform 1s;
+    display: inline-block;
 }
 .Book-item:hover{
     opacity: 0.3;

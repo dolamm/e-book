@@ -10,6 +10,8 @@ const Item = ({item}) => {
                 <img src={item.image} alt="Book" className="Book-item"/>
                 <p direction="up" className="Description-into">{item.description}</p>
             </div>
+            
+
             <Link to={`/book/${item.id}`} className="Book-name">{item.title.substr(0,20)+"..."}</Link>
             <p className="Author-name">{item.author}</p>
             
