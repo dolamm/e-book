@@ -21,13 +21,16 @@ export function Comment({item}) {
         const { content } = e.target.elements;
         const contentValue = content.value;
         const time = serverTimestamp();
-        const docRef = doc(db, "comment", time);
         await setDoc(docRef, {
+            displayName: auth.currentUser.displayName,
             content: contentValue,
             uid: uid,
             time: time,
             photoURL: photoURL,
             book_id: item.id,
+        }).then(() => {
+            console.log("Document written with ID: ", docRef.id);
+            alert("Comment thành công");
         });
         alert("Comment thành công");
     };
