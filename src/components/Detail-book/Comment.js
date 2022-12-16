@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { Link } from "react-router-dom";
 import "../../css/Detail/DetailBook.css"
+import "../../css/Detail/Comment.css"
 import Book from '../../img/book1.png'
 import { FaGreaterThan } from "react-icons/fa";
 import {app, auth, db} from '../Firebase';
@@ -17,13 +18,13 @@ export function Comment({item}) {
 
     const comment = async (e) => {
         e.preventDefault();
-        const { uid, photoURL } = auth.currentUser;
+        const { uid, photoURL, displayName } = auth.currentUser;
         const { content } = e.target.elements;
-        const contentValue = content.value;
+        console.log(content.value)
         const time = serverTimestamp();
         await setDoc(docRef, {
-            displayName: auth.currentUser.displayName,
-            content: contentValue,
+            content: content.value,
+            displayName: displayName,
             uid: uid,
             time: time,
             photoURL: photoURL,
@@ -62,15 +63,16 @@ export function Comment({item}) {
         <div className="Comment">
             <div className="post-comment">
                 <form onSubmit={comment}>
-                    <input type="text" name="content" placeholder="Comment" />
-                    <button type="submit">Comment</button>
+                    <input type="text" name="content" placeholder="Write Your Comment" />
+                    <button id="submit-comment" type="submit">Send Comment</button>
                 </form>
             </div>
             <div className="comment">
-                {comments.map((comment) => (
+                {comments&&comments.map((comment) => (
                     <div className="comment-item">
                         <div className="comment-item-avatar">
                             <img src={comment.photoURL} alt="" />
+                            <p className="user-name">{comment.displayName}</p>
                         </div>
                         <div className="comment-item-content">
                             <p>{comment.content}</p>
@@ -78,17 +80,7 @@ export function Comment({item}) {
                     </div>
                 ))}
             </div>
-            <p className="Recommend-text">Comment
-            <div className="hr"></div>
-            </p> 
-            avatar          Tên
-            Cmnt của người trên
 
-            ô cmt
-
-            
-            
-            
         </div>
         
 )}

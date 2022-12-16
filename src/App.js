@@ -20,8 +20,9 @@ import { Profile } from './components/Profile/Profile';
 import { DetailBlog } from './components/Blog/DetailBlog';
 import { AllCategory } from './components/Category/AllCategory';
 import { HomePage } from './components/Layout/HomePage';
-import { CreateBlog } from './components/Profile/Blog';
+import { CreateBlog } from './components/Profile/CreateBlog';
 
+import './css/global.css';
 
 export default function App() {
 

@@ -10,6 +10,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Footer } from '../Layout/BookFooter';
 import { NavDetail } from '../Detail-book/NavDetail';
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const storage = getStorage(app);
 
@@ -18,12 +19,14 @@ const docRef = doc(db, "blogs", new Date().getTime().toString());
 const postBlog = () => {
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
-    const image = document.getElementById("image").files[0];
+    const image = document.getElementById("customFile").files[0];
     const uid = auth.currentUser.uid;
+    const displayName = auth.currentUser.displayName;
     const storageRef = ref(storage, `blogs/${image.name}`);
     uploadBytes(storageRef, image).then((snapshot) => {
         getDownloadURL(snapshot.ref).then((url) => {
             setDoc(docRef, {
+                displayName: displayName,
                 title: title,
                 content: content,
                 image: url,
@@ -42,7 +45,7 @@ export function CreateBlog() {
         <div className="CreateBlog">
             <NavDetail />
             <div className="CreateBlog-Container">
-                <div className="CreateBlog-Title">
+                <div className="name-category-text">
                     <h1>Create Blog</h1>
                 </div>
                 <div className="CreateBlog-Content">
@@ -52,14 +55,12 @@ export function CreateBlog() {
                     </div>
                     <div className="CreateBlog-Content-Content">
                         <p>Content</p>
-                        <textarea id="content" placeholder="Content"></textarea>
+                        <textarea id="content" rows="4" cols="120" placeholder="Content"></textarea>
                     </div>
-                    <div className="CreateBlog-Content-Image">
-                        <p>Image</p>
-                        <input type="file" id="image" />
-                    </div>
-                    <div className="CreateBlog-Content-Button">
-                        <button onClick={postBlog}>Post</button>
+                    <label class="form-label" for="customFile">Add cover image</label>
+                    <input type="file" class="form-control" id="customFile" />
+                    <div className="CreateBlog-Content-Button post-blog">
+                        <button onClick={postBlog} type="button" class="btn btn-primary">Post</button>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ export function NavDetail() {
             <a className="sub-nav" href="/homepage">Home</a>
             <a className="sub-nav" href="/allcategory/all">Best sellers</a>
             <a className="sub-nav" href="/createblog">Blogs</a>
-            <a className="sub-nav" href="/">ChatRoom</a>
+            <a className="sub-nav" href="/payment">Payment</a>
             <input className="sub-search" type="text" placeholder="Search"/>
         </div>
 )}

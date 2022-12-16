@@ -3,6 +3,13 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 35px;
+<<<<<<< HEAD
     margin: 10px 50px 0px 50px;
 
 }
+=======
+    margin: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+>>>>>>> 05f29d8c0ee988710d38d0e95bf27892b79ed161
