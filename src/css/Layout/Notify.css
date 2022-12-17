@@ -43,3 +43,15 @@ p{
     height: 35px;
     background-color: rgb(164, 163, 163);
 }
+
+.sign-out{
+    margin-left: 10px;
+}
+
+.sign-out a {
+    color: aliceblue;
+}
+
+.sign-out:hover a{
+    color: lightpink;
+}

@@ -9,7 +9,8 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
  import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
  import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
  import "../../css/Payment/Pay.css";
- 
+ import {Notification} from '../notification/Notification'
+
  const storage = getStorage(app);
 
 //  const signUp = (setAuthenticated) => {
@@ -60,6 +61,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
               console.log(user)
               setUser(user.uid)
               console.log('You have successfully signed up!')
+              Notification('You have successfully signed up!')
               setAuthenticated(true)
  
               const docRef = doc(db, "users", user.uid);
@@ -79,6 +81,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
           .catch((error) => {
               const errorCode = error.code
               const errorMessage = error.message
+              Notification(errorMessage, 'error')
           })
       }
 

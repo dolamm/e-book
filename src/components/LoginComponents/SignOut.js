@@ -1,17 +1,23 @@
 import { signOut } from "firebase/auth";
 import { auth } from '../Firebase';
+import {Notification} from '../notification/Notification'
+import { Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-function Logout () {
-    signOut(auth).then(() => {
-        alert("You have successfully logged out!");
-    }).catch((error) => {
-        console.log(error);
-    });
-}
 export function SignOut(){
-    return (
-        <div>
-            <button onClick={Logout()}>Sign Out</button>
-        </div>
-    )
+    function Logout () {
+        signOut(auth).then(() => {
+            // alert("You have successfully logged out!");
+            Notification("You have successfully logged out!", "success");
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 2000);
+        }).catch((error) => {
+            // console.log(error);
+            Notification(error, "error");
+        });
+    }
+    useEffect(() => {
+        Logout();
+    })
 }

@@ -10,6 +10,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { FaBookOpen } from "react-icons/fa";
 import { Notificaton } from '../notification/Notification.js';
 import $ from 'jquery';
+import { ImExit } from "react-icons/im";
 export function HomePage({user_info}) {
 
     const userAvatar = user_info.photoURL;
@@ -22,7 +23,10 @@ export function HomePage({user_info}) {
                         <img src={userAvatar} className="avatar-circle" alt="Avatar" loading="lazy"/>
                     </Link>
                     <span>
-                        <span className="avatar-name">{userName}</span>
+                        <span className="avatar-name">
+                            <span>{userName}</span>
+                            <span className="sign-out"><a href="/signout"><ImExit/></a></span>
+                        </span>
                         <span className="notify-text">Welcome to our BookShop!! <FaBookOpen /></span>
                     </span>
             </div>
