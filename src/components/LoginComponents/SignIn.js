@@ -40,7 +40,7 @@ export function SignIn() {
     // localStorage.clear()
 
     return (
-<div>
+<div className="form-group">
 <section className="vh-100">
   <div className="container-fluid h-custom">
     <div className="row d-flex justify-content-center align-items-center h-100">

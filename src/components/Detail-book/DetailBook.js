@@ -54,7 +54,7 @@ export function DetailBook({item}) {
       <div className="Detail">
         <img src={item.image} alt="Book" className="Book-img" />
         <div className="right">
-          <marquee className="Book-title">{item.title}</marquee>
+          <h5 className="Book-title">{item.title}</h5>
           <div className="Category">
             <b>Category: </b>
             {
@@ -66,7 +66,8 @@ export function DetailBook({item}) {
           </div>
           <div className="Price">
             <b>Price: </b>
-            {item.price}$
+            <span>{item.price}$</span>
+            
           </div>
           <div className="Description">
             <b>Description: </b>
@@ -77,8 +78,8 @@ export function DetailBook({item}) {
             {item.author}
           </div>
           <div className="Price">
-            <b>Bảo hiểm: </b>
-            Sách bản quyền 100%
+            <b>Insurance: </b>
+            100% copyrighted book
           </div>
           <div className="Price">
             <b>Select format: </b>
