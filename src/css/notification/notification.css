@@ -1,4 +1,3 @@
-
 /* general message */
 .notification{
     position: fixed;
@@ -22,6 +21,15 @@
     z-index: 10000;
     border: 1px solid #fff;
     margin: 10px auto;
+    display: flex;
+}
+
+.notify-message i {
+    flex: left;
+    width: 30px;
+    font-size: 30px;
+    margin: auto 0;
+    padding-right: 2px;
 }
 
 /* success text */
@@ -31,8 +39,7 @@
 }
 
 .success i {
-    font-size: 20px;
-    color: white;
+    color: aliceblue;
 }
 
 /* info text */
@@ -41,7 +48,7 @@
     color: #fff;
 }
 .info i{
-    color: #fff;
+    color: aliceblue;
 }
 
 /* warning text */
@@ -51,7 +58,7 @@
 }
 
 .warning i{
-    color: #fff;
+    color: aliceblue;
 }
 
 /* error text */
@@ -61,5 +68,5 @@
 }
 
 .error i{
-    color: #fff;
+    color: aliceblue;
 }
