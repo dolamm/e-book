@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import { app, auth, db, generateKeywords } from '../Firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
-
+import {Notification} from '../notification/Notification.js';
 const storage = getStorage(app);
 
 var acceptFile = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'tiff', 'psd', 'raw', 'heif', 'indd', 'svg', 'ai', 'eps', 'pdf', 'heic'];
@@ -42,15 +42,18 @@ const addBook = () => {
             }
             setDoc(docRef, data).then(() => {
                 console.log("Document written with ID: ", docRef.id);
-                alert('Book added successfully!');
+                // alert('Book added successfully!');
+                Notification('Book added successfully!', 'success');
             }).catch((error) => {
                 console.log(error);
+                Notification('Something went wrong!', 'error');
             });
         })
         })
     }
     else {
-        alert("Please upload a valid image file");
+        // alert("Please upload a valid image file");
+        Notification('Please upload a valid image file', 'error');
     }
 }
 

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { app, auth, db } from "../Firebase";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {Notification} from '../notification/Notification.js';
 import "../../css/Detail/DetailBook.css";
 import "../../css/global.css";
 import Book from "../../img/book1.png";
@@ -25,7 +26,8 @@ const addToCart = async (item) => {
             user_id: auth.currentUser.uid,
         };
         await setDoc(docRef, data).then(() => {
-            alert("Thêm vào giỏ hàng thành công");
+            // alert("Thêm vào giỏ hàng thành công");
+            Notification("Thêm vào giỏ hàng thành công", "success");
         });
     } catch (error) {
         console.log(error);

@@ -9,6 +9,7 @@ import { async } from '@firebase/util';
 import $ from 'jquery';
 import "../../css/Category/CategoryBook.css";
 import "../../css/Book/ListBook.css"
+import {Notification} from '../notification/Notification.js';
 
 const docRef = (db, "bookcase", new Date().getTime().toString());
 
@@ -46,10 +47,12 @@ export  function BookList({user_info}){
             userName: userName
         }
         setDoc(docRef, data).then(() => {
-            alert('Book added successfully!');
+            // alert('Book added successfully!');
+            Notification("Thêm sách thành công", "success");
         }
         ).catch((error) => {
             console.log(error);
+            Notification("Thêm sách thất bại", "error");
         }
         );
     }

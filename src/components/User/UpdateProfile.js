@@ -7,6 +7,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { Navigate, Outlet } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+import {Notification} from '../notification/Notification.js';
 
 const user = auth.currentUser;
 
@@ -25,7 +26,8 @@ export function UpdateProfile() {
         displayName: displayName,
         photoURL: photoURL
     }).then(() => {
-        alert('Profile updated!')
+        // alert('Profile updated!')
+        Notification("Profile updated!", "success");
         setAuthenticated(true)
 
         updateDoc(doc(db, "users", uid), {

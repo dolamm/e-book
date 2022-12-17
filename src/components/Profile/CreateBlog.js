@@ -9,6 +9,7 @@ import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Footer } from '../Layout/BookFooter';
 import { NavDetail } from '../Detail-book/NavDetail';
+import {Notification} from '../notification/Notification.js';
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -37,7 +38,8 @@ const postBlog = () => {
                 time: time
             });
         });
-        alert("Post thành công");
+        // alert("Post thành công");
+        Notification("Post thành công", "success");
     }).catch((error) => {
         console.log(error);
     });

@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, serverTimestamp } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
+import {Notification} from '../notification/Notification.js';
 const storage = getStorage(app);
 
 const docRef = doc(db, "comment", new Date().getTime().toString());
@@ -34,7 +34,8 @@ export function Comment({item}) {
             book_id: item.id,
         }).then(() => {
             console.log("Document written with ID: ", docRef.id);
-            alert("Comment thành công");
+            Notification("Comment thành công", "success");
+            // alert("Comment thành công");
         });
     };
 

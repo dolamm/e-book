@@ -41,11 +41,11 @@ export default function App() {
   (
     <Routes>
       <Route path="/" element={<SignIn/>}/>
-      </Routes>
+      <Route path="/signup" element={<SignUp/>}/>
+    </Routes>
   ):(
       <Routes>
         <Route path="/" element={<SignIn/>}/>
-        <Route path="/signup" element={<SignUp/>}/>
         <Route path="/signout" element={<SignOut/>}/>
         <Route path="/update" element={<UpdateProfile/>}/>
         <Route path="/update/:uid" element={<UpdateProfile/>}/>
