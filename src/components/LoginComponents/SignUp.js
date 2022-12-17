@@ -54,8 +54,11 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
     const signUp = (setAuthenticated) => {
       const email = document.getElementById('email').value
       const password = document.getElementById('password').value
- 
-      createUserWithEmailAndPassword(auth, email, password)
+      const re_password = document.getElementById('re-password').value
+        if(password !== re_password){
+          Notification('Password does not match', 'error')
+        }else{
+          createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
               const user = userCredential.user
               console.log(user)
@@ -83,6 +86,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
               const errorMessage = error.message
               Notification(errorMessage, 'error')
           })
+        }
       }
 
        const handleSubmit = () => {
@@ -134,7 +138,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
             <label class="form-label">Password</label>
           </div>
           <div class="form-outline mb-3">
-            <input type="password" id="password" class="form-control form-control-lg"
+            <input type="password" id="re-password" class="form-control form-control-lg"
               placeholder="Confirm your Password" />
             <label class="form-label">Confirm your Password</label>
           </div>

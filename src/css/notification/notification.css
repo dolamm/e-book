@@ -17,19 +17,23 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     text-align: center;
     width: 280px;
-    height: 60px;
+    min-height: 40px;
     z-index: 10000;
     border: 1px solid #fff;
     margin: 10px auto;
     display: flex;
 }
 
+.notification .notify-message {
+    text-align: center;
+}
+
 .notify-message i {
     flex: left;
     width: 30px;
-    font-size: 30px;
+    font-size: 25px;
     margin: auto 0;
-    padding-right: 2px;
+    padding-right: 6px;
 }
 
 /* success text */
