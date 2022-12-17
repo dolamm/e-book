@@ -5,7 +5,6 @@ import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot
 import {app, auth, db} from '../Firebase';
 import { Link } from "react-router-dom";
 import "../../css/List.css"
-import "../../css/Dropdown.css"
 
 
 const getBooks = async () => {

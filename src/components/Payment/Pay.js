@@ -41,7 +41,7 @@ export function Pay() {
         <div className='Payment'>
             <div className='notify-tab'>
                     <Link to={`/profile/${uid}`} className="avatar-img">
-                        {/* <img src={userAvatar} className="avatar-circle" alt="Avatar" loading="lazy"/> */}
+                        {/* <img src={userAvatar} className="avatar-circle" alt="Avatar" loading="lazy"/>  */}
                     </Link>
                     <span>
                         {/* <span className="avatar-name">{userName}</span> */}
@@ -49,7 +49,9 @@ export function Pay() {
                     </span>
             </div>
             <p className="Pay-title">
-                <img src={logo} alt="logo" className="logo-pay" />
+                <Link to={`/homepage`}>
+                        <img src={logo} alt="logo" className="logo-pay" />
+                </Link>
                 <span>Payment</span>
             </p>
             <p className="Pay-product">
@@ -69,7 +71,7 @@ export function Pay() {
                             {item.title} 
                         </div>
                         <div className="Pay-book-format">
-                            Format: Audio hoặc Ebook
+                            Format: Ebook
                         </div>
                         <div className="Pay-detail-author">
                             {item.author}

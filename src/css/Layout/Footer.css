@@ -23,6 +23,9 @@
     padding-right: 20px;
 
 }
+.Footer-item li:hover{
+    cursor: pointer;
+}
 .Footer-item li {
     padding-bottom: 10px;
 }

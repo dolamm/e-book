@@ -149,14 +149,14 @@
 .category-item{
     width: auto;
     border-radius: 100px;
-    background-color: violet;
+    background-color: rgb(201, 238, 247);
     margin: 0 2px;
     color: white;
-    padding: 0 5px;
+    padding: 8px;
     text-decoration: none;
 }
 
 .category-item:hover{
     background-color: aliceblue;
-    color: red;
+    color: rgb(80, 80, 80);
 }

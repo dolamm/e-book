@@ -7,6 +7,8 @@ import { Navigate, Outlet } from 'react-router-dom'
 import { render } from '@testing-library/react'
 import { async } from '@firebase/util'
 import {Notification} from '../notification/Notification'
+import "../../css/Payment/Pay.css";
+
 const signInWithForm = (setAuthenticated) => {
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value

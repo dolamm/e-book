@@ -26,11 +26,12 @@
 }
 .sub-search{
     float: right;
-    margin: 10px;
+    margin: 2px;
+    margin-left: 40px;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.4);
     border: none;
-    padding: 3px;
+    padding: 3px !important;
     color: rgb(255, 255, 255);
 }
 ::placeholder {

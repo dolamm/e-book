@@ -74,13 +74,13 @@
     color: #bbbbbb;
 }
 .Pay-detail-author{
-    margin-left: 14em;
-    padding-left: 33px;
+    width: 575px;
+    padding-left: 23em;
 }
 
 .Pay-detail-Total{
-    margin-left: 17em;
-    padding-left: 10px;
+    text-align: right;
+    width: 200px;
 }
 
 .Pay-method-choose{
@@ -190,4 +190,9 @@
 .homeImg{
     width: 100%;
     height: 300px;
+}
+
+.form-group{
+   position:fixed;
+   top: 8em;
 }

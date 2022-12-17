@@ -8,7 +8,8 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
  import { async } from '@firebase/util'
  import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
  import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
-
+ import "../../css/Payment/Pay.css";
+ 
  const storage = getStorage(app);
 
 //  const signUp = (setAuthenticated) => {
@@ -91,7 +92,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
   // localStorage.clear()
 
      return (
- <div>
+ <div className="form-group">
   <section class="vh-100">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">

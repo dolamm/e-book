@@ -81,7 +81,7 @@ export function NavHome({uid}) {
                     <FaBars className="i-bars"/>
                     <div id="category-list" className="navhome-category-list">
                         {categories.map((category, index) => (
-                            <p><a href={`/allcategory/${category}`} key={index}>{category}</a></p>
+                            <p><a className="category-list-item" href={`/allcategory/${category}`} key={index}>{category}</a></p>
                         ))}
                     </div>
                 </div>
@@ -93,7 +93,7 @@ export function NavHome({uid}) {
                 </Link>
             </div>
             <div className="navbar-home">
-                <a className="sub-navbar" href="/home">Home</a>
+                <a className="sub-navbar" href="/homepage">Home</a>
                 <a className="sub-navbar" href="/category">Best sellers</a>
                 <a className="sub-navbar" href="/blog">Blogs</a>
                 <a className="sub-navbar" href="/payment">Payment</a>
