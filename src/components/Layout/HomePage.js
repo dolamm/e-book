@@ -27,7 +27,7 @@ export function HomePage({user_info}) {
                     </span>
             </div>
             <NavHome uid={user_id}/>
-            <BookList />
+            <BookList user_info={user_info} />
             <Footer />
         </div>
     );

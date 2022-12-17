@@ -6,6 +6,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { async } from '@firebase/util';
+import $ from 'jquery';
 import "../../css/Category/CategoryBook.css";
 import "../../css/Book/ListBook.css"
 
@@ -26,20 +27,19 @@ const getBookList = async () => {
     }
 }
 
-export function BookList(){
+export  function BookList({user_info}){
     const [books, setBooks] = useState([]);
-    const [userName, setUserName] = useState('');
-
-    function buyBook(book) {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const name = user.displayName;
-                setUserName(name);
-            }
-            else {
-                console.log('No user logged in');
-            }
-        });
+    const [userName, setUserName] = useState(user_info.displayName);
+    async function buyBook(book) {
+        // await onAuthStateChanged(auth, (user) => {
+        //     if (user) {
+        //         const name = user.displayName;
+        //         setUserName(name);
+        //     }
+        //     else {
+        //         console.log('No user logged in');
+        //     }
+        // });
 
         const data = {
             title: book,
@@ -59,8 +59,21 @@ export function BookList(){
             setBooks(data);
             console.log(data);
         })
-    }, [])
-
+    }, [user_info])
+    $(document).ready(async (e) => {
+        // e.preventDefault();
+        let title_popup = document.getElementsByClassName("title-popup");
+        let hover = document.getElementsByClassName("Book-item");
+        console.log(hover);
+        for (let i = 0; i < hover.length; i++) {
+            hover[i].addEventListener("mouseover", function () {
+                title_popup[i].classList.toggle("display-title-popup");
+            });
+            hover[i].addEventListener("mouseleave", function () {
+                title_popup[i].classList.toggle("display-title-popup");
+            })
+        }
+    })
     return (
         <div>
             <div className="grid-listbook">

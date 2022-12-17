@@ -64,7 +64,7 @@ export function DetailBook({item}) {
           </div>
           <div className="Price">
             <b>Price: </b>
-            Giá tiền
+            {item.price}$
           </div>
           <div className="Description">
             <b>Description: </b>

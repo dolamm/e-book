@@ -27,21 +27,22 @@ import './css/global.css';
 export default function App() {
 
   const [user, setUser] = useState(null);
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const User = auth.currentUser;
+  onAuthStateChanged(auth, async (userinfo) => {
+    if (userinfo) {
+      const User = await auth.currentUser;
       setUser(User);
-      console.log(user)
+      console.log(userinfo)
     } else {
       console.log("User is signed out");
     }
   });
 
-  return user === null ? (
-    <div id="loading" className="loading-modal"></div>
-  ) :  (
-    <div className="App">
+  return user == null ? 
+  (
+    <Routes>
+      <Route path="/" element={<SignIn/>}/>
+      </Routes>
+  ):(
       <Routes>
         <Route path="/" element={<SignIn/>}/>
         <Route path="/signup" element={<SignUp/>}/>
@@ -65,6 +66,5 @@ export default function App() {
         <Route path="/blog/:uid" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/createblog" element={<CreateBlog user_info={user}/>}></Route>
       </Routes>
-    </div>
   )
 }

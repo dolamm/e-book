@@ -41,7 +41,7 @@
     border-top-left-radius: 50px 50px;
 }
 
-input[type=text]{
+.post-comment input[type=text]{
     padding: 12px 20px;
 }
 
