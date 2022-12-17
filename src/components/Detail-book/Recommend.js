@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import "../../css/Detail/DetailBook.css"
 import Item from "../../components/Books/BookListItem";
-import Book from '../../img/book1.png'
 import { FaGreaterThan } from "react-icons/fa";
 import { limit } from 'firebase/firestore';
 import { app, auth, db } from "../Firebase";
@@ -17,7 +16,7 @@ export function Recommend({item}) {
 
     const getInfo = async () => {
         try {
-          const q = query(collection(db, "books"), where("category", "array-contains", item.category[0]), limit(4));
+          const q = query(collection(db, "books"), where("category", "array-contains", item.category[0]), limit(5));
           const querySnapshot = await getDocs(q);
           let data = [];
           querySnapshot.forEach((doc) => {
@@ -42,12 +41,17 @@ export function Recommend({item}) {
             <p className="Recommend-text">Recommend
             <div className="hr"></div>
             </p> 
-            
-            <p className="More">View More <FaGreaterThan /> <FaGreaterThan /></p>
+
+            <Link to={``} className="More">
+              View more
+               <FaGreaterThan className="i-greater"/> <FaGreaterThan className="i-greater"/>
+            </Link>
             <div class="grid-container">
                 {book && book.map((item) => (
                     <div className="grid-item">
                         <img src={item.image} alt="Book" className="Recommend-Book" />
+                        <p className="text-into text-into-title">{item.title}</p>
+                        <p className="text-into text-into-price">Price: {item.price}$</p>
                     </div>
                 ))}
             </div>

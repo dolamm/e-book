@@ -21,7 +21,8 @@
 .Book-title{
     text-align: center;
     padding-top: 16px;
-    font-size: 60px;
+    font-size: 45px;
+    padding-bottom: 10px;
 }
 .Category{
     font-size: 20px;
@@ -30,6 +31,10 @@
 .Price{
     font-size: 20px;
     padding: 0px 50px 15px 50px;
+}
+.Price span {
+    color: #4BADD8;
+    font-weight: bold;
 }
 .Description{
     font-size: 20px;
@@ -123,8 +128,16 @@
     font-weight: bold;
     padding: 15px 30px 10px 30px;
     margin: 0;
+    text-decoration: none;
+    color: #000;
 }
-
+.More:hover{
+    cursor: pointer;
+    color: rgb(106, 102, 102);
+}
+.More:hover .i-greater {
+    color: #E12C2C;
+}
 .Recommend-Book{
     width: 170px;
     height: 230px;
@@ -159,4 +172,38 @@
 .category-item:hover{
     background-color: aliceblue;
     color: rgb(80, 80, 80);
+}
+
+.Recommend-Book{
+    position: absolute;
+    transition: transform 1s;
+    display: inline-block;
+    border-radius: 12px;
+}
+.Recommend-Book:hover{
+    opacity: 0.3;
+    transition: opacity 1.3s;
+    overflow: visible;
+    border-radius: 12px;
+}
+.text-into{
+    width: 170px;
+    height: 230px;
+    text-align: justify;
+    z-index: -6;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+    text-align: center;
+    margin-top: 80px;
+    padding: 10px;
+}
+.text-into-price{
+    margin-top: -160px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #2c0be6;
+    text-align: center;
 }
