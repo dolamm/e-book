@@ -29,15 +29,15 @@ export function Footer() {
                     <b>Phone: +(84)-0382279474</b>
                 </li>
                 <li>Mail contact: 
-                    <ul className="">
+                    <ul className="email">
                         <li>
-                        20521328@gm.uit.edu.vn <br/>
+                            <a className="email-address" href="mailto:20521328@gm.uit.edu.vn">20521328@gm.uit.edu.vn</a>
                         </li>
                         <li>
-                        20520930@gm.uit.edu.vn <br/>
+                            <a className="email-address" href="mailto:20520930@gm.uit.edu.vn">20520930@gm.uit.edu.vn</a>
                         </li>
                         <li>
-                        20521001@gm.uit.edu.vn <br/>
+                            <a className="email-address" href="mailto:20521001@gm.uit.edu.vn">20521001@gm.uit.edu.vn</a>
                         </li>
                     </ul>
                 </li>

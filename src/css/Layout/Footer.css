@@ -45,3 +45,12 @@
     font-size: 13px;
     padding: 0px 0 0 30px;
 }
+
+.email-address{
+    text-decoration: none;
+    color: #ccc;
+}
+
+.email-address:hover{
+    color: aliceblue;
+}

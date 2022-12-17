@@ -6,16 +6,18 @@ import { Footer } from '../Layout/BookFooter';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { app, auth, db } from "../Firebase";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, deleteDoc} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link } from 'react-router-dom';
-
+import $ from 'jquery';
+import { Notification } from '../notification/Notification.js';
 const getBookFromCart = async (id) => {
     try {
         const q = query(collection(db, "cart"), where("user_id", "==", id));
         const querySnapshot = await getDocs(q);
         let data = [];
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc, index) => {
+            doc.data();
             data.push(doc.data());
             console.log(doc.data);
         });
@@ -29,7 +31,20 @@ export function Pay() {
     const [book, setBook] = useState([]);
     const { uid } = useParams();
     console.log(uid);
-    
+    const [totalPay, settotalPay] = useState(0);
+
+
+    const calculatorTotal = () =>{
+        let choosingBook = document.getElementsByClassName('cb-payment');
+        let price = document.getElementsByClassName('Pay-detail-Total');
+        let total = 0;
+        for(let i = 0; i < choosingBook.length; i++){
+            if(choosingBook[i].checked){
+                total += parseFloat(book[i].price);
+            }
+        }
+        settotalPay(total);
+    }
     useEffect(() => {
         getBookFromCart(uid).then((data) => {
             setBook(data);
@@ -37,7 +52,9 @@ export function Pay() {
         });
     }, []);
 
-    return (
+    return book == null? (
+        <div id="loading" className="loading-modal"></div>
+    ) : (
         <div className='Payment'>
             <div className='notify-tab'>
                     <Link to={`/profile/${uid}`} className="avatar-img">
@@ -65,7 +82,7 @@ export function Pay() {
                 </div>
                 {book&&book.map((item) => (
                     <div className="Pay-detail-product">
-                    <input className="cb-payment" type="checkbox"/>
+                    <input className="cb-payment" type="checkbox" onChange= {calculatorTotal}/>
                         <img src={item.image} alt="book" className="Pay-book-img"/>
                         <div className="Pay-book-name">
                             {item.title} 
@@ -116,10 +133,10 @@ export function Pay() {
                     <hr />
                     <div className="Pay-total-money">
                         <span className="Total-payment">Total payment:
-                            <span className="Total-payment-money">200 USD</span>
+                            <span className="Total-payment-money">{totalPay} USD</span>
                         </span>
                         <br />
-                        <button className="btn-buybook">
+                        <button id="payment-confirm" className="btn-buybook">
                             <FaMoneyBillWave />
                             <b className="btn-buybook-text">Buy</b>
                         </button>
