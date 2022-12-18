@@ -207,3 +207,8 @@
     color: #2c0be6;
     text-align: center;
 }
+
+.path-text a {
+    color: #ccc;
+    text-decoration: none;
+}

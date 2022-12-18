@@ -47,11 +47,11 @@ export function DetailBook({item}) {
   ) : (
     <div className="DetailBook">
       <div className="Detail-path">
-        <span className="path-text">Home</span>
+        <span className="path-text"><a href="/homepage">Home</a></span>
         <FaLongArrowAltRight />
         <span className="path-text">Detail</span>
         <FaLongArrowAltRight />
-        <span className="path-text">Tên Sách</span>
+        <span className="path-text">{item.title}</span>
       </div>
       <div className="Detail">
         <img src={item.image} alt="Book" className="Book-img" />
