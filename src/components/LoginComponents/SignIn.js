@@ -17,9 +17,11 @@ const signInWithForm = (setAuthenticated) => {
         .then((userCredential) => {
             const user = userCredential.user
             console.log(user)
-            // alert('You have successfully logged in!')
             Notification('You have successfully logged in!\nWelcome to Book Shop!', 'success')
             setAuthenticated(true)
+            setTimeout(() => {
+              window.location.href = '/homepage'
+            }, 2000);
         })
         .catch((error) => {
             const errorCode = error.code
@@ -32,7 +34,9 @@ export function SignIn() {
     const [authenticated, setAuthenticated] = useState(
         localStorage.getItem(localStorage.getItem('authenticated') || false)
     )
-
+      if(!authenticated){
+        Notification('Please login to continue', 'info')
+      }
     const handleSubmit = () => {
         signInWithForm(setAuthenticated)
     }
@@ -85,7 +89,6 @@ export function SignIn() {
             <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/signup"
                 className="link-danger">Register</a></p>
           </div>
-          {authenticated && <Navigate to="/homepage" />}
         </form>
       </div>
     </div>

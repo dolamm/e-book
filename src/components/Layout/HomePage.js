@@ -11,11 +11,14 @@ import { FaBookOpen } from "react-icons/fa";
 import { Notificaton } from '../notification/Notification.js';
 import $ from 'jquery';
 import { ImExit } from "react-icons/im";
+import {Notification} from '../notification/Notification'
 export function HomePage({user_info}) {
-
     const userAvatar = user_info.photoURL;
     const userName = user_info.displayName;
-    const user_id = user_info.uid; 
+    const user_id = user_info.uid;
+    if(user_id!=null){
+        Notification(`Welcome ${userName}!`, 'info');
+    }
     return (
         <div className='home'>
             <div className='notify-tab'>
