@@ -11,6 +11,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import { Notification } from '../notification/Notification.js';
+
 const getBookFromCart = async (id) => {
     try {
         const q = query(collection(db, "cart"), where("user_id", "==", id));
@@ -45,6 +46,27 @@ export function Pay() {
         }
         settotalPay(total);
     }
+
+    const handlePay = () =>{
+        let choosingBook = document.getElementsByClassName('cb-payment');
+        for (let i = 0; i < book.length; i++){
+            if(choosingBook[i].checked){
+                let id = book[i].id.toString();
+                deleteDoc(doc(db, "cart", id));
+            }
+        }
+        Notification('Payment successfully', 'success');
+        setTimeout(() => {
+            window.location.href = `/allcategory/all`;
+        }, 3000);
+    }
+
+    $(document).ready(function(){
+        $('#payment-confirm').click(function(){
+            handlePay();
+        });
+    });
+
     useEffect(() => {
         getBookFromCart(uid).then((data) => {
             setBook(data);

@@ -5,7 +5,7 @@ import {app, auth} from '../Firebase';
 import { Link } from "react-router-dom";
 import "../../css/Detail/NavDetail.css"
 
-export function NavDetail() {
+export function NavDetail({user_info}) {
 
     return (    
         <div className="nav">
@@ -13,7 +13,7 @@ export function NavDetail() {
             <a className="sub-nav" href="/homepage">Home</a>
             <a className="sub-nav" href="/allcategory/all">Best sellers</a>
             <a className="sub-nav" href="/createblog">Blogs</a>
-            <a className="sub-nav" href="/payment">Payment</a>
+            <a className="sub-nav" href={`/pay/${user_info.uid}`}>Payment</a>
             <input className="sub-search" type="text" placeholder="Search"/>
         </div>
 )}

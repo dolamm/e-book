@@ -12,11 +12,13 @@ import { FaLongArrowAltRight, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBo
 
 const storage = getStorage(app);
 
-const docRef = doc(db, "cart", new Date().getTime().toString());
+let docID = new Date().getTime().toString();
+const docRef = doc(db, "cart", docID);
 
 const addToCart = async (item) => {
     try {
         const data = {
+            id: docID,
             title: item.title,
             image: item.image,
             price: item.price,

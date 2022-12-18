@@ -9,7 +9,7 @@ import Book from '../../img/book1.png'
 import { FaFilter, FaLongArrowAltRight } from "react-icons/fa";
 import Item from "../Books/BookListItem";
 
-export function AllCategory() {
+export function AllCategory({user_info}) {
 
     const { category_id } = useParams();
     const [bookonpage, setBookonpage] = useState([]);
@@ -50,11 +50,11 @@ export function AllCategory() {
         })
     }, [category_id])
 
-    return bookonpage.length==0 ? (
+    return bookonpage.length===null ? (
         <div id="loading" className="loading-modal"></div>
     ):(
         <div className='Contain-All-category'>
-            <NavDetail />
+            <NavDetail user_info={user_info}/>
             <div className='All-category'>
                 <div className='Nav-category'>
                     <div className='Nav-category__text'>

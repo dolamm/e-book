@@ -12,9 +12,8 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {Notification} from '../notification/Notification.js';
 const storage = getStorage(app);
 
-const docRef = doc(db, "comment", new Date().getTime().toString());
-
 export function Comment({item}) {
+    const docRef = doc(db, "comment", new Date().getTime().toString());
 
     const comment = async (e) => {
         e.preventDefault();
@@ -58,7 +57,7 @@ export function Comment({item}) {
 
     useEffect(() => {
         getComments();
-    }, [item]);
+    }, [item, comment]);
 
     console.log(comments);
 

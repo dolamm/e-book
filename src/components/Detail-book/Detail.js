@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { app, auth, db } from "../Firebase";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
 
-export function Detail() {
+export function Detail({user_info}) {
 
   const { id } = useParams();
 
@@ -38,7 +38,7 @@ export function Detail() {
 
     return (
         <div className='home'>
-            <NavDetail />
+            <NavDetail user_info={user_info}/>
             <DetailBook item={book}/>
             <Comment item={book}/>
             <Recommend item={book}/>

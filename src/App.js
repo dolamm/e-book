@@ -27,9 +27,9 @@ import './css/global.css';
 export default function App() {
 
   const [user, setUser] = useState(null);
-  onAuthStateChanged(auth, async (userinfo) => {
+  onAuthStateChanged(auth, (userinfo) => {
     if (userinfo) {
-      const User = await auth.currentUser;
+      const User = auth.currentUser;
       setUser(User);
       console.log(userinfo)
     } else {
@@ -59,9 +59,9 @@ export default function App() {
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/profile/:uid" element={<Profile user_info={user}/>}/>
         <Route path="/detailblog" element={<DetailBlog/>}/>
-        <Route path="/book/:id" element={<Detail/>}/>
-        <Route path="/allcategory" element={<AllCategory/>}/>
-        <Route path="/allcategory/:category_id" element={<AllCategory/>}/>
+        <Route path="/book/:id" element={<Detail user_info={user}/>}/>
+        <Route path="/allcategory" element={<AllCategory user_info={user}/>}/>
+        <Route path="/allcategory/:category_id" element={<AllCategory user_info={user}/>}/>
         <Route path="/homepage" element={<HomePage user_info={user}/>}></Route>
         <Route path="/blog/:uid" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/createblog" element={<CreateBlog user_info={user}/>}></Route>

@@ -8,10 +8,10 @@ const storage = getStorage(app);
 
 var acceptFile = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'tiff', 'psd', 'raw', 'heif', 'indd', 'svg', 'ai', 'eps', 'pdf', 'heic'];
 
-const docRef = doc(db, "books", new Date().getTime().toString());
-
 
 const addBook = () => {
+    const docRef = doc(db, "books", new Date().getTime().toString());
+    
     const fileName = new Date().getTime().toString();
     const imgRef = ref(storage, `images/${fileName}`);
     const title = document.getElementById('title').value;
