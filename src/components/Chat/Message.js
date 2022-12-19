@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import "../../css/Message.css"
 
 const Message = ({message}) => {
     return (
@@ -16,6 +15,7 @@ const Message = ({message}) => {
         </div>
     )
 }
+// Message function
 
 // function Message({ message, user, imgURL, time }) {
 //     return (

@@ -1,15 +1,24 @@
 import firebase from 'firebase/compat/app';
 import { app, auth, db } from '../Firebase';
+import { useParams } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { Navigate, Outlet } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+import {Notification} from '../notification/Notification.js';
 
 const user = auth.currentUser;
 
-const update = (setAuthenticated) => {
+export function UpdateProfile() {
+  const [isUpdate, setIsUpdate] = useState (
+    localStorage.getItem(localStorage.getItem('isUpdate') || false)
+  )
+  let {uid}  = useParams();
+  console.log(uid)
+  const update = (setAuthenticated) => {
+
     const displayName = document.getElementById('displayName').value
     const photoURL = document.getElementById('photoURL').value
 
@@ -17,17 +26,24 @@ const update = (setAuthenticated) => {
         displayName: displayName,
         photoURL: photoURL
     }).then(() => {
-        alert('Profile updated!')
+        // alert('Profile updated!')
+        Notification("Profile updated!", "success");
         setAuthenticated(true)
+
+        updateDoc(doc(db, "users", uid), {
+            displayName: displayName,
+            photoURL: photoURL
+        }).then(() => {
+            console.log("Document written with ID: ", user.uid);
+        }
+        ).catch((error) => {
+            console.error("Error adding document: ", error);
+        }
+        );
     }).catch((error) => {
         console.log(error)
     })
-}
-
-export function UpdateProfile() {
-  const [isUpdate, setIsUpdate] = useState (
-    localStorage.getItem(localStorage.getItem('isUpdate') || false)
-  )
+  }
   const handleUpdate = () => {
     update(setIsUpdate)
   }
@@ -57,7 +73,7 @@ export function UpdateProfile() {
                       <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="button" class="btn btn-primary btn-lg" onClick={handleUpdate} >Update Profile</button>
                       </div>
-                      {isUpdate && <Navigate to="/home" />}
+                      {isUpdate && <Navigate to="/homepage" />}
                     </form>
                   </div>
                 </div>

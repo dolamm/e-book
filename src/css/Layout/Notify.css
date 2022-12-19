@@ -1,0 +1,57 @@
+div{
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.avatar-circle{
+    border: 0.01px solid #0F1C3F;
+    border-radius: 50%;
+    box-shadow: 0.01em 0.01em 0 0 rgba(15, 28, 63, 0.125);
+    height: 2em;
+    width: 2em;
+    margin-left: 20px;
+}
+.avatar-img{
+    float: left;
+    border-left: 2px solid rgb(60, 50, 50);
+    height: 20px;
+    padding: 1px;
+}
+.notify-text{
+    float: right;
+    color:black;
+    padding: 5px;
+}
+
+.avatar-name{
+    position: absolute;
+    left: 49px;
+    top: -9px;
+    color: black;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.notify-tab{
+    width: 100%;
+    height: 35px;
+    background-color: rgb(164, 163, 163);
+}
+
+.sign-out{
+    margin-left: 10px;
+}
+
+.sign-out a {
+    color: aliceblue;
+}
+
+.sign-out:hover a{
+    color: lightpink;
+}

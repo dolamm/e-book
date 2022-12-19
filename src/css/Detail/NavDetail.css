@@ -1,0 +1,41 @@
+
+.logo{
+    width: 70px;
+}
+.nav{
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+ 
+}
+.sub-nav{
+    text-decoration: none;
+    color: rgb(148, 147, 147);
+    padding: 10px 10px 5px 10px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    border-bottom: 0px solid #dee2e6;
+    transition: border-width 0.2s linear;
+}
+
+.sub-nav:hover{
+    color: rgb(189, 187, 187);
+    border-bottom: 3px solid #dee2e6;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.sub-search{
+    float: right;
+    margin: 2px;
+    margin-left: 40px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    padding: 3px !important;
+    color: rgb(255, 255, 255);
+}
+::placeholder {
+    color: rgb(255, 255, 255);
+    opacity: 1; /* Firefox */
+    padding-left: 10px;
+  }

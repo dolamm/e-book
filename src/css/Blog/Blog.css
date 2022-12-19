@@ -1,0 +1,141 @@
+.Blog-contain{
+    display: flex;
+}
+.Blog-left{
+    width: 860px;
+    margin: 0px 50px 30px 100px;
+}
+.Blog-right{
+    width: 400px;
+    margin: 30px 100px 30px 20px;
+}
+.Blog-img{
+    width: 860px;
+    height: 412px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+.Blog-date, .Blog-Author{
+    font-size: 16px;
+    color: #999999;
+}
+.Blog-Title{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 30px;
+}
+.Blog-Viewmore{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.Create-Blog{
+    width: 230px;
+    border: 1px solid #999999;
+    border-radius: 15px;
+}
+.Edit-profile{
+    margin-top: 20px;
+}
+.Create-Blog p {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 20px;
+}
+.btn-create-blog{
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin-left: 55px;
+    margin-bottom: 10px;
+    font-size: 14px;
+
+}
+.btn-edit-profile{
+    margin-left: 66px;
+}
+.Search-Blog{
+    width: 400px;
+    border: 1px solid #999999;
+    border-radius: 15px;
+    margin-top: 40px;
+}
+.ip-Search-blog{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+.Search-Blog p{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 20px;
+}
+.btn-create{
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+.Recent-Post-Contain{
+    display: flex;
+}
+
+.Recent-Post{
+    width: 400px;
+    border: 1px solid #999999;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.Recent-Post p {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 10px;
+    
+}
+
+.Recent-img{
+    margin: 10px 14px 30px 30px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.Recent-Title{
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+
+}
+.Recent-Title:hover{
+    cursor: pointer;
+}
+.Recent-content{
+    width: 230px;
+    margin-top: 10px;
+}
+
+.btn-edit-blog{
+    margin-left: 140px;
+    background-color: rgb(70, 113, 244);
+}
+.btn-remove-blog{
+    background-color: rgb(207, 43, 43);
+}

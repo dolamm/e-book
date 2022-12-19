@@ -1,0 +1,214 @@
+.Detail{
+    width: 1180px;
+    height: 730px;
+    margin: 0 auto;
+    background-color: #cacaca;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+.Book-img{
+    width: 500px;
+    height: 730px;
+    float: left;
+    border-radius: 15px;  
+}
+.right{
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 680px;
+}
+.Book-title{
+    text-align: center;
+    padding-top: 16px;
+    font-size: 45px;
+    padding-bottom: 10px;
+}
+.Category{
+    font-size: 20px;
+    padding: 0px 50px 15px 50px;
+}
+.Price{
+    font-size: 20px;
+    padding: 0px 50px 15px 50px;
+}
+.Price span {
+    color: #4BADD8;
+    font-weight: bold;
+}
+.Description{
+    font-size: 20px;
+    padding: 0px 50px 15px 50px;
+}
+.style-border{   
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid rgb(106, 106, 106);
+    background-color:rgb(106, 106, 106);
+}
+.all-btn{
+    padding: 0;
+    margin: auto;
+    align-items: center;
+}
+/* .quantity-text{
+    color: rgb(106, 106, 106);
+    padding: 20px 50px 0px 50px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.quantity{
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid rgb(106, 106, 106);
+    margin-left: 48px;
+    text-align: center;
+    vertical-align: middle;
+
+} */
+.sp-btn{
+    padding: 10px;
+}
+.btn-cart{
+    width: 150px;
+    height: 45px;
+    border-radius: 15px;
+    border: 1px solid rgb(106, 106, 106);
+    margin-left: 48px;
+    margin-top: 60px;
+    text-align: center;
+    background-color: #4BADD8;
+    color: #fff;
+}
+.btn-cart:hover{
+    background-color: #2ebffd;
+}
+.btn-audio{
+    width: 120px;
+    height: 40px;
+    border-radius: 15px;
+    border: 1px solid rgb(106, 106, 106);
+    margin-left: 48px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.btn-audio:focus {
+    background-color:#ccc;
+    border: 3px solid #4BADD8;
+}
+
+/* Recommend */
+.Recommend{
+    width: 1180px;
+    height: 330px;
+    margin: 0 auto;
+    background-color: #cacaca;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+.Recommend-text{
+    font-weight: bold;
+    padding: 15px 0px 10px 30px;
+    margin: 0;
+    float: left;
+    font-size: 23px;
+
+}
+.hr{
+    width: 120px;
+    height: 3px;
+    background: #E12C2C;
+    border-radius: 12px;
+}
+.More{
+    font-size: 23px;
+    float: right;
+    font-weight: bold;
+    padding: 15px 30px 10px 30px;
+    margin: 0;
+    text-decoration: none;
+    color: #000;
+}
+.More:hover{
+    cursor: pointer;
+    color: rgb(106, 102, 102);
+}
+.More:hover .i-greater {
+    color: #E12C2C;
+}
+.Recommend-Book{
+    width: 170px;
+    height: 230px;
+    margin-left: 20px;
+}
+
+.grid-container{
+    width: 1180px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 10px;
+    padding: 10px;
+}
+.Detail-path{
+    color: #ccc;
+    font-weight: bold;
+    padding: 10px 50px 5px 160px;
+    font-size: 20px;
+}
+
+/* category */
+.category-item{
+    width: auto;
+    border-radius: 100px;
+    background-color: rgb(201, 238, 247);
+    margin: 0 2px;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.category-item:hover{
+    background-color: aliceblue;
+    color: rgb(80, 80, 80);
+}
+
+.Recommend-Book{
+    position: absolute;
+    transition: transform 1s;
+    display: inline-block;
+    border-radius: 12px;
+}
+.Recommend-Book:hover{
+    opacity: 0.3;
+    transition: opacity 1.3s;
+    overflow: visible;
+    border-radius: 12px;
+}
+.text-into{
+    width: 170px;
+    height: 230px;
+    text-align: justify;
+    z-index: -6;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+    text-align: center;
+    margin-top: 80px;
+    padding: 10px;
+}
+.text-into-price{
+    margin-top: -160px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #2c0be6;
+    text-align: center;
+}
+
+.path-text a {
+    color: #ccc;
+    text-decoration: none;
+}

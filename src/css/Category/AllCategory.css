@@ -1,0 +1,124 @@
+/* .Contain-All-category{
+    background-color: #F0F0F0;
+} */
+.Nav-category{
+    display: flex;
+    margin-top: 15px;
+}
+.Nav-category__text{
+    width: 265px;
+    
+}
+.Category-count-page{
+    width: 350px;
+}
+.Category-count-page h3{
+    text-align: center;
+}
+.Nav-category__text h3{
+    text-align: center;
+    color: #7FB9EE;
+    font-weight: bold;
+}
+.Nav-category__filter{
+    width: 850px;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: baseline;
+    align-content: space-around;
+    font-weight: bold;
+}
+.Nav-category__filter button{
+    border: none;
+    background-color: #fff;
+    padding: 5px 28px;
+    margin: 5px 0px;
+    font-weight: bold;
+}
+.Nav-category__filter button:focus{
+    background-color:#7FB9EE;
+}
+.Filter{
+    font-size: 30px;
+    padding-top: 10px;
+}
+.Category-sort{
+    border: none;
+    background-color: #fff;
+    padding: 5px 28px;
+    margin: 5px 0px;
+    font-weight: bold;
+}
+
+.content-category-left{
+    width: 265px;
+    height: 680px;
+    background-color: #D9D9D9;
+    margin: 0;
+    float: left;
+}
+.content-category-button{
+    width: 265px;
+}
+.content-category-button :hover{
+    background-color: aliceblue; 
+}
+.active-category{
+    color: rgb(204, 233, 255);
+}
+.content-category-button button{
+    border: none;
+    background-color: #fff;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    width: 245px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.content-category-button button:focus{
+    background-color:#7FB9EE;
+}
+.content-category-button-back button{
+    border: none;
+    background-color: #1C80AB;
+    color: #FFFFFF;
+    padding: 10px 10px;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 245px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.content-category-button-back button:hover{
+    background-color:#7FB9EE;
+}
+.contain-category{
+    display: flex;
+}
+.content-category-right{
+    width: 600px;
+    float: right;
+}
+.grid-CateBook-1{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+    padding: 10px;
+    border-top: 1px solid rgb(228, 228, 228);
+}
+.Cate-Book-1{
+    align-self: center;
+    justify-self: center;
+    padding-bottom: 30px;
+}
+.Book-item-1{
+    width: 233px;
+    height: 326px;
+    border-radius: 20px;
+    border: 1px solid rgb(228, 228, 228);
+}
