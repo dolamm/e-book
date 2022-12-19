@@ -195,3 +195,24 @@
    position:fixed;
    top: 8em;
 }
+
+.success-payment-icon{
+    font-size: 100px;
+    margin-left: 8em;
+    margin-top: 1em;
+    color: #43d19e;
+}
+.success-payment h2{
+    text-align: center;
+    padding: 20px;
+    color: #43d19e;
+    font-weight: bold;
+}
+.success-payment h4{
+    text-align: center;
+    padding: 10px;
+}
+#notification{
+    text-align: center;
+    padding: 5px;
+}

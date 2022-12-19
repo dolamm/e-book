@@ -117,9 +117,9 @@ export function NavHome({uid}) {
             </div>
             <div className="navbar-home">
                 <a className="sub-navbar" href="/homepage">Home</a>
-                <a className="sub-navbar" href="/category">Best sellers</a>
-                <a className="sub-navbar" href="/blog">Blogs</a>
-                <a className="sub-navbar" href="/payment">Payment</a>
+                <a className="sub-navbar" href="/allcategory/all">Best sellers</a>
+                <a className="sub-navbar" href="/blogcontain">Blogs</a>
+                <a className="sub-navbar" href={`/pay/${uid}`}>Payment</a>
             </div>
         </div>
     )

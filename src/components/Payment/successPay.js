@@ -11,7 +11,7 @@ export function SuccessPay() {
             }, 1000 * i);
         }
         setTimeout(() => {
-            window.location.href = "/";
+            window.location.href = "/homepage";
         }, 3000);
     })
     return (
