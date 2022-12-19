@@ -1,6 +1,8 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react'
-import bg from '../../img/bg-mountain.png'
+import bg0 from '../../img/bg0.png'
+import bg1 from '../../img/bg1.webp'
+import bg2 from '../../img/bg2.jpg'
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, limit } from "firebase/firestore";
 import {app, auth, db } from '../Firebase';
@@ -9,6 +11,11 @@ import "../../css/Layout/NavHome.css"
 import logo from '../../img/logo.png'
 import { FaSearch, FaBars, FaShoppingCart } from "react-icons/fa";
 import Book from "../../img/book1.png";
+import $ from 'jquery';
+
+var background = [bg0, 
+    bg1,
+    bg2];
 
 const get3Book = async () => {
     try {
@@ -51,13 +58,22 @@ export function NavHome({uid}) {
             })
     }, [])
     console.log(books);
-    
+    $(document).ready(function () {
+        let changeBG = document.getElementsByClassName("bg-book");
+        let bgNav = document.getElementById("nav-background");
+        for(let i = 0; i < changeBG.length; i++) {
+            changeBG[i].click( () =>{
+                bgNav.src = background[i];
+                console.log(background[i]);
+            })
+        }
+    })
     return books.length === 0 ? (
         <div id="loading" className="loading-modal"></div>
       ) : (    
         <div className="navhome">
             <div className="navhome-bg">
-                <img src={bg} alt="bg" className="bg-nav" />
+                <img src={bg2} alt="bg" className="bg-nav" id="nav-background" />
                 <img src={logo} alt="logo" className="logo-nav" />
                 <div className="nav-content-book">
                     <h2>
@@ -85,9 +101,9 @@ export function NavHome({uid}) {
                         ))}
                     </div>
                 </div>
-                <Link to={`/book/${books[0].id}`}><img src={books[0].image} alt="book" className="bg-book bg-book1"/></Link>
-                <Link to={`/book/${books[1].id}`}><img src={books[1].image} alt="book" className="bg-book bg-book2"/></Link>
-                <Link to={`/book/${books[2].id}`}><img src={books[2].image} alt="book" className="bg-book bg-book3"/></Link>
+                <img src={books[0].image} alt="book" className="bg-book bg-book1"/>
+                <img src={books[1].image} alt="book" className="bg-book bg-book2"/>
+                <img src={books[2].image} alt="book" className="bg-book bg-book3"/>
                 <Link to={`/pay/${uid}`} className="navhome-cart">
                     <FaShoppingCart className="nav-cart"/>
                 </Link>
