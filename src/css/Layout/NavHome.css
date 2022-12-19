@@ -154,16 +154,19 @@
     top: 490px;
     background: rgba(56, 66, 40, 0.7);
     border-radius: 12px;
-    text-decoration: none;
 }
 .navhome-seemore h4{
-    margin-top: 8px;
-    margin-left: 3px;
     font-family: 'Jolly Lodger';
-    font-style: normal;
     font-weight: 400;
     font-size: 30px;
     text-align: center;
+    color: #FFFFFF;
+
+}
+.navhome-seemore a {
+    margin: auto auto;
+    vertical-align: middle;
+    text-decoration: none;
     color: #FFFFFF;
 }
 .navhome-seemore:hover{

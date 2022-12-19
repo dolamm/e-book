@@ -1,7 +1,5 @@
-import React, {Components} from 'react';
 import $ from 'jquery';
 import '../../css/notification/notification.css';
-import {TiTick} from 'react-icons/ti';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const success = (message) => {  

@@ -1,45 +1,46 @@
 import { NavDetail } from '../Detail-book/NavDetail';
+import {app, auth, db} from '../Firebase';
 import { Footer } from '../Layout/BookFooter';
 import { FaLongArrowAltRight,FaEdit, FaTrashAlt } from "react-icons/fa";
 import "../../css/Blog/DetailBlog.css"
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDoc } from "firebase/firestore";
+
+const getBlog = async (id) => {
+    const docRef = doc(db, "blogs", id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        return docSnap.data();
+    } else {
+        console.log("No such document!");
+    }
+};
 
 export function DetailBlog() {
+    const { id } = useParams();
+    const [blog, setBlog] = useState(getBlog(id));
     return (
         <div className='home'>
-            <NavDetail />
+            <NavDetail user_info={auth.currentUser}/>
             <div className="content">
                 <div className="DetailBlog-path">
                     <span className="path-text">Home</span>
                     <FaLongArrowAltRight />
                     <span className="path-text">Blog </span>
                     <FaLongArrowAltRight />
-                    <span className="path-text">Tên Blog</span>
+                    <span className="path-text">{blog.title}</span>
                 </div>
                 <div className="DetailBlog-bg">
-                    <img className="DetailBlog-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
+                    <img className="DetailBlog-img" src={blog.image} alt="Book"></img>
                 </div>
                 <div className="DetailBlog-Content-index">
                     <div className="DetailBlog-Content">
-                        <span className="Blog-date">December 2,2022 /</span>      
-                        <span className="Blog-Author">By Thanh Hieu</span> <br/>                    
-                        <a className="Blog-Title" href="/">5 Attractive Bookstore WordPress Themes</a>
+                        <span className="Blog-date">{blog.time} /</span>      
+                        <span className="Blog-Author">By {blog.author}</span> <br/>                    
+                        <a className="Blog-Title" href="/">{blog.title}</a>
                         <p className="Blog-Content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat […]Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecatLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecatLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecatLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat
+                            {blog.content}
                     </p>
                     </div>
                 </div>

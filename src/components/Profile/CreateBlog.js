@@ -15,9 +15,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const storage = getStorage(app);
 
-const docRef = doc(db, "blogs", new Date().getTime().toString());
 
 const postBlog = () => {
+    const doc_id = new Date().getTime().toString();
+    const docRef = doc(db, "blogs", doc_id);
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
     const image = document.getElementById("customFile").files[0];
@@ -30,6 +31,7 @@ const postBlog = () => {
     uploadBytes(storageRef, image).then((snapshot) => {
         getDownloadURL(snapshot.ref).then((url) => {
             setDoc(docRef, {
+                id : doc_id,
                 displayName: displayName,
                 title: title,
                 content: content,
@@ -48,7 +50,7 @@ const postBlog = () => {
 export function CreateBlog() {
     return (
         <div className="CreateBlog">
-            <NavDetail />
+            <NavDetail user_info={auth.currentUser}/>
             <div className="CreateBlog-Container">
                 <div className="name-category-text">
                     <h1>Create Blog</h1>

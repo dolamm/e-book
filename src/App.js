@@ -21,7 +21,8 @@ import { DetailBlog } from './components/Blog/DetailBlog';
 import { AllCategory } from './components/Category/AllCategory';
 import { HomePage } from './components/Layout/HomePage';
 import { CreateBlog } from './components/Profile/CreateBlog';
-import { successPay } from './components/Payment/successPay';
+import { SuccessPay } from './components/Payment/successPay';
+import { BlogContain} from './components/Blog/BlogContain';
 
 import './css/global.css';
 
@@ -48,8 +49,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<SignIn/>}/>
         <Route path="/signout" element={<SignOut/>}/>
-        <Route path="/update" element={<UpdateProfile/>}/>
-        <Route path="/update/:uid" element={<UpdateProfile/>}/>
+        {/* <Route path="/update" element={<UpdateProfile/>}/> */}
+        <Route path="/update-profile/:uid" element={<UpdateProfile/>}/>
         <Route path="/addbook" element={<AddBook/>}/>
         {/* <Route path="/search" element={<SearchBook/>}/>
         <Route path="/chat" element={<ChatRoom/>}/> */}
@@ -59,15 +60,15 @@ export default function App() {
         <Route path="/pay/:uid" element={<Pay/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/profile/:uid" element={<Profile user_info={user}/>}/>
-        <Route path="/detailblog" element={<DetailBlog/>}/>
+        <Route path="/detailblog/:id" element={<DetailBlog/>}/>
         <Route path="/book/:id" element={<Detail user_info={user}/>}/>
         <Route path="/allcategory" element={<AllCategory user_info={user}/>}/>
         <Route path="/allcategory/:category_id" element={<AllCategory user_info={user}/>}/>
         <Route path="/homepage" element={<HomePage user_info={user}/>}></Route>
         <Route path="/blog/:uid" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/createblog" element={<CreateBlog user_info={user}/>}></Route>
-        <Route path="/successPay" element={<successPay/>}/>
-
+        <Route path="/successPay" element={<SuccessPay/>}/>
+        <Route path="/blogcontain" element={<BlogContain user_info={user}/>}/>
       </Routes>
   )
 }

@@ -66,7 +66,6 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
               console.log('You have successfully signed up!')
               Notification('You have successfully signed up!')
               setAuthenticated(true)
- 
               const docRef = doc(db, "users", user.uid);
               setDoc(docRef, {
                    email: email,
@@ -80,6 +79,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
                    console.error("Error adding document: ", error);
                }
                );
+               window.location.href = '/homepage'
           })
           .catch((error) => {
               const errorCode = error.code
@@ -147,7 +147,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
             <p class="small fw-bold mt-2 pt-1 mb-0">Do you have an account? <a href="/"
                 class="link-danger">Login</a></p>
           </div>
-          {authenticated &&<Navigate to ={`/update/${user}`}/>}
+          {/* {authenticated &&<Navigate to ={`/update/${user}`}/>} */}
         </form>
       </div>
     </div>

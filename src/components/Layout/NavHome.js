@@ -1,14 +1,14 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react'
 import bg0 from '../../img/bg0.png'
-import bg1 from '../../img/bg1.webp'
-import bg2 from '../../img/bg2.jpg'
+import bg1 from '../../img/bg1.jpg'
+import bg2 from '../../img/bg4.jpg'
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, limit } from "firebase/firestore";
 import {app, auth, db } from '../Firebase';
 import { Link } from "react-router-dom";
 import "../../css/Layout/NavHome.css"
-import logo from '../../img/logo.png'
+import logo from '../../img/logo-white.png'
 import { FaSearch, FaBars, FaShoppingCart } from "react-icons/fa";
 import Book from "../../img/book1.png";
 import $ from 'jquery';
@@ -61,10 +61,17 @@ export function NavHome({uid}) {
     $(document).ready(function () {
         let changeBG = document.getElementsByClassName("bg-book");
         let bgNav = document.getElementById("nav-background");
+        let bookTitle = document.getElementById("book-title");
+        let bookAuthor = document.getElementById("book-author");
+        let bookContent = document.getElementById("book-content");
+        let seeMore = document.getElementById("see-more-detail");
         for(let i = 0; i < changeBG.length; i++) {
-            changeBG[i].click( () =>{
+            changeBG[i].addEventListener("click", function() {
                 bgNav.src = background[i];
-                console.log(background[i]);
+                bookTitle.innerHTML = books[i].title;
+                bookAuthor.innerHTML = books[i].author;
+                bookContent.innerHTML = books[i].description.substr(0,120)+"...";
+                seeMore.href = `/book/${books[i].id}`;
             })
         }
     })
@@ -77,15 +84,15 @@ export function NavHome({uid}) {
                 <img src={logo} alt="logo" className="logo-nav" />
                 <div className="nav-content-book">
                     <h2>
-                        <marquee>{books[0].title}</marquee>
+                        <marquee id="book-title">{books[0].title}</marquee>
                     </h2>
-                    <h3>By <span>{books[0].author}</span></h3>
-                    <div className="nav-content-book-text">
+                    <h3>By <span id="book-author">{books[0].author}</span></h3>
+                    <div id="book-content" className="nav-content-book-text">
                             {books[0].description.substr(0,120)+"..."}
                     </div>
                 </div>
                 <div className="navhome-seemore">
-                    <h4>See more</h4>
+                    <h4><a id="see-more-detail" href={`/book/${books[0].id}`}>See more</a></h4>
                 </div>
                 <input type="text" className="Search-nav" placeholder="Search" />
                 <FaSearch className="i-search"/>

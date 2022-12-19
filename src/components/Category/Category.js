@@ -5,7 +5,7 @@ import { CategoryBook } from '../Category/CategoryBook';
 export function Category({user_info}) {
     return (
         <div className='home'>
-            <NavDetail />
+            <NavDetail user_info={user_info}/>
             <CategoryBook />
             <Footer />
         </div>

@@ -57,7 +57,7 @@ export function Pay() {
         }
         Notification('Payment successfully', 'success');
         setTimeout(() => {
-            window.location.href = `/allcategory/all`;
+            window.location.href = `/successPay`;
         }, 3000);
     }
 

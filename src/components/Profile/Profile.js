@@ -9,7 +9,7 @@ import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot
 import { Footer } from '../Layout/BookFooter';
 import { NavDetail } from '../Detail-book/NavDetail';
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
-
+import { ShortBlog } from '../Blog/ShortBlog';
 const getUserBlogs = async (uid) => {
     const q = query(collection(db, "blogs"), where("uid", "==", uid));
     const querySnapshot = await getDocs(q);
@@ -33,7 +33,7 @@ export function Profile({user_info}) {
 
     return (
         <div className='Profile'>
-            <NavDetail />
+            <NavDetail user_info={user_info}/>
             <div className="name-category">
                 <img className="name-category-img" src={user_info.photoURL}/>
             <p className="name-category-text">
@@ -42,24 +42,8 @@ export function Profile({user_info}) {
             </div>
             <div className="Blog-contain">
                 <div className="Blog-left">
-                    {blogs&&blogs.map((item) => (
-                        <div className="Blog">
-                            <img className="Blog-img" src={item.image} alt="Book"></img>
-                            <br/>
-                            <span className="Blog-date">{item.time}</span>
-                            <span className="Blog-Author"> - By <a>{item.displayName}</a></span> 
-                            
-                            <br/>
-                            <a className="Blog-Title" href="/">{item.title}</a>
-                            <p className="Blog-Content">
-                            {item.content}
-                            </p>
-                            <a className="Blog-Viewmore" href="/">
-                                View More
-                                <FaGreaterThan />
-                            </a>
-                            <hr/>
-                        </div>
+                    {blogs&&blogs.map((blog_item) => (
+                        <ShortBlog item={blog_item} />
                     ))
                     }
                 </div>
@@ -67,15 +51,17 @@ export function Profile({user_info}) {
                     <div className="Create-Blog">
                         <p>Create Blogs</p>
                         <button className="btn-create-blog">
-                            <Link to={`/createblog`} className="btn-create">Create</Link>
-                            <FaPlusCircle />
+                            <Link to={`/createblog`} className="btn-create"> <b>Create</b>
+                            <FaPlusCircle /></Link>
                         </button>
                     </div>
                     <div className="Create-Blog Edit-profile">
                         <p>Edit profile</p>
                         <button className="btn-create-blog btn-edit-profile">
+                            <Link to={`/update-profile/${user_info.uid}`} className="btn-create">
                             <b className="btn-create">Edit</b>
                             <FaEdit />
+                            </Link>
                         </button>
                     </div>
                     <div className="Search-Blog">
