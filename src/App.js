@@ -21,6 +21,7 @@ import { DetailBlog } from './components/Blog/DetailBlog';
 import { AllCategory } from './components/Category/AllCategory';
 import { HomePage } from './components/Layout/HomePage';
 import { CreateBlog } from './components/Profile/CreateBlog';
+import { successPay } from './components/Payment/successPay';
 
 import './css/global.css';
 
@@ -50,8 +51,8 @@ export default function App() {
         <Route path="/update" element={<UpdateProfile/>}/>
         <Route path="/update/:uid" element={<UpdateProfile/>}/>
         <Route path="/addbook" element={<AddBook/>}/>
-        <Route path="/search" element={<SearchBook/>}/>
-        <Route path="/chat" element={<ChatRoom/>}/>
+        {/* <Route path="/search" element={<SearchBook/>}/>
+        <Route path="/chat" element={<ChatRoom/>}/> */}
         <Route path="/detail" element={<Detail/>}/>
         {/* <Route path="/blog" element={<Blog/>}/> */}
         <Route path="/category" element={<Category/>}/>
@@ -65,6 +66,8 @@ export default function App() {
         <Route path="/homepage" element={<HomePage user_info={user}/>}></Route>
         <Route path="/blog/:uid" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/createblog" element={<CreateBlog user_info={user}/>}></Route>
+        <Route path="/successPay" element={<successPay/>}/>
+
       </Routes>
   )
 }

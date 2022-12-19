@@ -73,13 +73,13 @@
     color: #bbbbbb;
 }
 .Pay-detail-author{
-    width: 575px;
-    padding-left: 23em;
+    width: 42em;
+    padding-left: 33em;
 }
 
 .Pay-detail-Total{
     text-align: right;
-    width: 200px;
+    width: 275px;
 }
 
 .Pay-method-choose{
