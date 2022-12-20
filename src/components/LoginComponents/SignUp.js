@@ -74,12 +74,12 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
                    photoURL: null,
                }).then(() => {
                    console.log("Document written with ID: ", docRef.id);
+                   window.location.href = '/homepage'
                }
                ).catch((error) => {
                    console.error("Error adding document: ", error);
                }
                );
-               window.location.href = '/homepage'
           })
           .catch((error) => {
               const errorCode = error.code
