@@ -137,15 +137,19 @@
     border: 2px solid #3ec1f1;
     cursor: pointer;
 }
+
 .bg-book1{
     left: 50em;  
 }
+
 .bg-book2{
     left: 63em;
 } 
+
 .bg-book3{
     left: 76em; 
 }
+
 .navhome-seemore{
     position: absolute;
     width: 155px;
@@ -164,6 +168,7 @@
 
 }
 .navhome-seemore a {
+    margin-top: 20px;
     margin: auto auto;
     vertical-align: middle;
     text-decoration: none;

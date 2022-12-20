@@ -14,7 +14,6 @@ const storage = getStorage(app);
 
 let docID = new Date().getTime().toString();
 const docRef = doc(db, "cart", docID);
-
 const addToCart = async (item) => {
     try {
         const data = {
@@ -37,11 +36,14 @@ const addToCart = async (item) => {
 };
 
 export function DetailBook({item}) {
-
     const handleBuy = () => {
         addToCart(item);
     };
-
+    const BuyNow = () => {
+        addToCart(item).then(() => {
+            window.location.href = `/pay/${auth.currentUser.uid}`;
+        });
+    }
   return item.length === 0 ? (
     <div id="loading" className="loading-modal"></div>
   ) : (
@@ -105,7 +107,7 @@ export function DetailBook({item}) {
                   <FaCartPlus />
                   <b className="sp-btn">Add to cart</b>
                 </button>
-                <button className="btn-cart">
+                <button className="btn-cart" onClick={BuyNow}>
                   <FaMoneyBillWave />
                   <b className="sp-btn">Buy</b>
                 </button>
