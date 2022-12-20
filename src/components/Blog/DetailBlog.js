@@ -3,31 +3,50 @@ import {app, auth, db} from '../Firebase';
 import { Footer } from '../Layout/BookFooter';
 import { FaLongArrowAltRight,FaEdit, FaTrashAlt } from "react-icons/fa";
 import "../../css/Blog/DetailBlog.css"
+import "../../css/global.css"
 import { useParams } from "react-router-dom";
-import { useState } from "react";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDoc } from "firebase/firestore";
+import { useState, useEffect, useMemo } from "react";
+import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDoc, deleteDoc } from "firebase/firestore";
+import {Notification} from '../notification/Notification.js';
 
 const getBlog = async (id) => {
     const docRef = doc(db, "blogs", id);
+    console.log(id)
     const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-        return docSnap.data();
+    return docSnap.data();
+};
+
+const deleteBlog = async (id, user_id) => {
+    if (auth.currentUser.uid === user_id) {
+        const docRef = doc(db, "blogs", id);
+        await deleteDoc(docRef).then(() => {
+            Notification("Xóa thành công", "success");
+            window.location.href = "/blog";
+        });
     } else {
-        console.log("No such document!");
+        Notification("Bạn không có quyền xóa bài viết này", "error");
     }
 };
 
+
 export function DetailBlog() {
     const { id } = useParams();
-    const [blog, setBlog] = useState(getBlog(id));
-    return (
+    const [blog, setBlog] = useState(null);
+    useEffect(() => {
+        getBlog(id).then((data) => {
+            setBlog(data);
+        });
+    },[]);
+    return blog==null? (
+        <div id="loading" className="loading-modal"></div>
+    ) : (
         <div className='home'>
             <NavDetail user_info={auth.currentUser}/>
             <div className="content">
                 <div className="DetailBlog-path">
-                    <span className="path-text">Home</span>
+                    <span className="path-text"><a href="/homepage">Home</a></span>
                     <FaLongArrowAltRight />
-                    <span className="path-text">Blog </span>
+                    <span className="path-text"><a href="/blogcontain">Blog</a></span>
                     <FaLongArrowAltRight />
                     <span className="path-text">{blog.title}</span>
                 </div>
@@ -36,7 +55,7 @@ export function DetailBlog() {
                 </div>
                 <div className="DetailBlog-Content-index">
                     <div className="DetailBlog-Content">
-                        <span className="Blog-date">{blog.time} /</span>      
+                        <span className="Blog-date">{blog.time} - </span>      
                         <span className="Blog-Author">By {blog.author}</span> <br/>                    
                         <a className="Blog-Title" href="/">{blog.title}</a>
                         <p className="Blog-Content">

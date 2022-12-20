@@ -15,3 +15,8 @@
                 no-repeat;
 }
 
+/* path text */
+.path-text a{
+    color: #ccc;
+    text-decoration: none;
+}

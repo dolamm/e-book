@@ -11,7 +11,7 @@ export function ShortBlog({item}){
             <br/>
             <a className="Blog-Title" href="/">{item.title}</a>
             <p className="Blog-Content">
-            {item.content.substring(0, 200)}
+            {item.content.substring(0, 200)+ "..."}
             </p>
                     <a className="Blog-Viewmore" href={`/detailblog/${item.id}`}>
                 View More
