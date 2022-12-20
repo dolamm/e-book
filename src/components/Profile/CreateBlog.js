@@ -26,8 +26,8 @@ const postBlog = () => {
     const displayName = auth.currentUser.displayName;
     const storageRef = ref(storage, `blogs/${image.name}`);
     const createAt = new Date();
-    const time = createAt.getDate() + "/" + (createAt.getMonth()) + "/" + createAt.getFullYear() 
-    + " " + createAt.getHours() + ":" + createAt.getMinutes() + ":" + createAt.getSeconds();
+    const time = createAt.getDate() + " Tháng" + createAt.getMonth() + ", " + createAt.getFullYear() 
+    + " " + createAt.getHours() + ":" + createAt.getMinutes()
     uploadBytes(storageRef, image).then((snapshot) => {
         getDownloadURL(snapshot.ref).then((url) => {
             setDoc(docRef, {
