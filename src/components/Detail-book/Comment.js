@@ -5,7 +5,7 @@ import "../../css/Detail/Comment.css"
 import Book from '../../img/book1.png'
 import { FaGreaterThan, FaPaperPlane } from "react-icons/fa";
 import {app, auth, db} from '../Firebase';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, serverTimestamp } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -34,6 +34,7 @@ export function Comment({item}) {
         }).then(() => {
             console.log("Document written with ID: ", docRef.id);
             Notification("Comment thành công", "success");
+            getComments();
             // alert("Comment thành công");
         });
     };
@@ -54,13 +55,9 @@ export function Comment({item}) {
             console.log(error);
         }
     };
-
     useEffect(() => {
         getComments();
-    }, [item, comment]);
-
-    console.log(comments);
-
+    }, [item]);
     return (    
         <div className="Comment">
                 <form className="post-comment" onSubmit={comment}>

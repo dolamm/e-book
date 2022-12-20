@@ -6,10 +6,12 @@ import firebase from 'firebase/compat/app';
 import { getFirestore, collection, addDoc, doc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
-    projectId: "e-book-d712c",
-    apiKey: "AIzaSyAtWIMLfTLSWFhrncWCh2zrayY57RVDjVU",
-    storageBucket: 'gs://e-book-d712c.appspot.com',
-    databaseURL: "https://e-book-d712c-default-rtdb.firebaseio.com/",
+  apiKey: "AIzaSyCyryJpr8oakU4RM2nTnLHff4guS4ZGmpE",
+  authDomain: "e-book2-1a4b0.firebaseapp.com",
+  projectId: "e-book2-1a4b0",
+  storageBucket: "e-book2-1a4b0.appspot.com",
+  messagingSenderId: "763648055610",
+  appId: "1:763648055610:web:1224556aaac03ee6285803"
 };
 
 export const app = initializeApp(firebaseConfig);
