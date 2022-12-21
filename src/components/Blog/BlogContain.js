@@ -59,36 +59,6 @@ export function BlogContain() {
                             <FaSearch />
                     </div>
 
-                    <div className="Recent-Post">
-                        <p>Recent Posts</p>
-                        <div className="Recent-Post-Contain">
-                            <img className="Recent-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
-                            <div className="Recent-content"> 
-                                <span className="Blog-date">December 2,2022 </span> <br/>
-                                <a className="Recent-Title">5 Attractive Bookstore WordPress Themes</a>
-                            </div>
-                            
-                        </div>
-
-                        <div className="Recent-Post-Contain">
-                            <img className="Recent-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
-                            <div className="Recent-content"> 
-                                <span className="Blog-date">December 2,2022 </span> <br/>
-                                <a className="Recent-Title">5 Attractive Bookstore WordPress Themes</a>
-                            </div>
-                            
-                        </div>
-
-
-                        <div className="Recent-Post-Contain">
-                            <img className="Recent-img" src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/blog_7-1125x540.jpg" alt="Book"></img>
-                            <div className="Recent-content"> 
-                                <span className="Blog-date">December 2,2022 </span> <br/>
-                                <a className="Recent-Title">5 Attractive Bookstore WordPress Themes</a>
-                            </div>
-                            
-                        </div>
-                    </div>
                 </div>
             </div>                     
         </div>

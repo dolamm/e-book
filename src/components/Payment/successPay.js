@@ -17,7 +17,8 @@ export function SuccessPay() {
     return (
         <div className='success-payment'>
             
-            <FaCcAmazonPay className="success-payment-icon" />
+            <span ><FaCcAmazonPay className="success-payment-icon" /></span>
+
             <h2>THANK YOU!</h2>
             <h4>PAYMENT DONE SUCCESSFULLY</h4>
             <p id="notification"></p>

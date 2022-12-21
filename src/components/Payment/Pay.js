@@ -107,7 +107,7 @@ export function Pay() {
                     <input className="cb-payment" type="checkbox" onChange= {calculatorTotal}/>
                         <img src={item.image} alt="book" className="Pay-book-img"/>
                         <div className="Pay-book-name">
-                            {item.title} 
+                            {item.title.substr(0,20) + "..."} 
                         </div>
                         <div className="Pay-book-format">
                             Format: Ebook

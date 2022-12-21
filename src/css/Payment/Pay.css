@@ -73,13 +73,13 @@
     color: #bbbbbb;
 }
 .Pay-detail-author{
-    width: 42em;
-    padding-left: 33em;
+    width: 40em;
+    padding-left: 25em;
 }
 
 .Pay-detail-Total{
-    text-align: right;
-    width: 275px;
+    text-align: center;
+    width: 160px;
 }
 
 .Pay-method-choose{
@@ -197,11 +197,17 @@
 }
 
 .success-payment-icon{
+    display: block;
+    justify-self: center;
     font-size: 100px;
-    margin-left: 8em;
-    margin-top: 1em;
+    margin: 0 auto;
     color: #43d19e;
 }
+
+.success-payment{
+    width: 100%;
+}
+
 .success-payment h2{
     text-align: center;
     padding: 20px;
