@@ -120,6 +120,7 @@ export function NavHome({uid}) {
                 <a className="sub-navbar" href="/allcategory/all">Best sellers</a>
                 <a className="sub-navbar" href="/blogcontain">Blogs</a>
                 <a className="sub-navbar" href={`/pay/${uid}`}>Payment</a>
+                <a className="sub-navbar" href="/addbook">Add your book</a>
             </div>
         </div>
     )

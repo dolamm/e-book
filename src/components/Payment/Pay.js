@@ -1,6 +1,7 @@
 import "../../css/Payment/Pay.css";
 import Book from '../../img/book1.png'
 import { FaMoneyBillWave } from "react-icons/fa";
+import { MdRemoveShoppingCart } from "react-icons/md";
 import logo from '../../img/logo.png'
 import { Footer } from '../Layout/BookFooter';
 import { useState, useEffect } from "react";
@@ -48,17 +49,22 @@ export function Pay() {
     }
 
     const handlePay = () =>{
-        let choosingBook = document.getElementsByClassName('cb-payment');
-        for (let i = 0; i < book.length; i++){
-            if(choosingBook[i].checked){
-                let id = book[i].id.toString();
-                deleteDoc(doc(db, "cart", id));
+        if(book.length > 0){
+            let choosingBook = document.getElementsByClassName('cb-payment');
+            for (let i = 0; i < book.length; i++){
+                if(choosingBook[i].checked){
+                    let id = book[i].id.toString();
+                    deleteDoc(doc(db, "cart", id));
+                }
             }
+            Notification('Payment successfully', 'success');
+            setTimeout(() => {
+                window.location.href = `/successPay`;
+            }, 3000);
         }
-        Notification('Payment successfully', 'success');
-        setTimeout(() => {
-            window.location.href = `/successPay`;
-        }, 3000);
+        else {
+            Notification('No book in cart', 'warning');
+        }
     }
 
     $(document).ready(function(){
@@ -120,6 +126,13 @@ export function Pay() {
                         </div>
                     </div>
                 ))}
+                {
+                    book.length == 0 && (
+                        <div className="no-item-in-cart">
+                            <p> <MdRemoveShoppingCart/>No book in cart</p>
+                        </div>
+                    )
+                }
                 {/* <div className="Pay-detail-product">
                 <input className="cb-payment" type="checkbox"/>
                     <img src={Book} alt="book" className="Pay-book-img"/>

@@ -14,7 +14,7 @@ const Item = ({item}) => {
             <Link to={`/book/${item.id}`} className="Book-name">{item.title.substr(0,20)+"..."}</Link>
             <p className="Author-name">{item.author}</p>
             
-            <p className="Price-Category">{item.price}$</p>
+            <p className="Price-Category">{item.price} $</p>
 
             {/* <div class="d-grid gap-2 ">
                 <Link to={`/book/${item.id}`} className="btn btn-success btn-sm text-center">View more</Link>

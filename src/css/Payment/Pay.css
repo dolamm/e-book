@@ -222,3 +222,15 @@
     text-align: center;
     padding: 5px;
 }
+
+/* no item in cart */
+.no-item-in-cart{
+    text-align: center;
+}
+.no-item-in-cart p{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 30px;
+    color: #4BADD8;
+}
