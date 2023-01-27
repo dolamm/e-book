@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { onAuthStateChanged } from 'firebase/auth'
 import { Route, Routes } from 'react-router-dom';
 import { auth } from './components/Firebase';
@@ -28,17 +29,9 @@ import './css/global.css';
 
 export default function App() {
 
-  const [user, setUser] = useState(null);
-  onAuthStateChanged(auth, (userinfo) => {
-    if (userinfo) {
-      const User = auth.currentUser;
-      setUser(User);
-      console.log(userinfo)
-    } else {
-      console.log("User is signed out");
-    }
-  });
-
+  const dispatch = useDispatch();
+  const {user} = useSelector((state) => state.UserReducer);
+  console.log(user);
   return user == null ? 
   (
     <Routes>
@@ -64,7 +57,7 @@ export default function App() {
         <Route path="/book/:id" element={<Detail user_info={user}/>}/>
         <Route path="/allcategory" element={<AllCategory user_info={user}/>}/>
         <Route path="/allcategory/:category_id" element={<AllCategory user_info={user}/>}/>
-        <Route path="/homepage" element={<HomePage user_info={user}/>}></Route>
+        <Route path="/homepage" element={<HomePage/>}></Route>
         <Route path="/blog/:uid" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/createblog" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/successPay" element={<SuccessPay/>}/>
