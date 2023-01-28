@@ -27,7 +27,7 @@ export function BlogContain() {
     }, []);
     return (   
     <div>
-        <NavDetail user_info={auth.currentUser}/>
+        <NavDetail/>
         <div className="name-category">
             <p className="name-category-text">
                 Blog

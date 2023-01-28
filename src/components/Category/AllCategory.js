@@ -1,60 +1,56 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { app, auth, db } from '../Firebase';
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
 import { NavDetail } from '../Detail-book/NavDetail';
 import { Footer } from '../Layout/BookFooter';
 import "../../css/Category/AllCategory.css"
-import Book from '../../img/book1.png'
 import { FaFilter, FaLongArrowAltRight } from "react-icons/fa";
 import Item from "../Books/BookListItem";
-
-export function AllCategory({user_info}) {
-
+import { useDispatch, useSelector } from "react-redux";
+import {getCategories, filterBookWithCategory } from "../../redux/actions/BookAction"
+import $ from 'jquery';
+import { async } from "q";
+export function AllCategory() {
+    const dispatch = useDispatch();
     const { category_id } = useParams();
-    const [bookonpage, setBookonpage] = useState([]);
-
-    const getBooksByCategory = async () => {
-        try {
-            const q = query(collection(db, "books"), where("category", "array-contains", category_id));
-            const querySnapshot = await getDocs(q);
-            let data = [];
-            querySnapshot.forEach((doc) => {
-                data.push(doc.data());
-            });
-            return data;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    const [category, setCategories] = useState([]);
-    const getCategories = async () => {
-        const category = query(collection(db, "categories"));
-        const querySnapshot = await getDocs(category);
-        let data = [];
-        data.push('all');
-        querySnapshot.forEach((doc, index) => {
-            data.push(doc.id);
-        })
-        return data;
-    }
-
+    const {filterBook} = useSelector(state => state.BookReducer);
+    const {categories} = useSelector(state => state.BookReducer);
+    const {user} = useSelector(state => state.UserReducer);
     useEffect (() => {
-        getBooksByCategory().then((data) => {
-            setBookonpage(data);
-            console.log(bookonpage);
-        })
-        getCategories().then((data) => {
-            setCategories(data);
-        })
-    }, [category_id])
-
-    return bookonpage.length===null ? (
+        async function fetchData(){
+            await dispatch(getCategories());
+            await dispatch(filterBookWithCategory(null))
+            await $(document).ready(function(){
+                let list = [];
+                $("button[data-category]").each((index, e)=>{
+                    $(e).click(function(){
+                        let name = $(e).attr("data-category");
+                        if($(e).hasClass("active-category")){
+                            //remove class
+                            $(e).removeClass("active-category");
+                            list.pop(name)
+                        }
+                        else{
+                            //add class
+                            $(e).addClass("active-category");
+                            list.push(name)
+                        }
+                        categoryFilter(list)
+                    })
+                })
+            })
+        }
+        fetchData();
+    },[user.uid])
+    
+    const categoryFilter = async (categories) =>{
+        if(categories.length==0) categories = null;
+        await dispatch(filterBookWithCategory(categories))
+    }
+    return filterBook==null ? (
         <div id="loading" className="loading-modal"></div>
     ):(
         <div className='Contain-All-category'>
-            <NavDetail user_info={user_info}/>
+            <NavDetail/>
             <div className='All-category'>
                 <div className='Nav-category'>
                     <div className='Nav-category__text'>
@@ -78,33 +74,14 @@ export function AllCategory({user_info}) {
                 <div className="contain-category">
                     <div className="content-category-left">
                         {
-                            category.map((cate) => (
-                                <Link to={`/allcategory/${cate}`} className="content-category-button">
-                                    <button className={cate == category_id ? ("active-category") : ("")}type="">{cate}</button>
-                                </Link>
+                            categories&&categories.map((category) => (
+                                <div className="content-category-button">
+                                    <button className="category-filter" data-category={category}>
+                                    {category}
+                                    </button>
+                                </div>
                             ))
                         }
-                        {/* <Link to={`/allcategory/${category.action}`} className="content-category-button">
-                            <button type="">Action</button>
-                        </Link>
-                        <Link to={`/allcategory/${category.comedy}`} className="content-category-button">
-                            <button type="">Comedy</button>
-                        </Link>
-                        <Link to={`/allcategory/${category.drama}`} className="content-category-button">
-                            <button type="">Drama</button>
-                        </Link>
-                        <Link to={`/allcategory/${category.fantasy}`} className="content-category-button">
-                            <button type="">Fantasy</button>
-                        </Link>
-                        <Link to={`/allcategory/${category.romance}`} className="content-category-button">
-                            <button type="">Romance</button>
-                        </Link>
-                        <Link to={`/allcategory/${category.science}`} className="content-category-button">
-                            <button type="">Science-fiction</button>
-                        </Link>
-                        <Link to={`/allcategory/${category.tragedy}`} className="content-category-button">
-                            <button type="">Tragedy</button>
-                        </Link> */}
                         <Link to="/homepage" className="content-category-button-back">
                             <button type="">Back to home</button>
                         </Link>
@@ -112,52 +89,9 @@ export function AllCategory({user_info}) {
                     <div className="content-category">
                     <div className="content-category-right">
                         <div class="grid-CateBook-1">
-                            {bookonpage.map((book) => (
+                            {filterBook&&filterBook.map((book) => (
                                 <Item item={book} />
-                                // <div className="Cate-Book">
-                                //     <img src={book.image
-                                //     } alt="Book" className="Book-item"/>
-                                //     <p className="Book-name">{book.name}</p>
-                                //     <p className="Author-name">{book.author}</p>
-                                //     <p className="Price-Category">{book.price}$</p>
-                                // </div>
                             ))}
-                        {/* <div className="Cate-Book">
-                            <img src={Book} alt="Book" className="Book-item"/>
-                            <p className="Book-name">tên sách</p>
-                            <p className="Author-name">tên Tác giả</p>
-                            <p className="Price-Category">Giá tiền 55$</p>
-                        </div>
-                        <div className="Cate-Book">
-                            <img src={Book} alt="Book" className="Book-item"/>
-                            <p className="Book-name">tên sách</p>
-                            <p className="Author-name">tên Tác giả</p>
-                            <p className="Price-Category">Giá tiền 55$</p>
-                        </div>
-                        <div className="Cate-Book">
-                            <img src={Book} alt="Book" className="Book-item"/>
-                            <p className="Book-name">tên sách</p>
-                            <p className="Author-name">tên Tác giả</p>
-                            <p className="Price-Category">Giá tiền 55$</p>
-                        </div>
-                        <div className="Cate-Book">
-                            <img src={Book} alt="Book" className="Book-item"/>
-                            <p className="Book-name">tên sách</p>
-                            <p className="Author-name">tên Tác giả</p>
-                            <p className="Price-Category">Giá tiền 55$</p>
-                        </div>
-                        <div className="Cate-Book">
-                            <img src={Book} alt="Book" className="Book-item"/>
-                            <p className="Book-name">tên sách</p>
-                            <p className="Author-name">tên Tác giả</p>
-                            <p className="Price-Category">Giá tiền 55$</p>
-                        </div>
-                        <div className="Cate-Book">
-                            <img src={Book} alt="Book" className="Book-item"/>
-                            <p className="Book-name">tên sách</p>
-                            <p className="Author-name">tên Tác giả</p>
-                            <p className="Price-Category">Giá tiền 55$</p>
-                        </div> */}
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,5 @@
 import "../../css/Payment/Pay.css";
-import Book from '../../img/book1.png'
 import { FaMoneyBillWave } from "react-icons/fa";
-import logo from '../../img/logo.png'
 import {app, auth, db} from '../Firebase';
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -33,7 +31,7 @@ export function Profile({user_info}) {
 
     return (
         <div className='Profile'>
-            <NavDetail user_info={user_info}/>
+            <NavDetail/>
             <div className="name-category">
                 <img className="name-category-img" src={user_info.photoURL}/>
             <p className="name-category-text">

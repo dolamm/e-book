@@ -9,16 +9,13 @@ export function AddBook() {
     const dispatch = useDispatch();
     const {categories} = useSelector((state) => state.BookReducer);
     const addBook = () => {
-        // const docRef = doc(db, "books", new Date().getTime().toString());
         const fileName = new Date().getTime().toString();
-        // const imgRef = ref(storage, `images/${fileName}`);
         const title = document.getElementById('title').value;
         const author = document.getElementById('author').value;
         const price = document.getElementById('price').value;
         const categories = document.querySelectorAll('input[data-name="category"]:checked');
         const description = document.getElementById('description').value;
         const imgFile = document.getElementById('file').files[0];
-        // const fileExt = file.name.split('.').pop();
         let category = [];
         categories.forEach((item) => {
             category.push(item.value);

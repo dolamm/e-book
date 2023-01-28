@@ -41,7 +41,7 @@ export function DetailBlog() {
         <div id="loading" className="loading-modal"></div>
     ) : (
         <div className='home'>
-            <NavDetail user_info={auth.currentUser}/>
+            <NavDetail/>
             <div className="content">
                 <div className="DetailBlog-path">
                     <span className="path-text"><a href="/homepage">Home</a></span>

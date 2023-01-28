@@ -50,7 +50,7 @@ const postBlog = () => {
 export function CreateBlog() {
     return (
         <div className="CreateBlog">
-            <NavDetail user_info={auth.currentUser}/>
+            <NavDetail/>
             <div className="CreateBlog-Container">
                 <div className="name-category-text">
                     <h1>Create Blog</h1>

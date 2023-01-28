@@ -11,3 +11,6 @@
  create mode 100644 src/redux/types/BookTypes.js
  create mode 100644 src/redux/types/UserTypes.js
  create mode 100644 src/utils/setting.js
+[stage b8254fe] cho addbook vao redux
+ 11 files changed, 80 insertions(+), 87 deletions(-)
+ rename changelog.txt => changelog.md (100%)

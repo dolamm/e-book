@@ -12,7 +12,6 @@ import { ChatRoom } from './components/Chat/ChatRoom';
 import { Detail } from './components/Detail-book/Detail';
 import { Blog } from './components/Blog/Blog';
 import { Category } from './components/Category/Category';
-import { CategoryBook } from './components/Books/ShowAll';
 
 import { Pay } from './components/Payment/Pay';
 import { Profile } from './components/Profile/Profile';
@@ -51,8 +50,7 @@ export default function App() {
         <Route path="/profile/:uid" element={<Profile user_info={user}/>}/>
         <Route path="/detailblog/:id" element={<DetailBlog/>}/>
         <Route path="/book/:id" element={<Detail user_info={user}/>}/>
-        <Route path="/allcategory" element={<AllCategory user_info={user}/>}/>
-        <Route path="/allcategory/:category_id" element={<AllCategory user_info={user}/>}/>
+        <Route path="/allcategory" element={<AllCategory/>}/>
         <Route path="/homepage" element={<HomePage/>}></Route>
         <Route path="/blog/:uid" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/createblog" element={<CreateBlog user_info={user}/>}></Route>

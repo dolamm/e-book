@@ -77,9 +77,11 @@
     font-size: 20px;
     font-weight: bold;
 }
-.content-category-button button:focus{
-    background-color:#7FB9EE;
+
+input[data-filter="category-name"]{
+    /* display: none; */
 }
+
 .content-category-button-back button{
     border: none;
     background-color: #1C80AB;
@@ -122,3 +124,4 @@
     border-radius: 20px;
     border: 1px solid rgb(228, 228, 228);
 }
+

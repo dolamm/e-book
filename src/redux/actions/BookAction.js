@@ -4,7 +4,8 @@ import {
     ADD_BOOK,
     GET_CATEGORIES,
     GET_RANDOM_BOOK,
-    GET_BOOK_DETAILS
+    GET_BOOK_DETAILS,
+    FILTER_BOOK_WITH_CATEGORY 
 } from '../types/BookTypes.js'
 
 import { app, auth, db } from '../../components/Firebase';
@@ -55,7 +56,6 @@ export const getCategories = () => {
             const q = query(collection(db, categoriesDB));
             const querySnapshot = await getDocs(q);
             let data = [];
-            data.push("all");
             querySnapshot.forEach((doc) => {
                 data.push(doc.id);
                 console.log(doc.data)
@@ -94,6 +94,35 @@ export const addNewBook = (bookData) => {
                 type: ADD_BOOK,
                 value: bookData
             })
+        }
+        catch(error) {
+            console.log(error);
+        }
+    }
+}
+
+export const filterBookWithCategory = (category) => {
+    return async (dispatch) => {
+        try{
+            if(category == null) {
+                const q = query(collection(db, bookDB));
+                const querySnapshot = await getDocs(q);
+                let data = [];
+                querySnapshot.forEach((doc) => {
+                    data.push(doc.data());
+                    console.log(doc.data)
+                })
+                dispatch({
+                    type: GET_BOOKS,
+                    value: data
+                })
+            }
+            else{
+                dispatch({
+                    type: FILTER_BOOK_WITH_CATEGORY,
+                    value: category
+                })
+            }
         }
         catch(error) {
             console.log(error);
