@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { onAuthStateChanged } from 'firebase/auth'
+
 import { Route, Routes } from 'react-router-dom';
-import { auth } from './components/Firebase';
 import { SignIn } from './components/LoginComponents/SignIn';
 import { SignUp } from './components/LoginComponents/SignUp';
 import { SignOut} from './components/LoginComponents/SignOut';
@@ -29,9 +27,7 @@ import './css/global.css';
 
 export default function App() {
 
-  const dispatch = useDispatch();
   const {user} = useSelector((state) => state.UserReducer);
-  console.log(user);
   return user == null ? 
   (
     <Routes>

@@ -13,10 +13,10 @@ import {Notification} from '../notification/Notification.js';
 const storage = getStorage(app);
 
 export function Comment({item}) {
-    const docRef = doc(db, "comment", new Date().getTime().toString());
 
     const comment = async (e) => {
         e.preventDefault();
+        const docRef = doc(db, "comment", new Date().getTime().toString());
         const { uid, photoURL, displayName } = auth.currentUser;
         const { content } = e.target.elements;
         console.log(content.value)

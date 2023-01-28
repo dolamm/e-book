@@ -23,6 +23,9 @@ export const BookReducer = (state = initialState, action) => {
         case GET_RANDOM_BOOK:
             state.randomBook = action.value;
             return {...state}
+        case ADD_BOOK:
+            state.books = [...state.books, action.value]
+            return {...state}
         default:
             return {...state}
     }

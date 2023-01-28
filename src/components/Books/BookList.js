@@ -1,8 +1,6 @@
 import React from "react";
 import Item from "./BookListItem";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector} from 'react-redux'
-import { onAuthStateChanged } from "firebase/auth";
 import $ from 'jquery';
 import "../../css/Category/CategoryBook.css";
 import "../../css/Book/ListBook.css"

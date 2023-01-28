@@ -17,7 +17,7 @@ export function SignIn() {
       console.log(user)
     }
     else {
-      // window.location.href = '/homepage'
+      window.location.href = '/homepage'
     }
     // localStorage.clear()
 

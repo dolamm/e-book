@@ -1,80 +1,45 @@
 
 import {useState, useEffect} from 'react';
-import { app, auth, db, generateKeywords } from '../Firebase';
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
 import {Notification} from '../notification/Notification.js';
-const storage = getStorage(app);
-
-var acceptFile = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'tiff', 'psd', 'raw', 'heif', 'indd', 'svg', 'ai', 'eps', 'pdf', 'heic'];
-
-
-const addBook = () => {
-    const docRef = doc(db, "books", new Date().getTime().toString());
-    
-    const fileName = new Date().getTime().toString();
-    const imgRef = ref(storage, `images/${fileName}`);
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const price = document.getElementById('price').value;
-    const categories = document.querySelectorAll('input[data-name="category"]:checked');
-    const description = document.getElementById('description').value;
-    const file = document.getElementById('file').files[0];
-    const fileExt = file.name.split('.').pop();
-    let category = [];
-    categories.forEach((item) => {
-        category.push(item.value);
-    })
-    category.push('all');
-    console.log(category);
-    if (acceptFile.includes(fileExt)) {
-        uploadBytes(imgRef, file).then(() => {
-            getDownloadURL(imgRef).then((url) => {
-                const data = {
-                    id: fileName,
-                    title: title,
-                    author: author,
-                    category: category,
-                    description: description,
-                    image: url,
-                    price: price,
-                    // keywords: generateKeywords(title)
-            }
-            setDoc(docRef, data).then(() => {
-                console.log("Document written with ID: ", docRef.id);
-                // alert('Book added successfully!');
-                Notification('Book added successfully!', 'success');
-            }).catch((error) => {
-                console.log(error);
-                Notification('Something went wrong!', 'error');
-            });
-        })
-        })
-    }
-    else {
-        // alert("Please upload a valid image file");
-        Notification('Please upload a valid image file', 'error');
-    }
-}
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getCategories } from "../../redux/actions/BookAction";
+import { addNewBook } from "../../redux/actions/BookAction";
 
 export function AddBook() {
-    const [categories, setCategories] = useState([]);
-    const getCategories = async () => {
-        const category = query(collection(db, "categories"));
-        const querySnapshot = await getDocs(category);
-        let data = [];
-        querySnapshot.forEach((doc, index) => {
-            data.push(doc.id);
+    const dispatch = useDispatch();
+    const {categories} = useSelector((state) => state.BookReducer);
+    const addBook = () => {
+        // const docRef = doc(db, "books", new Date().getTime().toString());
+        const fileName = new Date().getTime().toString();
+        // const imgRef = ref(storage, `images/${fileName}`);
+        const title = document.getElementById('title').value;
+        const author = document.getElementById('author').value;
+        const price = document.getElementById('price').value;
+        const categories = document.querySelectorAll('input[data-name="category"]:checked');
+        const description = document.getElementById('description').value;
+        const imgFile = document.getElementById('file').files[0];
+        // const fileExt = file.name.split('.').pop();
+        let category = [];
+        categories.forEach((item) => {
+            category.push(item.value);
         })
-        return data;
+        category.push('all');
+        console.log(category);
+        let bookData = {
+            id: fileName,
+            title: title,
+            author: author,
+            category: category,
+            description: description,
+            image: imgFile,
+            price: price,
+        }
+        console.log(bookData);
+        dispatch(addNewBook(bookData));
     }
+    
     useEffect(() => {
-        getCategories().then((data) => {
-            setCategories(data);
-            console.log(data);
-        })
+        dispatch(getCategories());
     }, [])
     return (
         <div>

@@ -1,18 +1,13 @@
-import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getCategories } from "../../redux/actions/BookAction";
 import bg0 from '../../img/bg0.png'
 import bg1 from '../../img/bg1.jpg'
 import bg2 from '../../img/bg4.jpg'
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, limit } from "firebase/firestore";
-import {app, auth, db } from '../Firebase';
 import { Link } from "react-router-dom";
 import "../../css/Layout/NavHome.css"
 import logo from '../../img/logo-white.png'
 import { FaSearch, FaBars, FaShoppingCart } from "react-icons/fa";
-import Book from "../../img/book1.png";
 import $ from 'jquery';
 
 var background = [bg0, 
@@ -45,7 +40,7 @@ export function NavHome() {
             })
         }
     })
-    return randomBook == null ? (
+    return randomBook.length ==0 ? (
         <div id="loading" className="loading-modal"></div>
       ) : (    
         <div className="navhome">

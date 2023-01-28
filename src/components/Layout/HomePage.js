@@ -12,7 +12,7 @@ import {Notification} from '../notification/Notification'
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../../redux/actions/BookAction';
 
-export function HomePage({user_info}) {
+export function HomePage() {
     const {user} = useSelector((state) => state.UserReducer);
     const {books} = useSelector((state) => state.BookReducer);
     const {randomBook } = useSelector((state) => state.BookReducer);
