@@ -20,7 +20,7 @@ export function AllCategory() {
             await dispatch(getCategories());
             await dispatch(filterBookWithCategory(null))
             await $(document).ready(function(){
-                let list = [];
+                let list = null;
                 list.push(category_id)
                 $(`button[data-category=${category_id}]`).addClass("active-category");
                 dispatch(filterBookWithCategory(list))
