@@ -14,3 +14,10 @@
 [stage b8254fe] cho addbook vao redux
  11 files changed, 80 insertions(+), 87 deletions(-)
  rename changelog.txt => changelog.md (100%)
+[stage 890388b] chinh category
+ 23 files changed, 192 insertions(+), 344 deletions(-)
+ delete mode 100644 src/components/Books/Book.js
+ delete mode 100644 src/components/Books/BookHome.js
+ delete mode 100644 src/components/Books/Content.js
+ delete mode 100644 src/components/Books/ShowAll.js
+ rewrite src/components/Category/AllCategory.js (71%)

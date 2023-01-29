@@ -1,12 +1,13 @@
 import "../../css/Category/CategoryBook.css"
 import Book from '../../img/book1.png'
 import { FaFilter, FaLongArrowAltRight } from "react-icons/fa";
-
+import { useParams } from 'react-router-dom';
 export function CategoryBook() {
+    const {category} = useParams();
     return (
         <div className="name-category">
             <p className="name-category-text">
-                Tên Category
+                category: {category}
             </p>
             <div className="Category-path">
                     <span className="path-text">Home</span>

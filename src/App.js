@@ -51,6 +51,7 @@ export default function App() {
         <Route path="/detailblog/:id" element={<DetailBlog/>}/>
         <Route path="/book/:id" element={<Detail user_info={user}/>}/>
         <Route path="/allcategory" element={<AllCategory/>}/>
+        <Route path="/allcategory/:category_id" element={<AllCategory/>}/>
         <Route path="/homepage" element={<HomePage/>}></Route>
         <Route path="/blog/:uid" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/createblog" element={<CreateBlog user_info={user}/>}></Route>
