@@ -1,5 +1,5 @@
-import { NavDetail } from '../Detail-book/NavDetail';
-import { Footer } from '../Layout/BookFooter';
+import { NavDetail } from '~/Detail-book/NavDetail';
+import { Footer } from '~/Layout/BookFooter';
 import { BlogContain } from './BlogContain';
 export function Blog() {
     return (

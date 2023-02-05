@@ -1,9 +1,9 @@
-import { NavDetail } from '../Detail-book/NavDetail';
+import { NavDetail } from '~/Detail-book/NavDetail';
 import {app, auth, db} from '../Firebase';
-import { Footer } from '../Layout/BookFooter';
+import { Footer } from '~/Layout/BookFooter';
 import { FaLongArrowAltRight,FaEdit, FaTrashAlt } from "react-icons/fa";
-import "../../css/Blog/DetailBlog.css"
-import "../../css/global.css"
+import "@css/Blog/DetailBlog.css"
+import "@css/global.css"
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDoc, deleteDoc } from "firebase/firestore";

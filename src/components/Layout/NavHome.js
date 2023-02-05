@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getCategories } from "../../redux/actions/BookAction";
-import bg0 from '../../img/bg0.png'
-import bg1 from '../../img/bg1.jpg'
-import bg2 from '../../img/bg4.jpg'
+import { getCategories } from "@redux/actions/BookAction";
+import bg0 from '@img/bg0.png'
+import bg1 from '@img/bg1.jpg'
+import bg2 from '@img/bg4.jpg'
 import { Link } from "react-router-dom";
-import "../../css/Layout/NavHome.css"
-import logo from '../../img/logo-white.png'
+import "@css/Layout/NavHome.css"
+import logo from '@img/logo-white.png'
 import { FaSearch, FaBars, FaShoppingCart } from "react-icons/fa";
 import $ from 'jquery';
 

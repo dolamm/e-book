@@ -2,15 +2,14 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { NavHome } from './NavHome';
 import { Footer } from './BookFooter';
-import "../../css/Layout/Notify.css";
+import "@css/Layout/Notify.css";
 import { BookList } from '../Books/BookList';
 import { FaBookOpen } from "react-icons/fa";
-import { Notificaton } from '../notification/Notification.js';
 import $ from 'jquery';
 import { ImExit } from "react-icons/im";
 import {Notification} from '../notification/Notification'
 import { useDispatch, useSelector } from 'react-redux';
-import { getBooks } from '../../redux/actions/BookAction';
+import { getBooks } from '@redux/actions/BookAction';
 
 export function HomePage() {
     const {user} = useSelector((state) => state.UserReducer);

@@ -2,9 +2,9 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useState } from 'react'
 import {app, auth} from '../Firebase';
 import { Link } from "react-router-dom";
-import "../../css/Layout/Footer.css"
+import "@css/Layout/Footer.css"
 import { FaFacebook, FaInstagram, FaGithub,  } from "react-icons/fa";
-import logo from '../../img/logo.png'
+import logo from '@img/logo.png'
 
 export function Footer() {
     return (    

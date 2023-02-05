@@ -1,4 +1,4 @@
-import "../../css/Payment/Pay.css";
+import "@css/Payment/Pay.css";
 import { FaCcAmazonPay, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
 import $ from 'jquery';
 

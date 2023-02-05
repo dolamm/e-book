@@ -4,9 +4,9 @@ import { NavDetail } from '../Detail-book/NavDetail';
 import { Footer } from '../Layout/BookFooter';
 import "../../css/Category/AllCategory.css"
 import { FaFilter, FaLongArrowAltRight } from "react-icons/fa";
-import Item from "../Books/BookListItem";
+import BookItem from "../Books/BookListItem";
 import { useDispatch, useSelector } from "react-redux";
-import {getCategories, filterBookWithCategory } from "../../redux/actions/BookAction"
+import {getCategories, filterBookWithCategory } from "@redux/actions/BookAction"
 import $ from 'jquery';
 import { async } from "q";
 export function AllCategory() {
@@ -93,7 +93,7 @@ export function AllCategory() {
                     <div className="content-category-right">
                         <div class="grid-CateBook-1">
                             {filterBook&&filterBook.map((book) => (
-                                <Item item={book} />
+                                <BookItem item={book} />
                             ))}
                         </div>
                     </div>

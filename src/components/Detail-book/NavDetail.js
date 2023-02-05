@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react'
-import logo from '../../img/logo-white.png'
-import "../../css/Detail/NavDetail.css"
+import logo from '@img/logo-white.png'
+import "@css/Detail/NavDetail.css"
 import { useSelector } from 'react-redux'
 export function NavDetail() {
     const {user} = useSelector((state) => state.UserReducer);

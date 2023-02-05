@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import { app, auth, db } from "../Firebase";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import {Notification} from '../notification/Notification.js';
-import "../../css/Detail/DetailBook.css";
-import "../../css/global.css";
-import Book from "../../img/book1.png";
+import {Notification} from '~/notification/Notification.js';
+import "@css/Detail/DetailBook.css";
+import "@css/global.css";
+import Book from "@img/book1.png";
 import { FaLongArrowAltRight, FaCartPlus, FaMoneyBillWave, FaHeadphonesAlt, FaBook, FaBookOpen} from "react-icons/fa";
 
 const storage = getStorage(app);

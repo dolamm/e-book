@@ -1,15 +1,15 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { Link } from "react-router-dom";
-import "../../css/Detail/DetailBook.css"
-import "../../css/Detail/Comment.css"
-import Book from '../../img/book1.png'
+import "@css/Detail/DetailBook.css"
+import "@css/Detail/Comment.css"
+import Book from '@img/book1.png'
 import { FaGreaterThan, FaPaperPlane } from "react-icons/fa";
-import {app, auth, db} from '../Firebase';
+import {app, auth, db} from '~/Firebase';
 import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, serverTimestamp } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import {Notification} from '../notification/Notification.js';
+import {Notification} from '~/notification/Notification.js';
 const storage = getStorage(app);
 
 export function Comment({item}) {

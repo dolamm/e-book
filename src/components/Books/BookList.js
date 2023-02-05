@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "./BookListItem";
+import BookItem from "./BookListItem";
 import { useDispatch, useSelector} from 'react-redux'
 import $ from 'jquery';
 import "../../css/Category/CategoryBook.css";
@@ -31,7 +31,7 @@ export  function BookList(){
         <div>
             <div className="grid-listbook">
                 { books.map((book) => {
-                    return <Item item={book} />
+                    return <BookItem item={book} />
                 })}
             </div>
         </div>

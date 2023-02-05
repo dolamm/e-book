@@ -1,13 +1,13 @@
-import "../../css/Payment/Pay.css";
+import "@css/Payment/Pay.css";
 import { FaMoneyBillWave } from "react-icons/fa";
-import {app, auth, db} from '../Firebase';
+import {app, auth, db} from '~/Firebase';
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
-import { Footer } from '../Layout/BookFooter';
-import { NavDetail } from '../Detail-book/NavDetail';
+import { Footer } from '~/Layout/BookFooter';
+import { NavDetail } from '~/Detail-book/NavDetail';
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
-import { ShortBlog } from '../Blog/ShortBlog';
+import { ShortBlog } from '~/Blog/ShortBlog';
 const getUserBlogs = async (uid) => {
     const q = query(collection(db, "blogs"), where("uid", "==", uid));
     const querySnapshot = await getDocs(q);

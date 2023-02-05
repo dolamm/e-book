@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import '../../css/notification/notification.css';
+import '@css/notification/notification.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const success = (message) => {  

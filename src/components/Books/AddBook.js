@@ -1,10 +1,9 @@
 
 import {useState, useEffect} from 'react';
-import {Notification} from '../notification/Notification.js';
+import {Notification} from '~/notification/Notification.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategories } from "../../redux/actions/BookAction";
-import { addNewBook } from "../../redux/actions/BookAction";
-
+import { getCategories } from "@redux/actions/BookAction";
+import { addNewBook } from "@redux/actions/BookAction";
 export function AddBook() {
     const dispatch = useDispatch();
     const {categories} = useSelector((state) => state.BookReducer);
@@ -53,7 +52,7 @@ export function AddBook() {
                     </div>
                     <form>
                         <div class="form-outline mb-4">
-                        <input type="text" id="title" class="form-control form-control-lg"
+                        <input type="text" id="book-title" class="form-control form-control-lg"
                             placeholder="Title" />
                         <label class="form-label">Enter your book title!</label>
                         </div>

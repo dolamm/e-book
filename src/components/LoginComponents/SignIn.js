@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Notification} from '../notification/Notification'
-import "../../css/Payment/Pay.css";
-import {UserLogin} from '../../redux/actions/UserAction'
+import {Notification} from '~/notification/Notification'
+import "@css/Payment/Pay.css";
+import {UserLogin} from '@redux/actions/UserAction'
 import {useDispatch, useSelector} from 'react-redux'
 
 export function SignIn() {
