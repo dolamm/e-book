@@ -1,15 +1,15 @@
-import "../../css/Payment/Pay.css";
-import Book from '../../img/book1.png'
+import "@css/Payment/Pay.css";
+import Book from '@img/book1.png'
 import { FaMoneyBillWave } from "react-icons/fa";
-import logo from '../../img/logo.png'
-import {app, auth, db} from '../Firebase';
+import logo from '@img/logo.png'
+import {app, auth, db} from '~/Firebase';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs, serverTimestamp } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { Footer } from '../Layout/BookFooter';
-import { NavDetail } from '../Detail-book/NavDetail';
-import {Notification} from '../notification/Notification.js';
+import { Footer } from '~/Layout/BookFooter';
+import { NavDetail } from '~/Detail-book/NavDetail';
+import {Notification} from '~/notification/Notification.js';
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch, FaEdit } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -50,7 +50,7 @@ const postBlog = () => {
 export function CreateBlog() {
     return (
         <div className="CreateBlog">
-            <NavDetail user_info={auth.currentUser}/>
+            <NavDetail/>
             <div className="CreateBlog-Container">
                 <div className="name-category-text">
                     <h1>Create Blog</h1>

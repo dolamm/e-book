@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
 import {app, auth, db} from '../Firebase';
 import { Link } from "react-router-dom";
-import "../../css/List.css"
+import "@css/List.css"
 
 
 const getBooks = async () => {

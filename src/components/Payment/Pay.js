@@ -1,8 +1,8 @@
-import "../../css/Payment/Pay.css";
-import Book from '../../img/book1.png'
+import "@css/Payment/Pay.css";
+import Book from '@img/book1.png'
 import { FaMoneyBillWave } from "react-icons/fa";
 import { MdRemoveShoppingCart } from "react-icons/md";
-import logo from '../../img/logo.png'
+import logo from '@img/logo.png'
 import { Footer } from '../Layout/BookFooter';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";

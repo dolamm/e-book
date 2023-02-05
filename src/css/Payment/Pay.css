@@ -180,6 +180,11 @@
     width: 56em;
     padding-right: 20px;
 }
+input#book-title{
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-right: 20px;
+}
 .post-blog{
     text-align: center;
     margin-top: 20px;

@@ -2,7 +2,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import "../../css/Detail/DetailBook.css"
-import Item from "../../components/Books/BookListItem";
+import BookItem from "../../components/Books/BookListItem";
 import { FaGreaterThan } from "react-icons/fa";
 import { limit } from 'firebase/firestore';
 import { app, auth, db } from "../Firebase";

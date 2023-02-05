@@ -1,9 +1,9 @@
-import { NavDetail } from '../Detail-book/NavDetail';
+import { NavDetail } from '~/Detail-book/NavDetail';
 import {app, auth, db} from '../Firebase';
-import { Footer } from '../Layout/BookFooter';
+import { Footer } from '~/Layout/BookFooter';
 import { FaLongArrowAltRight,FaEdit, FaTrashAlt } from "react-icons/fa";
-import "../../css/Blog/DetailBlog.css"
-import "../../css/global.css"
+import "@css/Blog/DetailBlog.css"
+import "@css/global.css"
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDoc, deleteDoc } from "firebase/firestore";
@@ -41,7 +41,7 @@ export function DetailBlog() {
         <div id="loading" className="loading-modal"></div>
     ) : (
         <div className='home'>
-            <NavDetail user_info={auth.currentUser}/>
+            <NavDetail/>
             <div className="content">
                 <div className="DetailBlog-path">
                     <span className="path-text"><a href="/homepage">Home</a></span>

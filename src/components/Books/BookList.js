@@ -1,68 +1,18 @@
 import React from "react";
-import Item from "./BookListItem";
-import { useEffect, useState } from "react";
-import { app, auth, db } from '../Firebase';
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth";
-import { async } from '@firebase/util';
+import BookItem from "./BookListItem";
+import { useDispatch, useSelector} from 'react-redux'
 import $ from 'jquery';
 import "../../css/Category/CategoryBook.css";
 import "../../css/Book/ListBook.css"
 import {Notification} from '../notification/Notification.js';
+import { getBooks } from "../../redux/actions/BookAction";
 
-const docRef = (db, "bookcase", new Date().getTime().toString());
+export  function BookList(){
+    const {books} = useSelector((state) => state.BookReducer);
+    const dispatch = useDispatch();
+    const {user} = useSelector((state) => state.UserReducer);
 
-const getBookList = async () => {
-    try {
-        const q = query(collection(db, "books"));
-        const querySnapshot = await getDocs(q);
-        let data = [];
-        querySnapshot.forEach((doc) => {
-            data.push(doc.data());
-            console.log(doc.data)
-        })
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-export  function BookList({user_info}){
-    const [books, setBooks] = useState([]);
-    const [userName, setUserName] = useState(user_info.displayName);
-    async function buyBook(book) {
-        // await onAuthStateChanged(auth, (user) => {
-        //     if (user) {
-        //         const name = user.displayName;
-        //         setUserName(name);
-        //     }
-        //     else {
-        //         console.log('No user logged in');
-        //     }
-        // });
-
-        const data = {
-            title: book,
-            userName: userName
-        }
-        setDoc(docRef, data).then(() => {
-            // alert('Book added successfully!');
-            Notification("Thêm sách thành công", "success");
-        }
-        ).catch((error) => {
-            console.log(error);
-            Notification("Thêm sách thất bại", "error");
-        }
-        );
-    }
-
-    useEffect(() => {
-        getBookList().then((data) => {
-            setBooks(data);
-            console.log(data);
-        })
-    }, [user_info])
+    
     $(document).ready(async (e) => {
         // e.preventDefault();
         let title_popup = document.getElementsByClassName("title-popup");
@@ -80,8 +30,8 @@ export  function BookList({user_info}){
     return (
         <div>
             <div className="grid-listbook">
-                { books && books.map((book) => {
-                    return <Item item={book} />
+                { books.map((book) => {
+                    return <BookItem item={book} />
                 })}
             </div>
         </div>

@@ -1,8 +1,8 @@
 import {app, auth, db} from '../Firebase';
 import { Link } from "react-router-dom";
-import "../../css/Blog/Blog.css"
-import "../../css/Category/CategoryBook.css"
-import Book from '../../img/book1.png'
+import "@css/Blog/Blog.css"
+import "@css/Category/CategoryBook.css"
+import Book from '@img/book1.png'
 import { FaGreaterThan, FaPlusCircle, FaLongArrowAltRight, FaSearch } from "react-icons/fa";
 import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot, getDocs } from "firebase/firestore";
 import { NavDetail } from '../Detail-book/NavDetail';
@@ -27,7 +27,7 @@ export function BlogContain() {
     }, []);
     return (   
     <div>
-        <NavDetail user_info={auth.currentUser}/>
+        <NavDetail/>
         <div className="name-category">
             <p className="name-category-text">
                 Blog

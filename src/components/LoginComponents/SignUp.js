@@ -8,7 +8,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
  import { async } from '@firebase/util'
  import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
  import { getFirestore, collection, addDoc, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
- import "../../css/Payment/Pay.css";
+ import "@css/Payment/Pay.css";
  import {Notification} from '../notification/Notification'
 
  const storage = getStorage(app);

@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
-import { onAuthStateChanged } from 'firebase/auth'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { Route, Routes } from 'react-router-dom';
-import { auth } from './components/Firebase';
 import { SignIn } from './components/LoginComponents/SignIn';
 import { SignUp } from './components/LoginComponents/SignUp';
 import { SignOut} from './components/LoginComponents/SignOut';
@@ -13,7 +12,6 @@ import { ChatRoom } from './components/Chat/ChatRoom';
 import { Detail } from './components/Detail-book/Detail';
 import { Blog } from './components/Blog/Blog';
 import { Category } from './components/Category/Category';
-import { CategoryBook } from './components/Books/ShowAll';
 
 import { Pay } from './components/Payment/Pay';
 import { Profile } from './components/Profile/Profile';
@@ -28,17 +26,7 @@ import './css/global.css';
 
 export default function App() {
 
-  const [user, setUser] = useState(null);
-  onAuthStateChanged(auth, (userinfo) => {
-    if (userinfo) {
-      const User = auth.currentUser;
-      setUser(User);
-      console.log(userinfo)
-    } else {
-      console.log("User is signed out");
-    }
-  });
-
+  const {user} = useSelector((state) => state.UserReducer);
   return user == null ? 
   (
     <Routes>
@@ -62,9 +50,9 @@ export default function App() {
         <Route path="/profile/:uid" element={<Profile user_info={user}/>}/>
         <Route path="/detailblog/:id" element={<DetailBlog/>}/>
         <Route path="/book/:id" element={<Detail user_info={user}/>}/>
-        <Route path="/allcategory" element={<AllCategory user_info={user}/>}/>
-        <Route path="/allcategory/:category_id" element={<AllCategory user_info={user}/>}/>
-        <Route path="/homepage" element={<HomePage user_info={user}/>}></Route>
+        <Route path="/allcategory" element={<AllCategory/>}/>
+        <Route path="/allcategory/:category_id" element={<AllCategory/>}/>
+        <Route path="/homepage" element={<HomePage/>}></Route>
         <Route path="/blog/:uid" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/createblog" element={<CreateBlog user_info={user}/>}></Route>
         <Route path="/successPay" element={<SuccessPay/>}/>

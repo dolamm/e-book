@@ -1,46 +1,24 @@
-import { app, auth } from '../Firebase'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-// import { HomeScreen } from '../../HomeComponents/HomeScreen'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useState } from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
-import { render } from '@testing-library/react'
-import { async } from '@firebase/util'
-import {Notification} from '../notification/Notification'
-import "../../css/Payment/Pay.css";
-
-const signInWithForm = (setAuthenticated) => {
-    const email = document.getElementById('email').value
-    const password = document.getElementById('password').value
-
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user
-            console.log(user)
-            Notification('You have successfully logged in!\nWelcome to Book Shop!', 'success')
-            setAuthenticated(true)
-            setTimeout(() => {
-              window.location.href = '/homepage'
-            }, 2000);
-        })
-        .catch((error) => {
-            const errorCode = error.code
-            const errorMessage = error.message
-            Notification(errorMessage, 'error')
-        })
-}
+import {Notification} from '~/notification/Notification'
+import "@css/Payment/Pay.css";
+import {UserLogin} from '@redux/actions/UserAction'
+import {useDispatch, useSelector} from 'react-redux'
 
 export function SignIn() {
-    const [authenticated, setAuthenticated] = useState(
-        localStorage.getItem(localStorage.getItem('authenticated') || false)
-    )
-      if(!authenticated){
-        Notification('Please login to continue', 'info')
-      }
-    const handleSubmit = () => {
-        signInWithForm(setAuthenticated)
+    const {user} = useSelector((state) => state.UserReducer)
+    const dispatch = useDispatch()
+    const signInWithForm = () => {
+      const email = document.getElementById('email').value
+      const password = document.getElementById('password').value
+      dispatch(UserLogin(email, password))
     }
-
+    if(user==null){
+      Notification('Please login to continue', 'info')
+      console.log(user)
+    }
+    else {
+      window.location.href = '/homepage'
+    }
     // localStorage.clear()
 
     return (
@@ -85,7 +63,7 @@ export function SignIn() {
           </div>
 
           <div className="text-center text-lg-start mt-4 pt-2">
-            <button type="button" className="btn btn-primary btn-lg" onClick={handleSubmit} >Login</button>
+            <button type="button" className="btn btn-primary btn-lg" onClick={signInWithForm} >Login</button>
             <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/signup"
                 className="link-danger">Register</a></p>
           </div>

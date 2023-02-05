@@ -3,7 +3,7 @@ import "../../css/Category/CategoryBook.css"
 import "../../css/Book/ListBook.css"
 import { Link } from "react-router-dom";
 
-const Item = ({item}) => {
+const BookItem = ({item}) => {
     return(
         <div className="ListBook">
             <span className="title-popup">{item.title}</span>
@@ -23,4 +23,4 @@ const Item = ({item}) => {
     )
 }
 
-export default Item;
+export default BookItem;

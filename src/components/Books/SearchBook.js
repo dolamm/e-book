@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Modal, Select, Spin } from 'antd';
 import { debounce } from 'lodash';
-import Item from "./BookListItem";
+import BookItem from "./BookListItem";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect, useState, useMemo } from "react";
 import { app, auth, db } from '../Firebase';

@@ -38,7 +38,7 @@ export function Detail({user_info}) {
 
     return (
         <div className='home'>
-            <NavDetail user_info={user_info}/>
+            <NavDetail/>
             <DetailBook item={book}/>
             <Comment item={book}/>
             <Recommend item={book}/>
