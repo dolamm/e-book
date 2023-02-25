@@ -15,13 +15,14 @@ export function AllCategory() {
     const {filterBook} = useSelector(state => state.BookReducer);
     const {categories} = useSelector(state => state.BookReducer);
     const {user} = useSelector(state => state.UserReducer);
+    console.log(category_id)
     useEffect (() => {
         async function fetchData(){
             await dispatch(getCategories());
             await dispatch(filterBookWithCategory(null))
             await $(document).ready(function(){
-                let list = null;
-                list.push(category_id)
+                let list = [];
+                if(category_id!=null) list = [category_id];
                 $(`button[data-category=${category_id}]`).addClass("active-category");
                 dispatch(filterBookWithCategory(list))
                 $("button[data-category]").each((index, e)=>{

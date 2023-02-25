@@ -1,28 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Route, Routes } from 'react-router-dom';
-import { SignIn } from './components/LoginComponents/SignIn';
-import { SignUp } from './components/LoginComponents/SignUp';
-import { SignOut} from './components/LoginComponents/SignOut';
-import { UpdateProfile } from './components/User/UpdateProfile';
+import { SignIn } from '~/LoginComponents/SignIn';
+import { SignUp } from '~/LoginComponents/SignUp';
+import { SignOut} from '~/LoginComponents/SignOut';
+import { UpdateProfile } from '~/User/UpdateProfile';
 
-import { AddBook } from './components/Books/AddBook';
-import { SearchBook } from './components/Books/SearchBook';
-import { ChatRoom } from './components/Chat/ChatRoom';
-import { Detail } from './components/Detail-book/Detail';
-import { Blog } from './components/Blog/Blog';
-import { Category } from './components/Category/Category';
+import { AddBook } from '~/Books/AddBook';
+import { SearchBook } from '~/Books/SearchBook';
+import { ChatRoom } from '~/Chat/ChatRoom';
+import { Detail } from '~/Detail-book/Detail';
+import { Blog } from '~/Blog/Blog';
+import { Category } from '~/Category/Category';
 
-import { Pay } from './components/Payment/Pay';
-import { Profile } from './components/Profile/Profile';
-import { DetailBlog } from './components/Blog/DetailBlog';
-import { AllCategory } from './components/Category/AllCategory';
-import { HomePage } from './components/Layout/HomePage';
-import { CreateBlog } from './components/Profile/CreateBlog';
-import { SuccessPay } from './components/Payment/successPay';
-import { BlogContain} from './components/Blog/BlogContain';
+import { Pay } from '~/Payment/Pay';
+import { Profile } from '~/Profile/Profile';
+import { DetailBlog } from '~/Blog/DetailBlog';
+import { AllCategory } from '~/Category/AllCategory';
+import { HomePage } from '~/Layout/HomePage';
+import { CreateBlog } from '~/Profile/CreateBlog';
+import { SuccessPay } from '~/Payment/successPay';
+import { BlogContain} from '~/Blog/BlogContain';
 
-import './css/global.css';
+import '@css/global.css';
 
 export default function App() {
 

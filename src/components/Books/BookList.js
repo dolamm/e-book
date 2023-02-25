@@ -2,10 +2,10 @@ import React from "react";
 import BookItem from "./BookListItem";
 import { useDispatch, useSelector} from 'react-redux'
 import $ from 'jquery';
-import "../../css/Category/CategoryBook.css";
-import "../../css/Book/ListBook.css"
+import "@css/Category/CategoryBook.css";
+import "@css/Book/ListBook.css"
 import {Notification} from '../notification/Notification.js';
-import { getBooks } from "../../redux/actions/BookAction";
+import { getBooks } from "@redux/actions/BookAction";
 
 export  function BookList(){
     const {books} = useSelector((state) => state.BookReducer);
